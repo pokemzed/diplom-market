@@ -1,0 +1,8 @@
+.ProductAdd {
+    width: 400px;
+    height: auto;
+    padding: 1em;
+
+    border: 1px solid var(--bs-gray-300);
+    border-radius: .5em;
+}

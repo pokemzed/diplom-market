@@ -1,0 +1,3 @@
+export const API_URL = 'http://23.111.124.118:3005';
+export const API_CATEGORY = '/category';
+export const API_PRODUCT = '/item';
