@@ -1,49 +1,48 @@
 'use client'
 import React, {FormEvent, useState} from 'react';
-import {Alert, Badge, Button, Form, FormControl} from "react-bootstrap";
+import {Alert, Badge, Button, Form, FormControl, Spinner} from "react-bootstrap";
 import styles from "./CategoriesAdd.module.css";
 import {convertToBase64} from "@/functions/convertToBase64";
-import axios from "axios";
 import {CATEGORY_INITIAL} from "@/constants/categories";
 import {ICategory} from "@/types/categories";
+import {API_CATEGORY} from "@/constants/api";
+import {handlePost} from "@/functions/handlePost";
+import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 
 const CategoriesAdd = () => {
 
-	const [imageError, setImageError] = useState<false | string>(false);
 	const [formData, setFormData] = useState<ICategory>(CATEGORY_INITIAL);
+	const [load, setLoad] = useState<boolean>(false);
 
 	const handleFileUpload = async (file:Blob | undefined) => {
-		setImageError(false)
 		if (!file) return;
 		convertToBase64(file)
 			// @ts-ignore
 			.then(res => setFormData({...formData, image: res}))
-			.catch(() => setImageError("Ошибка конвертации, выберите другое изображение."))
+			.catch(() => TOAST_ERROR("Ошибка конвертации, выберите другое изображение."))
 	};
 
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
 
-		if (!formData.image || imageError) {
-			setImageError("Загрузите изображение!");
+		if (!formData.image) {
+			TOAST_ERROR("Загрузите изображение для категории!")
 			return;
 		}
 
-		const options = {
-			method: 'POST',
-			url: 'http://23.111.124.118:3005/category',
-			headers: {'Content-Type': 'application/json'},
-			data: formData
-		};
-
-		axios.request(options)
-			.then(res => console.log(res))
-			.catch(err => console.log(err))
+		setLoad(true);
+		handlePost("POST", API_CATEGORY, formData)
+			.then(() => TOAST_SUCCESS('Категория успешно добавлена'))
+			.catch(() => TOAST_ERROR('Ошибка добавления категории'))
+			.finally(() => {
+				setFormData(CATEGORY_INITIAL)
+				setLoad(false)
+			})
 	}
 
 	return (
 		<div className={styles.CategoriesAdd}>
-			<Badge className={"mb-2 w-100 text-center"}>Добавить категорию</Badge>
+			<Badge className={"w-100 mb-2 text-center"}>Добавить категорию</Badge>
 
 			<Form onSubmit={handleSend}>
 				<FormControl
@@ -67,10 +66,6 @@ const CategoriesAdd = () => {
 					onChange={e => handleFileUpload(e.target.files[0])}
 				/>
 
-				<Alert hidden={!imageError} variant={"danger"} className={"my-1 p-2 small text-center"}>
-					{imageError}
-				</Alert>
-
 				<Alert hidden={!formData.image} variant={"success"} className={"my-1 p-2 small text-center"}>
 					Изображение успешно загружено!
 				</Alert>
@@ -83,8 +78,8 @@ const CategoriesAdd = () => {
 					onChange={() => setFormData({...formData, hasSale: !formData.hasSale})}
 				/>
 
-				<Button type={"submit"} size={"sm"} className={"w-100"} variant={"outline-primary"}>
-					Отправить
+				<Button disabled={load} type={"submit"} size={"sm"} className={"w-100"} variant={"outline-primary"}>
+					{load ? <Spinner size={"sm"} /> : 'Отправить'}
 				</Button>
 			</Form>
 		</div>

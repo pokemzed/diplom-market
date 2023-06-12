@@ -3,9 +3,10 @@ import {IProduct} from "@/types/products";
 export const ITEM_INITIAL:IProduct = {
 	name: '',
 	description: '',
+	categoryId: '',
 	images: [],
 	discount: 0,
-	price: 0,
+	prices: [],
 	weights: [],
 	composition: '',
 	available: 0,

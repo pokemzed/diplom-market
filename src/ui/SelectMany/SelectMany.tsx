@@ -16,6 +16,8 @@ const SelectMany: React.FC<ISelectMany> = ({ title, data, selectedItems, handleS
 
 	const [show, setShow] = useState(false);
 
+	const getActive = (elem:ISelectManyItem) => !!selectedItems.find(item => elem.value === item.value);
+
 	return (
 		<div className={styles.SelectMany}>
 			<Button className={"w-100"} onClick={() => setShow(!show)} size={"sm"}>
@@ -24,7 +26,7 @@ const SelectMany: React.FC<ISelectMany> = ({ title, data, selectedItems, handleS
 
 			<div hidden={!selectedItems.length} className={styles.selectedList}>
 				<Badge bg={"secondary"} className={"w-100 mb-1 text-center"}>
-					Выбранные варианты:
+					Выбранные варианты веса:
 				</Badge>
 				{
 					selectedItems?.map(elem => (
@@ -40,7 +42,7 @@ const SelectMany: React.FC<ISelectMany> = ({ title, data, selectedItems, handleS
 					data.map(elem => (
 						<Button
 							size={"sm"}
-							variant={"light"}
+							variant={getActive(elem) ? "outline-primary" : "light"}
 							onClick={() => handleSelect(elem)}
 							className={styles.item}
 							key={elem.title}
@@ -48,7 +50,7 @@ const SelectMany: React.FC<ISelectMany> = ({ title, data, selectedItems, handleS
 							<p>{elem.title}</p>
 							<Form.Check
 								type={'checkbox'}
-								checked={!!selectedItems.find(item => elem.value === item.value)}
+								checked={getActive(elem)}
 								onChange={() => handleSelect(elem)}
 							/>
 						</Button>

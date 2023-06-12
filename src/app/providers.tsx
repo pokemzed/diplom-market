@@ -1,9 +1,12 @@
+'use client'
 //css
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 //other
 import React from 'react';
+import Toast from "@/components/general/Toast/Toast";
 
 interface IProviders {
 	children: React.ReactNode
@@ -11,9 +14,10 @@ interface IProviders {
 
 const Providers = ({ children }:IProviders) => {
 	return (
-		<div>
+		<>
+			<Toast />
 			{children}
-		</div>
+		</>
 	);
 };
 
