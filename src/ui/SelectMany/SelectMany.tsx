@@ -1,4 +1,3 @@
-'use client'
 import React, {useState} from 'react';
 import styles from "./SelectMany.module.css";
 import {Badge, Button} from "react-bootstrap";

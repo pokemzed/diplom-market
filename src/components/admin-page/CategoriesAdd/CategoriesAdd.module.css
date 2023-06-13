@@ -6,3 +6,7 @@
     border: 1px solid var(--bs-gray-300);
     border-radius: .5em;
 }
+
+.CategoriesAdd input{
+    margin: .25em 0;
+}

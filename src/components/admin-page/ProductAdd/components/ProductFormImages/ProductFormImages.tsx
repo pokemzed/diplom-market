@@ -1,12 +1,12 @@
 import React from 'react';
-import {FormControl} from "react-bootstrap";
-import {IProduct} from "@/types/products";
+import {FloatingLabel, FormControl} from "react-bootstrap";
+import {IProduct, IProductId} from "@/types/products";
 import {convertToBase64} from "@/functions/convertToBase64";
 import styles from "./ProductFormImages.module.css";
 
 interface IProductFormImages {
-	formData: IProduct,
-	setFormData: (formData: IProduct) => void,
+	formData: IProduct | IProductId,
+	setFormData: (formData: IProduct | IProductId) => void,
 }
 
 const ProductFormImages: React.FC<IProductFormImages> = ({ formData, setFormData }) => {
@@ -27,12 +27,13 @@ const ProductFormImages: React.FC<IProductFormImages> = ({ formData, setFormData
 
 	return (
 		<div className={styles.ProductFormImages}>
-			<FormControl
-				type={"file"}
-				multiple={true}
-				//@ts-ignore
-				onChange={e => handleUploadFiles(e.target.files)}
-			/>
+			<FloatingLabel label={"Загрузите фото товара"}>
+				<FormControl
+					type={"file"} multiple={true}
+					//@ts-ignore
+					onChange={e => handleUploadFiles(e.target.files)}
+				/>
+			</FloatingLabel>
 
 			<div hidden={!formData.images.length} className={styles.imagesContainer}>
 				{

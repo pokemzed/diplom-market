@@ -3,6 +3,7 @@ import React from 'react';
 import CategoriesAdd from "@/components/admin-page/CategoriesAdd/CategoriesAdd";
 import ProductAdd from "@/components/admin-page/ProductAdd/ProductAdd";
 import CategoriesList from "@/components/admin-page/CategoriesList/CategoriesList";
+import ProductsList from "@/components/admin-page/ProductsList/ProductsList";
 
 const page = () => {
 	return (
@@ -11,6 +12,7 @@ const page = () => {
 			<CategoriesAdd />
 			<CategoriesList />
 			<ProductAdd />
+			<ProductsList />
 		</div>
 	);
 };

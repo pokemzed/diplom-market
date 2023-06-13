@@ -1,17 +1,20 @@
 import React, {FormEvent, useState} from 'react';
 import styles from "./ProductAdd.module.css";
-import {Badge, Button, Form, FormControl, Spinner} from "react-bootstrap";
+import {Badge, Button, Form, Spinner} from "react-bootstrap";
 import {ITEM_INITIAL} from "@/constants/products";
 import {IProduct} from "@/types/products";
 import ProductFormWeightPrice from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
 import ProductFormImages from "@/components/admin-page/ProductAdd/components/ProductFormImages/ProductFormImages";
 import {API_PRODUCT} from "@/constants/api";
-import {handlePost} from "@/functions/handlePost";
+import {handleRequest} from "@/functions/handleRequest";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import ProductFormCategorySelect from "@/components/admin-page/ProductAdd/components/ProductFormCategorySelect/ProductFormCategorySelect";
+import {useGetProducts} from "@/hooks/useGetProducts";
+import ProductFormInputs from "@/components/admin-page/ProductAdd/components/ProductFormInputs/ProductFormInputs";
 
 const ProductAdd = () => {
 
+	const { updateProducts } = useGetProducts();
 	const [formData, setFormData] = useState<IProduct>(ITEM_INITIAL);
 	const [load, setLoad] = useState<boolean>(false);
 
@@ -34,8 +37,11 @@ const ProductAdd = () => {
 		}
 
 		setLoad(true);
-		handlePost("POST", API_PRODUCT, formData)
-			.then(() => TOAST_SUCCESS('Товар успешно добавлен'))
+		handleRequest("POST", API_PRODUCT, formData)
+			.then(() => {
+				TOAST_SUCCESS('Товар успешно добавлен');
+				updateProducts();
+			})
 			.catch(() => TOAST_ERROR('Ошибка добавления товара'))
 			.finally(() => {
 				setFormData(ITEM_INITIAL)
@@ -50,55 +56,11 @@ const ProductAdd = () => {
 			<Form onSubmit={handleSend}>
 				<ProductFormCategorySelect formData={formData} setFormData={setFormData} />
 
-				<FormControl
-					required
-					placeholder="Название"
-					value={formData.name}
-					onChange={e => setFormData({...formData, name: e.target.value})}
-				/>
-
-				<FormControl
-					required
-					as={"textarea"} rows={3}
-					placeholder="Описание"
-					value={formData.description}
-					onChange={e => setFormData({...formData, description: e.target.value})}
-				/>
-
-				<FormControl
-					required
-					as={"textarea"} rows={3}
-					placeholder="Состав"
-					value={formData.composition}
-					onChange={e => setFormData({...formData, composition: e.target.value})}
-				/>
+				<ProductFormInputs formData={formData} setFormData={setFormData} />
 
 				<ProductFormImages formData={formData} setFormData={setFormData} />
 
-				<FormControl
-					placeholder="Скидка (%)"
-					type={"number"}
-					value={formData.discount || ''}
-					onChange={e => setFormData({...formData, discount: +e.target.value})}
-				/>
-
 				<ProductFormWeightPrice formData={formData} setFormData={setFormData} />
-
-				<FormControl
-					required
-					placeholder="Время приготовления (мин)"
-					type={"number"}
-					value={formData.cookingTime || ''}
-					onChange={e => setFormData({...formData, cookingTime: +e.target.value})}
-				/>
-
-				<FormControl
-					required
-					placeholder="Наличие (штук)"
-					type={"number"}
-					value={formData.available || ''}
-					onChange={e => setFormData({...formData, available: +e.target.value})}
-				/>
 
 				<Button disabled={load} size={"sm"} variant={"outline-primary"} className={"w-100"} type={"submit"}>
 					{load ? <Spinner size={"sm"} /> : 'Отправить'}

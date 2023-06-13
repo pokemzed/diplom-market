@@ -1,24 +1,24 @@
 import React from 'react';
 import styles from "./CategoriesList.module.css";
-import {useFetch} from "@/hooks/useFetch";
-import {ICategoryId} from "@/types/categories";
-import {API_CATEGORY} from "@/constants/api";
 import {Badge} from "react-bootstrap";
 import CategoryCard from "@/components/admin-page/CategoriesList/components/CategoryCard/CategoryCard";
+import {useGetCategories} from "@/hooks/useGetCategories";
 
 const CategoriesList = () => {
 
-	const { data } = useFetch<ICategoryId[]>(API_CATEGORY);
+	const { data } = useGetCategories();
 
-	if (!data) return;
+	if (!data.categories.length) return;
 
 	return (
 		<div className={styles.CategoriesList}>
-			<Badge className={"w-100 mb-2 text-center"}>Список категорий</Badge>
+			<Badge className={"w-100 mb-2 text-center"}>
+				Список категорий ({data.loading ? "Обновление..." : data.categories.length})
+			</Badge>
 
 			<div className={styles.content}>
 				{
-					data?.map(elem => (
+					data.categories?.map(elem => (
 						<CategoryCard key={elem._id} data={elem} />
 					))
 				}

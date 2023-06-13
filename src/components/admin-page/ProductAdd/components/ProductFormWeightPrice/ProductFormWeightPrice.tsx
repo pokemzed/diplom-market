@@ -1,12 +1,12 @@
 import React from 'react';
 import SelectMany from "@/ui/SelectMany/SelectMany";
 import {ITEM_WEIGHTS} from "@/constants/products";
-import {Badge, FormControl} from "react-bootstrap";
-import {IProduct, IProductPrice, ISelectManyItem} from "@/types/products";
+import {Badge, FloatingLabel, FormControl} from "react-bootstrap";
+import {IProduct, IProductId, IProductPrice, ISelectManyItem} from "@/types/products";
 
 interface IProductFormWeightPrice {
-	formData: IProduct,
-	setFormData: (formData: IProduct) => void,
+	formData: IProduct | IProductId,
+	setFormData: (formData: IProduct | IProductId) => void,
 }
 
 const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, setFormData }) => {
@@ -48,17 +48,18 @@ const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, s
 			</Badge>
 
 			{
-				formData.prices
+				[...formData.prices]
 					.sort((a,b) => a.weight - b.weight)
 					.map(elem => (
-					<FormControl
-						key={elem.weight}
-						required
-						placeholder={`Цена за ${elem.weight} грамм (Рубли)`}
-						type={"number"}
-						value={elem.price || ''}
-						onChange={e => handleSetPrice({weight: elem.weight, price: +e.target.value})}
-					/>
+						<FloatingLabel label={`Цена за ${elem.weight} грамм (Рубли)`}>
+							<FormControl
+								key={elem.weight}
+								required
+								type={"number"}
+								value={elem.price || ''}
+								onChange={e => handleSetPrice({weight: elem.weight, price: +e.target.value})}
+							/>
+						</FloatingLabel>
 				))
 			}
 		</>

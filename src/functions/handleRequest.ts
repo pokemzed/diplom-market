@@ -1,7 +1,8 @@
 import {API_URL} from "@/constants/api";
 import axios, {AxiosResponse} from "axios";
+import {REQUEST_METHODS} from "@/types/general";
 
-export const handlePost = (method:string, url:string, data:any): Promise<AxiosResponse> => {
+export const handleRequest = (method:REQUEST_METHODS, url:string, data:any): Promise<AxiosResponse> => {
 	const options = {
 		method: method,
 		url: API_URL + url,

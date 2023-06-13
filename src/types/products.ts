@@ -20,3 +20,8 @@ export interface IProduct {
 	available: number,
 	cookingTime: number,
 }
+
+export interface IProductId extends IProduct {
+	_id: string,
+	_v: number,
+}

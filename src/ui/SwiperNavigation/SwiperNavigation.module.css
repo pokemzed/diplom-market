@@ -1,0 +1,12 @@
+.SwiperNavigation {
+    width: 100%;
+
+    /*vars*/
+    --swiper-navigation-size: 25px;
+}
+
+.image{
+    width: 100%;
+    aspect-ratio: 14 / 9;
+    object-fit: cover;
+}

@@ -1,20 +1,18 @@
 import React from 'react';
-import {useFetch} from "@/hooks/useFetch";
-import {API_CATEGORY} from "@/constants/api";
 import {Button, FormSelect, Spinner} from "react-bootstrap";
-import {ICategoryId} from "@/types/categories";
-import {IProduct} from "@/types/products";
+import {IProduct, IProductId} from "@/types/products";
+import {useGetCategories} from "@/hooks/useGetCategories";
 
 interface ProductFormCategorySelect {
-	formData: IProduct,
-	setFormData: (formData: IProduct) => void,
+	formData: IProduct | IProductId,
+	setFormData: (formData: IProduct | IProductId) => void,
 }
 
 const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formData, setFormData }) => {
 
-	const { data, error, load } = useFetch<ICategoryId[]>(API_CATEGORY);
+	const { data } = useGetCategories();
 
-	if (error) {
+	if (data.error) {
 		return (
 			<Button disabled className={"w-100"} variant={"danger"}>
 				Ошибка загрузки категорий!
@@ -22,7 +20,7 @@ const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formDa
 		)
 	}
 
-	if (load) {
+	if (data.loading) {
 		return (
 			<Button disabled className={"w-100"}>
 				Загрузка категорий
@@ -35,7 +33,7 @@ const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formDa
 		<FormSelect onChange={e => setFormData({...formData, categoryId: e.target.value})}>
 			<option>Категория товара</option>
 			{
-				data?.map(elem => (
+				data.categories?.map(elem => (
 					<option key={elem._id} value={elem._id}>
 						{elem.name}
 					</option>
