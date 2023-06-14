@@ -7,12 +7,14 @@ interface ICategories {
 	categories: ICategoryId[],
 	loading: Boolean,
 	error: null | string,
+	selected: null | string,
 }
 
 const initialState:ICategories = {
 	categories: [],
 	loading: false,
 	error: null,
+	selected: null,
 }
 
 export const getCategories = createAsyncThunk<any, undefined, {rejectValue: string}>(
@@ -29,7 +31,11 @@ export const getCategories = createAsyncThunk<any, undefined, {rejectValue: stri
 export const categoriesSlice = createSlice({
 	name: "categories",
 	initialState,
-	reducers: {},
+	reducers: {
+		selectCategory: (state, action) => {
+			state.selected = action.payload;
+		},
+	},
 	extraReducers: builder => {
 		builder
 			.addCase(getCategories.pending, (state) => {
@@ -47,4 +53,5 @@ export const categoriesSlice = createSlice({
 	}
 })
 
+export const {selectCategory} = categoriesSlice.actions;
 export default categoriesSlice.reducer;

@@ -1,6 +1,6 @@
 import {useAppDispatch, useAppSelector} from "@/store/store";
 import {useEffect} from "react";
-import {getCategories} from "@/store/slices/categoriesSlice";
+import {getCategories, selectCategory} from "@/store/slices/categoriesSlice";
 
 export const useGetCategories = () => {
 	const categories = useAppSelector(state => state.categories);
@@ -14,6 +14,7 @@ export const useGetCategories = () => {
 
 	return {
 		data: categories,
-		updateCategories: () => dispatch(getCategories())
+		updateCategories: () => dispatch(getCategories()),
+		selectCategory: (id:string) => dispatch(selectCategory(id)),
 	};
 }
