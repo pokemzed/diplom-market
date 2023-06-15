@@ -5,7 +5,7 @@ const CategorySelect = () => {
 
 	const { data:{categories, selected}, selectCategory } = useGetCategories();
 
-	if (!categories.length) return;
+	if (!categories.length || !selected) return;
 
 	return (
 		<div className={"CategorySelect"}>

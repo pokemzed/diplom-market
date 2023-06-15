@@ -1,15 +1,14 @@
 import React from 'react';
 import "./CategoryProductsList.css";
-import {useGetCategories} from "@/hooks/useGetCategories";
 import {useFetch} from "@/hooks/useFetch";
 import {API_CATEGORY_ITEMS} from "@/constants/api";
 import {IProductId} from "@/types/products";
 import ProductCard from "@/components/general/ProductCard/ProductCard";
 
-const CategoryProductsList = () => {
+const CategoryProductsList = ({selected} : {selected:string}) => {
 
-	const { data:{selected, categories} } = useGetCategories();
-	const { data } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected || categories?.[0]?._id), 'GET', {});
+	//@ts-ignore
+	const { data } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected), 'GET', {});
 
 	if (!data) return;
 
