@@ -51,9 +51,8 @@ const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, s
 				[...formData.prices]
 					.sort((a,b) => a.weight - b.weight)
 					.map(elem => (
-						<FloatingLabel label={`Цена за ${elem.weight} грамм (Рубли)`}>
+						<FloatingLabel key={elem.weight} label={`Цена за ${elem.weight} грамм (Рубли)`}>
 							<FormControl
-								key={elem.weight}
 								required
 								type={"number"}
 								value={elem.price || ''}
