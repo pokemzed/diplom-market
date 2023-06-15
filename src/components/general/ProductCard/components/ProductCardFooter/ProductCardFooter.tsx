@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "./ProductCardFooter.css";
+import styles from "./ProductCardFooter.module.css";
 import {IProductId, IProductPrice} from "@/types/products";
 
 interface IProductCardFooter {
@@ -11,7 +11,7 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 	const [selected, setSelected] = useState<IProductPrice>(data.prices[0]);
 
 	return (
-		<footer className={"ProductCardFooter"}>
+		<footer className={styles.ProductCardFooter}>
 			<div className="weights">
 				{data.prices.length === 1 && <h3>{data.prices[0].price}₽</h3>}
 				{
@@ -30,7 +30,7 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 						<button
 							key={elem.weight}
 							hidden={elem !== selected}
-							onClick={() => console.log(data.name + " " + elem.weight)}
+							onClick={() => console.log(elem.price, elem.weight)}
 						>
 							+
 						</button>

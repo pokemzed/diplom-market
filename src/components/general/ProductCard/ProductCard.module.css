@@ -11,7 +11,7 @@
 
 
 /*span badge with weights*/
-.ProductCard .badge.weights{
+.weights{
     position: absolute;
     left: 15px;
     top: 15px;
@@ -20,9 +20,9 @@
 
     z-index: 3;
 }
-.ProductCard .badge.weights p{
+.weights p{
     margin: 0;
 }
-.ProductCard .badge.weights p:last-child span{
+.weights p:last-child span{
     display: none;
 }

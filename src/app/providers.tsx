@@ -5,7 +5,7 @@ import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 //toast
 import 'react-toastify/dist/ReactToastify.css';
-// Import Swiper styles
+//swiper
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -13,7 +13,9 @@ import "swiper/css/navigation";
 import React from 'react';
 import Toast from "@/components/general/Toast/Toast";
 import {Provider} from "react-redux";
-import store from "@/store/store";
+import store, {persistedStore} from "@/store/store";
+import NavbarTop from "@/components/general/NavbarTop/NavbarTop";
+import {PersistGate} from "redux-persist/integration/react";
 
 interface IProviders {
 	children: React.ReactNode
@@ -23,8 +25,11 @@ const Providers = ({ children }:IProviders) => {
 
 	return (
 		<Provider store={store}>
-			<Toast />
-			{children}
+			<PersistGate persistor={persistedStore}>
+				<Toast />
+				<NavbarTop />
+				{children}
+			</PersistGate>
 		</Provider>
 	);
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {IProductId} from "@/types/products";
 import SwiperNavigation from "@/ui/SwiperNavigation/SwiperNavigation";
-import "./ProductCard.css";
+import styles from "./ProductCard.module.css";
 import {Badge} from "react-bootstrap";
 import ProductCardFooter from "@/components/general/ProductCard/components/ProductCardFooter/ProductCardFooter";
 
@@ -10,9 +10,10 @@ interface IProductCard {
 }
 
 const ProductCard: React.FC<IProductCard> = ({ data }) => {
+
 	return (
-		<div className={"ProductCard"}>
-			<Badge className={"weights"}>
+		<div className={styles.ProductCard}>
+			<Badge className={styles.weights}>
 				{data.weights.map(elem => (<p className={"small"} key={elem.value}>{elem.value}г<span>/</span></p>))}
 			</Badge>
 

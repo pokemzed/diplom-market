@@ -1,0 +1,9 @@
+.NavbarTop{
+
+}
+
+/*links color*/
+.NavbarTop a{
+    color: var(--bs-white);
+    text-decoration: none;
+}

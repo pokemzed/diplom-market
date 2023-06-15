@@ -25,3 +25,8 @@ export interface IProductId extends IProduct {
 	_id: string,
 	_v: number,
 }
+
+export interface IProductShopCart extends IProductId {
+	weight: number,
+	price: number,
+}

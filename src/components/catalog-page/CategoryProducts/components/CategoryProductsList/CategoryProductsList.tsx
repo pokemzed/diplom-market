@@ -1,5 +1,5 @@
 import React from 'react';
-import "./CategoryProductsList.css";
+import styles from "./CategoryProductsList.module.css";
 import {useFetch} from "@/hooks/useFetch";
 import {API_CATEGORY_ITEMS} from "@/constants/api";
 import {IProductId} from "@/types/products";
@@ -13,8 +13,8 @@ const CategoryProductsList = ({selected} : {selected:string}) => {
 	if (!data) return;
 
 	return (
-		<div className={"CategoryProductsList"}>
-			<div className="products-container">
+		<div className={styles.CategoryProductsList}>
+			<div className={styles.container}>
 				{
 					!!data.length && data.map(elem => (
 						<ProductCard key={elem._id} data={elem} />
