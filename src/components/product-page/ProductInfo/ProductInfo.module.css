@@ -1,0 +1,12 @@
+.ProductInfo{}
+
+/*weights*/
+.weights {
+    display: inline-flex;
+}
+.weights p{
+    margin: 0;
+}
+.weights p:last-child span{
+    display: none;
+}

@@ -1,0 +1,16 @@
+.WeightsBtns{
+    display: flex;
+
+    z-index: 4;
+}
+
+.WeightsBtns button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.WeightsBtns button h4,
+.WeightsBtns button p{
+    margin: 0;
+    line-height: 1;
+}

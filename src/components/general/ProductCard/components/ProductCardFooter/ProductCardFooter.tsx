@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styles from "./ProductCardFooter.module.css";
 import {IProductId, IProductPrice} from "@/types/products";
+import WeightsBtns from "@/components/general/ProductCard/components/WeightsBtns/WeightsBtns";
+import ShopCartBtn from "@/components/general/ProductCard/components/ShopCartBtn/ShopCartBtn";
 
 interface IProductCardFooter {
 	data: IProductId,
@@ -12,31 +14,15 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 
 	return (
 		<footer className={styles.ProductCardFooter}>
-			<div className="weights">
-				{data.prices.length === 1 && <h3>{data.prices[0].price}₽</h3>}
-				{
-					data.prices.length > 1 && data.prices.map(elem => (
-						<button key={elem.weight} disabled={elem === selected} onClick={() => setSelected(elem)}>
-							<h4>{elem.price}</h4>
-							<p className="small">{elem.weight}г</p>
-						</button>
-					))
-				}
-			</div>
+			<WeightsBtns
+				data={data.prices}
+				selected={selected}
+				setSelected={setSelected}
+			/>
 
-			<div className={"add-container"}>
-				{
-					data.prices.map(elem => (
-						<button
-							key={elem.weight}
-							hidden={elem !== selected}
-							onClick={() => console.log(elem.price, elem.weight)}
-						>
-							+
-						</button>
-					))
-				}
-			</div>
+			<ShopCartBtn
+				selected={selected}
+			/>
 		</footer>
 	);
 };

@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //swiper
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 //other
 import React from 'react';

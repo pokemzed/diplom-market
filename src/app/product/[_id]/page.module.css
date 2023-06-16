@@ -1,0 +1,26 @@
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+/*linkBack*/
+.linkBack{
+    margin: 1.5em 0;
+}
+
+/*productData*/
+.productData{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.sliderContainer{
+    width: 50%;
+}
+
+.dataContainer{
+    width: 45%;
+}
