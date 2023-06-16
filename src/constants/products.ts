@@ -9,7 +9,6 @@ export const ITEM_INITIAL:IProduct = {
 	prices: [],
 	weights: [],
 	composition: '',
-	available: 0,
 	cookingTime: 0,
 };
 

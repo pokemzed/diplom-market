@@ -17,7 +17,6 @@ export interface IProduct {
 	prices: IProductPrice[],
 	weights: ISelectManyItem[],
 	composition: string,
-	available: number,
 	cookingTime: number,
 }
 

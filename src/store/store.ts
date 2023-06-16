@@ -15,10 +15,12 @@ import storage from 'redux-persist/lib/storage';
 //slices
 import categoriesSlice from "@/store/slices/categoriesSlice";
 import productsSlice from "@/store/slices/productsSlice";
+import shopCartSlice from "@/store/slices/shopCartSlice";
 
 const rootReducer = combineReducers({
 	categories: categoriesSlice,
 	products: productsSlice,
+	shopCart: shopCartSlice,
 });
 
 const persistConfig = {

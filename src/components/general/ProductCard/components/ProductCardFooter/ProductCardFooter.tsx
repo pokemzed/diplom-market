@@ -3,6 +3,7 @@ import styles from "./ProductCardFooter.module.css";
 import {IProductId, IProductPrice} from "@/types/products";
 import WeightsBtns from "@/components/general/ProductCard/components/WeightsBtns/WeightsBtns";
 import ShopCartBtn from "@/components/general/ProductCard/components/ShopCartBtn/ShopCartBtn";
+import {useAppSelector} from "@/store/store";
 
 interface IProductCardFooter {
 	data: IProductId,
@@ -11,6 +12,10 @@ interface IProductCardFooter {
 const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 
 	const [selected, setSelected] = useState<IProductPrice>(data.prices[0]);
+
+	//redux data shop cart
+	const shopCartData = useAppSelector(state => state.shopCart.data);
+	console.log(shopCartData,"shopCartData");
 
 	return (
 		<footer className={styles.ProductCardFooter}>
@@ -21,6 +26,8 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 			/>
 
 			<ShopCartBtn
+				shopCartData={shopCartData}
+				product={data}
 				selected={selected}
 			/>
 		</footer>

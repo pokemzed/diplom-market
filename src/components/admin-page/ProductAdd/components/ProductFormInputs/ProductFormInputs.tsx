@@ -49,14 +49,6 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 					onChange={e => setFormData({...formData, cookingTime: +e.target.value})}
 				/>
 			</FloatingLabel>
-
-			<FloatingLabel label="Наличие (штук)">
-				<FormControl
-					required type={"number"}
-					value={formData.available || ''}
-					onChange={e => setFormData({...formData, available: +e.target.value})}
-				/>
-			</FloatingLabel>
 		</>
 	);
 };
