@@ -1,0 +1,22 @@
+.OrderForm{
+    padding: 1em;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/*userAddress*/
+.userAddress{
+    width: 65%;
+    padding: 1em;
+
+    border: 1px solid var(--bs-gray-300);
+}
+
+/*payment*/
+.payment{
+    width: 30%;
+    padding: 1em;
+
+    border: 1px solid var(--bs-gray-300);
+}

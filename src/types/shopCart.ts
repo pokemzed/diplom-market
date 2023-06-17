@@ -8,4 +8,5 @@ export interface IShopCartItem {
 export interface IShopCartAmount {
 	amount: number,
 	discountedAmount: number,
+	amountWithDelivery: number,
 }
