@@ -2,6 +2,7 @@
 import React from 'react';
 import ProductsList from "@/components/shopCart-page/ProductsList/ProductsList";
 import {useAppSelector} from "@/store/store";
+import TotalAmount from "@/components/shopCart-page/TotalAmount/TotalAmount";
 
 const page = () => {
 
@@ -12,6 +13,7 @@ const page = () => {
 			<div>
 				<h1>Корзина товаров</h1>
 				<ProductsList shopCartData={shopCartData} />
+				<TotalAmount shopCartData={shopCartData} />
 			</div>
 		);
 	}else {

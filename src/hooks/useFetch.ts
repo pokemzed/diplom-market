@@ -24,7 +24,7 @@ export const useFetch = <T>(url:string, method?:string, body?:object) => {
 
 	useEffect(() => {
 		handleFetch()
-	},[url])
+	},[JSON.stringify(options)])
 
 	return { data, error, load }
 }

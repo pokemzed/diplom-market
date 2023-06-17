@@ -1,8 +1,9 @@
 import React from 'react';
-import {Button, Container, Nav, Navbar} from "react-bootstrap";
+import {Container, Nav, Navbar} from "react-bootstrap";
 import Link from "next/link";
-import {LINK_CATALOG, LINK_HOME, LINK_SHOP_CART} from "@/constants/links";
+import {LINK_CATALOG, LINK_HOME} from "@/constants/links";
 import styles from "./NavbarTop.module.css";
+import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink/ShopCartLink";
 
 const NavbarTop = () => {
 	return (
@@ -16,11 +17,7 @@ const NavbarTop = () => {
 					<Link href={LINK_CATALOG}>Каталог</Link>
 				</Nav>
 
-				<Link href={LINK_SHOP_CART}>
-					<Button variant={"success"}>
-						Корзина
-					</Button>
-				</Link>
+				<ShopCartLink />
 			</Container>
 		</Navbar>
 	);

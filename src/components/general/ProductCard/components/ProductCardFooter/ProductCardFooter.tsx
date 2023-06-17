@@ -15,7 +15,6 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 
 	//redux data shop cart
 	const shopCartData = useAppSelector(state => state.shopCart.data);
-	console.log(shopCartData,"shopCartData");
 
 	return (
 		<footer className={styles.ProductCardFooter}>

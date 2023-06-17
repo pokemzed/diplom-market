@@ -5,7 +5,7 @@ export interface IShopCartItem {
 	quantity: number,
 }
 
-// export interface IShopCartAmount {
-// 	amount: number,
-// 	discountedAmount: number,
-// }
+export interface IShopCartAmount {
+	amount: number,
+	discountedAmount: number,
+}

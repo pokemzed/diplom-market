@@ -4,12 +4,14 @@ import {useFetch} from "@/hooks/useFetch";
 import {API_CATEGORY_ITEMS} from "@/constants/api";
 import {IProductId} from "@/types/products";
 import ProductCard from "@/components/general/ProductCard/ProductCard";
+import {Spinner} from "react-bootstrap";
 
 const CategoryProductsList = ({selected} : {selected:string}) => {
 
 	//@ts-ignore
-	const { data } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected), 'GET', {});
+	const { data, load } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected), 'GET', {});
 
+	if (load) return <Spinner />;
 	if (!data) return;
 
 	return (
