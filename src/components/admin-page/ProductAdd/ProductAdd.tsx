@@ -3,14 +3,17 @@ import styles from "./ProductAdd.module.css";
 import {Badge, Button, Form, Spinner} from "react-bootstrap";
 import {ITEM_INITIAL} from "@/constants/products";
 import {IProduct} from "@/types/products";
-import ProductFormWeightPrice from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
+import ProductFormWeightPrice
+	from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
 import ProductFormImages from "@/components/admin-page/ProductAdd/components/ProductFormImages/ProductFormImages";
 import {API_PRODUCT} from "@/constants/api";
 import {handleRequest} from "@/functions/handleRequest";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
-import ProductFormCategorySelect from "@/components/admin-page/ProductAdd/components/ProductFormCategorySelect/ProductFormCategorySelect";
+import ProductFormCategorySelect
+	from "@/components/admin-page/ProductAdd/components/ProductFormCategorySelect/ProductFormCategorySelect";
 import {useGetProducts} from "@/hooks/useGetProducts";
 import ProductFormInputs from "@/components/admin-page/ProductAdd/components/ProductFormInputs/ProductFormInputs";
+import {REQUEST_METHODS} from "@/types/general";
 
 const ProductAdd = () => {
 
@@ -37,7 +40,7 @@ const ProductAdd = () => {
 		}
 
 		setLoad(true);
-		handleRequest("POST", API_PRODUCT, formData)
+		handleRequest(REQUEST_METHODS.POST, API_PRODUCT, formData)
 			.then(() => {
 				TOAST_SUCCESS('Товар успешно добавлен');
 				updateProducts();

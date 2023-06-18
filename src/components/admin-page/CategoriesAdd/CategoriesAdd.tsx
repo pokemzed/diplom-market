@@ -8,6 +8,7 @@ import {API_CATEGORY} from "@/constants/api";
 import {handleRequest} from "@/functions/handleRequest";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import {useGetCategories} from "@/hooks/useGetCategories";
+import {REQUEST_METHODS} from "@/types/general";
 
 const CategoriesAdd = () => {
 
@@ -32,7 +33,7 @@ const CategoriesAdd = () => {
 		}
 
 		setLoad(true);
-		handleRequest("POST", API_CATEGORY, formData)
+		handleRequest(REQUEST_METHODS.POST, API_CATEGORY, formData)
 			.then(() => {
 				TOAST_SUCCESS('Категория успешно добавлена');
 				updateCategories();

@@ -32,3 +32,14 @@
 .weights p:last-child span{
     display: none;
 }
+
+/*span badge with sale*/
+.discount {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    display: flex;
+
+    z-index: 3;
+}

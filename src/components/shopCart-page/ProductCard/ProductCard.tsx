@@ -8,6 +8,7 @@ import ShopCartBtn from "@/components/general/ProductCard/components/ShopCartBtn
 import SwiperNavigation from "@/ui/SwiperNavigation/SwiperNavigation";
 import {useAppDispatch} from "@/store/store";
 import {clearItem} from "@/store/slices/shopCartSlice";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface IProductCard {
 	data: IShopCartItem,
@@ -17,7 +18,7 @@ interface IProductCard {
 const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 
 	const dispatch = useAppDispatch();
-	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), "GET", {});
+	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {});
 
 	//delete item from shop cart
 	const handleClearItem = () => {

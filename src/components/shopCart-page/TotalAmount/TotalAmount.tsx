@@ -7,6 +7,7 @@ import {Alert, Badge, Button} from "react-bootstrap";
 import {DELIVERY_PRICE, MIN_ORDER_PRICE} from "@/constants/general";
 import Link from "next/link";
 import {LINK_ORDER} from "@/constants/links";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface ITotalAmount {
 	shopCartData: IShopCartItem[],
@@ -15,7 +16,7 @@ interface ITotalAmount {
 const TotalAmount: React.FC<ITotalAmount> = ({ shopCartData }) => {
 
 	//total amount
-	const { data } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, "POST", {
+	const { data } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, REQUEST_METHODS.POST, {
 		positions: shopCartData
 	})
 

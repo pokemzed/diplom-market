@@ -11,6 +11,7 @@ import ModalConfirm from "@/ui/ModalConfirm/ModalConfirm";
 import ProductPrice from "@/components/admin-page/ProductsList/components/ProductCard/ProductPrice";
 import ProductRedact from "@/components/admin-page/ProductRedact/ProductRedact";
 import ProductInfo from "@/components/admin-page/ProductsList/components/ProductCard/ProductInfo";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface IProductCard {
 	data: IProductId
@@ -25,7 +26,7 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 	const handleDelete = () => {
 		setLoad(true);
-		handleRequest("DELETE", API_PRODUCT, {itemIds: [data._id]})
+		handleRequest(REQUEST_METHODS.DELETE, API_PRODUCT, {itemIds: [data._id]})
 			.then(() => {
 				TOAST_SUCCESS("Товар успешно удален");
 				updateProducts();

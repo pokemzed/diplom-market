@@ -3,6 +3,7 @@ import {useFetch} from "@/hooks/useFetch";
 import {IShopCartAmount, IShopCartItem} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
 import {EDelivery, IOrderForm} from "@/types/order";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface IOrderAmount {
 	shopCartData: IShopCartItem[],
@@ -15,7 +16,7 @@ const OrderAmount: React.FC<IOrderAmount> = ({ shopCartData, formData }) => {
 	const productsCount = shopCartData.reduce((count, item) => count + item.quantity,0);
 
 	//amount data
-	const { data:amountData } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, "POST", {
+	const { data:amountData } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, REQUEST_METHODS.POST, {
 		positions: shopCartData
 	});
 

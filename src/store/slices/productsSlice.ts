@@ -1,7 +1,8 @@
-import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {API_PRODUCT} from "@/constants/api";
 import {handleRequest} from "@/functions/handleRequest";
 import {IProductId} from "@/types/products";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface IProducts {
 	products: IProductId[],
@@ -18,7 +19,7 @@ const initialState:IProducts = {
 export const getProducts = createAsyncThunk<any, undefined, {rejectValue: string}>(
 	'products/getProducts',
 	async (_,{rejectWithValue}) => {
-		const res = await handleRequest("GET", API_PRODUCT, {});
+		const res = await handleRequest(REQUEST_METHODS.GET, API_PRODUCT, {});
 		if (res.status !== 200){
 			return rejectWithValue("Возникла ошибка при получении товаров!")
 		}

@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {API_URL} from "@/constants/api";
+import {REQUEST_METHODS} from "@/types/general";
 
 export const useFetch = <T>(url:string, method?:string, body?:object) => {
 	const [data, setData] = useState<T | null>(null);
@@ -8,7 +9,7 @@ export const useFetch = <T>(url:string, method?:string, body?:object) => {
 	const [error, setError] = useState<null | string>(null);
 
 	const options = {
-		method: method || "GET",
+		method: method || REQUEST_METHODS.GET,
 		url: API_URL + url,
 		headers: {'Content-Type': 'application/json'},
 		data: body || {},

@@ -6,10 +6,13 @@ import {handleRequest} from "@/functions/handleRequest";
 import {API_PRODUCT} from "@/constants/api";
 import styles from "./ProductRedact.module.css";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
-import ProductFormCategorySelect from "@/components/admin-page/ProductAdd/components/ProductFormCategorySelect/ProductFormCategorySelect";
+import ProductFormCategorySelect
+	from "@/components/admin-page/ProductAdd/components/ProductFormCategorySelect/ProductFormCategorySelect";
 import ProductFormImages from "@/components/admin-page/ProductAdd/components/ProductFormImages/ProductFormImages";
-import ProductFormWeightPrice from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
+import ProductFormWeightPrice
+	from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
 import ProductFormInputs from "@/components/admin-page/ProductAdd/components/ProductFormInputs/ProductFormInputs";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface IProductRedact {
 	data: IProductId,
@@ -27,7 +30,7 @@ const ProductRedact: React.FC<IProductRedact> = ({ data, show, handleClose }) =>
 		e.preventDefault();
 
 		setLoad(true);
-		handleRequest("PUT", API_PRODUCT, formData)
+		handleRequest(REQUEST_METHODS.PUT, API_PRODUCT, formData)
 			.then(() => {
 				TOAST_SUCCESS("Товар успешно изменен");
 				updateProducts();

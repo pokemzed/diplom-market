@@ -36,6 +36,8 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 
 			<FloatingLabel label="Скидка (%)">
 				<FormControl
+					min={0}
+					max={100}
 					type={"number"}
 					value={formData.discount || ''}
 					onChange={e => setFormData({...formData, discount: +e.target.value})}

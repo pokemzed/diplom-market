@@ -6,6 +6,7 @@ import {API_CATEGORY} from "@/constants/api";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import {useGetCategories} from "@/hooks/useGetCategories";
 import styles from "./CategoriesRedact.module.css";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface ICategoriesRedact {
 	data: ICategoryId,
@@ -23,7 +24,7 @@ const CategoriesRedact: React.FC<ICategoriesRedact> = ({ data, show, handleClose
 		e.preventDefault();
 
 		setLoad(true);
-		handleRequest("PUT", API_CATEGORY, formData)
+		handleRequest(REQUEST_METHODS.PUT, API_CATEGORY, formData)
 			.then(() => {
 				TOAST_SUCCESS("Категория успешно изменена");
 				updateCategories();

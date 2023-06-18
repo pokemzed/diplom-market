@@ -1,7 +1,8 @@
-import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ICategoryId} from "@/types/categories";
 import {API_CATEGORY} from "@/constants/api";
 import {handleRequest} from "@/functions/handleRequest";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface ICategories {
 	categories: ICategoryId[],
@@ -20,7 +21,7 @@ const initialState:ICategories = {
 export const getCategories = createAsyncThunk<any, undefined, {rejectValue: string}>(
 	'categories/getCategories',
 	async (_,{rejectWithValue}) => {
-		const res = await handleRequest("GET", API_CATEGORY, {});
+		const res = await handleRequest(REQUEST_METHODS.GET, API_CATEGORY, {});
 		if (res.status !== 200){
 			return rejectWithValue("Возникла ошибка при получении категорий!")
 		}

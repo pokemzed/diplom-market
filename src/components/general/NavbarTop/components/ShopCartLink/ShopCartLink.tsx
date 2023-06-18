@@ -6,6 +6,7 @@ import {useAppSelector} from "@/store/store";
 import {useFetch} from "@/hooks/useFetch";
 import {IShopCartAmount} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
+import {REQUEST_METHODS} from "@/types/general";
 
 const ShopCartLink = () => {
 
@@ -16,7 +17,7 @@ const ShopCartLink = () => {
 	const productsCount = shopCartData.reduce((count, item) => count + item.quantity,0);
 
 	//total amount
-	const { data:amountData } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, "POST", {
+	const { data:amountData } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, REQUEST_METHODS.POST, {
 		positions: shopCartData
 	})
 
@@ -24,8 +25,16 @@ const ShopCartLink = () => {
 		<Link href={LINK_SHOP_CART}>
 			<Button variant={"success"}>
 				Корзина
-				{productsCount && <span>({productsCount})</span>}
-				{amountData && <span>({amountData.discountedAmount.toFixed() + "₽"})</span>}
+				{
+					!!productsCount ?
+						<span>({productsCount})</span>:
+						<span>(0)</span>
+				}
+				{
+					!!amountData ?
+					<span>({amountData.discountedAmount.toFixed() + "₽"})</span>:
+					<span>(0₽)</span>
+				}
 			</Button>
 		</Link>
 	);

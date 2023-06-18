@@ -9,6 +9,7 @@ import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import {handleCutStr} from "@/functions/handleCutStr";
 import CategoriesRedact from "@/components/admin-page/CategoriesRedact/CategoriesRedact";
 import {useGetCategories} from "@/hooks/useGetCategories";
+import {REQUEST_METHODS} from "@/types/general";
 
 interface ICategoryCard {
 	data: ICategoryId,
@@ -23,7 +24,7 @@ const CategoryCard: React.FC<ICategoryCard> = ({ data }) => {
 
 	const handleDelete = () => {
 		setLoad(true);
-		handleRequest("DELETE", API_CATEGORY, { categoryIds: [data._id]})
+		handleRequest(REQUEST_METHODS.DELETE, API_CATEGORY, { categoryIds: [data._id]})
 			.then(() => {
 				TOAST_SUCCESS("Категория успешно удалена");
 				updateCategories();

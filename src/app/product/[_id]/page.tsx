@@ -11,11 +11,12 @@ import SwiperPhoto from "@/components/product-page/SwiperPhoto/SwiperPhoto";
 import ProductInfo from "@/components/product-page/ProductInfo/ProductInfo";
 import styles from "./page.module.css";
 import Link from "next/link";
+import {REQUEST_METHODS} from "@/types/general";
 
 const page = () => {
 
 	const params = useParams();
-	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), 'GET', {});
+	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), REQUEST_METHODS.GET, {});
 
 	if (load) return <Spinner />;
 	if (error) redirect(LINK_ERROR);
