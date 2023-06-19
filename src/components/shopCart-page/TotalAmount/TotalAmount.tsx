@@ -3,8 +3,7 @@ import styles from "./TotalAmount.module.css";
 import {IShopCartAmount, IShopCartItem} from "@/types/shopCart";
 import {useFetch} from "@/hooks/useFetch";
 import {API_ORDER_AMOUNT} from "@/constants/api";
-import {Alert, Badge, Button} from "react-bootstrap";
-import {DELIVERY_PRICE, MIN_ORDER_PRICE} from "@/constants/general";
+import {Button} from "react-bootstrap";
 import Link from "next/link";
 import {LINK_ORDER} from "@/constants/links";
 import {REQUEST_METHODS} from "@/types/general";
@@ -20,22 +19,18 @@ const TotalAmount: React.FC<ITotalAmount> = ({ shopCartData }) => {
 		positions: shopCartData
 	})
 
+	//count for all products
+	const productsCount = shopCartData.reduce((count, item) => count + item.quantity,0);
+
+	//check data
+	if (data)
 	return (
 		<div className={styles.TotalAmount}>
-			{
-				(data?.amount && data?.amount < MIN_ORDER_PRICE) &&
-				<Alert className={"p-2 small"}>
-					Сейчас стоимость доставки составляет {DELIVERY_PRICE} рублей.
-					Для бесплатной доставки стоимость заказа должна
-					составлять не менее {MIN_ORDER_PRICE} рублей.
-				</Alert>
-			}
-
-			<Badge className={"mb-2"}>
-				<h5 className={"m-0 text-start"}>
-					Итоговая сумма: {data?.amountWithDelivery}₽<br/>
-				</h5>
-			</Badge>
+			<h5 className={"m-0 text-start"}>
+				{productsCount} товар(ов,a): <b>{data?.amount}₽</b> <br/>
+				Скидка: <b>{data?.amount - data?.discountedAmount}₽</b> <br/>
+				Итого: <b>{data?.discountedAmount}₽</b>
+			</h5>
 
 			<Link href={LINK_ORDER}>
 				<Button>

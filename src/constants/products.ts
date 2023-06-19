@@ -10,6 +10,7 @@ export const ITEM_INITIAL:IProduct = {
 	weights: [],
 	composition: '',
 	cookingTime: 0,
+	available: true,
 };
 
 export const ITEM_WEIGHTS = [

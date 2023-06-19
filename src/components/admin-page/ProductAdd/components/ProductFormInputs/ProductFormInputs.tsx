@@ -1,5 +1,5 @@
 import React from 'react';
-import {FloatingLabel, FormControl} from "react-bootstrap";
+import {FloatingLabel, Form, FormControl} from "react-bootstrap";
 import {IProduct, IProductId} from "@/types/products";
 
 interface IProductFormInputs {
@@ -13,7 +13,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 			<FloatingLabel label="Название">
 				<FormControl
 					required
-					value={formData.name}
+					value={formData?.name}
 					onChange={e => setFormData({...formData, name: e.target.value})}
 				/>
 			</FloatingLabel>
@@ -21,7 +21,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 			<FloatingLabel label="Описание">
 				<FormControl
 					required as={"textarea"} style={{ minHeight: 80 }}
-					value={formData.description}
+					value={formData?.description}
 					onChange={e => setFormData({...formData, description: e.target.value})}
 				/>
 			</FloatingLabel>
@@ -29,7 +29,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 			<FloatingLabel label="Состав">
 				<FormControl
 					required as={"textarea"} rows={4}
-					value={formData.composition}
+					value={formData?.composition}
 					onChange={e => setFormData({...formData, composition: e.target.value})}
 				/>
 			</FloatingLabel>
@@ -39,7 +39,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 					min={0}
 					max={100}
 					type={"number"}
-					value={formData.discount || ''}
+					value={formData?.discount || ''}
 					onChange={e => setFormData({...formData, discount: +e.target.value})}
 				/>
 			</FloatingLabel>
@@ -47,10 +47,16 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 			<FloatingLabel label="Время приготовления (мин)">
 				<FormControl
 					required type={"number"}
-					value={formData.cookingTime || ''}
+					value={formData?.cookingTime || ''}
 					onChange={e => setFormData({...formData, cookingTime: +e.target.value})}
 				/>
 			</FloatingLabel>
+
+			<Form.Switch
+				label="Товар в наличии"
+				checked={formData?.available}
+				onChange={() => setFormData({...formData, available: !formData?.available})}
+			/>
 		</>
 	);
 };

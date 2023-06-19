@@ -18,12 +18,7 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 			<Link href={LINK_PRODUCT(data._id)} className={styles.link} />
 
 			<Badge className={styles.weights}>
-				{data.weights.map(elem => (
-					<p key={elem.value}>
-						{elem.value}г
-						<span>/</span>
-					</p>
-				))}
+				{data.weights.map(elem => (<p key={elem.value}>{elem.value}г<span>/</span></p>))}
 			</Badge>
 
 			<Badge hidden={!data.discount} className={styles.discount}>

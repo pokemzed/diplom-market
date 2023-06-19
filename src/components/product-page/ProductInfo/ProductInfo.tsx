@@ -16,6 +16,10 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 					{data.weights.map(item => <p key={item.value}>{item.value}г<span>/</span></p>)}
 				</Badge>
 				<Badge>{data.cookingTime} мин.</Badge>
+				<Badge>{!data.available && "Предзаказ"}</Badge>
+				<Badge hidden={!data.discount}>
+					{"- " + +data.discount + "%"}
+				</Badge>
 			</header>
 
 			<h1>{data.name}</h1>

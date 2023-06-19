@@ -18,6 +18,7 @@ export interface IProduct {
 	weights: ISelectManyItem[],
 	composition: string,
 	cookingTime: number,
+	available: boolean,
 }
 
 export interface IProductId extends IProduct {

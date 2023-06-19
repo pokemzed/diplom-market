@@ -4,6 +4,8 @@ import {IShopCartAmount, IShopCartItem} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
 import {EDelivery, IOrderForm} from "@/types/order";
 import {REQUEST_METHODS} from "@/types/general";
+import {Alert} from "react-bootstrap";
+import {MIN_ORDER_PRICE} from "@/constants/general";
 
 interface IOrderAmount {
 	shopCartData: IShopCartItem[],
@@ -24,20 +26,26 @@ const OrderAmount: React.FC<IOrderAmount> = ({ shopCartData, formData }) => {
 		return (
 			<div>
 				<div>
-					<p>{productsCount} товар(ов,a)</p>
+					<p className={"m-0 fw-bold"}>{productsCount} товар(ов,a)</p>
 					<p>{amountData.discountedAmount}₽</p>
 				</div>
 
 				{
 					formData.deliveryType === EDelivery.COURIER &&
 					<div>
-						<p>Доставка курьером</p>
+						<p className={"m-0 fw-bold"}>Доставка курьером</p>
 						<p>{amountData.amountWithDelivery - amountData.discountedAmount}₽</p>
+						{
+							amountData.amountWithDelivery - amountData.discountedAmount &&
+							<Alert className={"small p-2 text-center"}>
+								Бесплатная доставка при заказке от {MIN_ORDER_PRICE}₽
+							</Alert>
+						}
 					</div>
 				}
 
 				<div>
-					<p>Итого к оплате:</p>
+					<p className={"m-0 fw-bold"}>Итого к оплате:</p>
 					<p>
 						{
 							formData.deliveryType === EDelivery.COURIER ?

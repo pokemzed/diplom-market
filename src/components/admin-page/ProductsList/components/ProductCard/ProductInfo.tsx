@@ -32,6 +32,9 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 			<Card.Text className={"mb-1 small"}>
 				<b>Скидка:</b> {data?.discount}%
 			</Card.Text>
+			<Card.Text className={"mb-1 small"}>
+				<b>В наличии:</b> {!!data?.available ? "Да" : "Нет"}
+			</Card.Text>
 		</>
 	);
 };
