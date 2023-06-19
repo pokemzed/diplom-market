@@ -32,3 +32,12 @@ export interface IOrderForm {
 	deliveryType: EDelivery, // тип доставки
 	paymentType: EPayment, // тип оплаты
 }
+
+export interface IOrderFormId extends IOrderForm {
+	_id: string,
+	_v: number,
+	paid: boolean,
+	completed: boolean,
+	amount: number,
+	createdAt: string,
+}

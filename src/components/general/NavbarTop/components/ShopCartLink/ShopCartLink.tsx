@@ -31,9 +31,11 @@ const ShopCartLink = () => {
 						<span>(0)</span>
 				}
 				{
-					!!amountData ?
-					<span>({amountData.discountedAmount.toFixed() + "₽"})</span>:
-					<span>(0₽)</span>
+					// check amountData && productsCount
+					// (если кол-во товаров = 0 то не показываем сумму с бека потому что при передаче пустого массива там выводится ошибка))
+					!!amountData && productsCount ?
+						<span>({amountData.discountedAmount.toFixed() + "₽"})</span>:
+						<span>(0₽)</span>
 				}
 			</Button>
 		</Link>

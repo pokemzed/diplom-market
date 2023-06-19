@@ -16,7 +16,7 @@ import {REQUEST_METHODS} from "@/types/general";
 const page = () => {
 
 	const params = useParams();
-	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), REQUEST_METHODS.GET, {});
+	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), REQUEST_METHODS.GET, {}, false);
 
 	if (load) return <Spinner />;
 	if (error) redirect(LINK_ERROR);

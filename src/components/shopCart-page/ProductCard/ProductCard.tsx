@@ -18,7 +18,7 @@ interface IProductCard {
 const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 
 	const dispatch = useAppDispatch();
-	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {});
+	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
 
 	//delete item from shop cart
 	const handleClearItem = () => {

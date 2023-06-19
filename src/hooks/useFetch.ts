@@ -3,7 +3,7 @@ import axios from "axios";
 import {API_URL} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
 
-export const useFetch = <T>(url:string, method?:string, body?:object) => {
+export const useFetch = <T>(url:string, method?:string, body?:object, interval?:number | false) => {
 	const [data, setData] = useState<T | null>(null);
 	const [load, setLoad] = useState<boolean>(false);
 	const [error, setError] = useState<null | string>(null);
@@ -24,7 +24,14 @@ export const useFetch = <T>(url:string, method?:string, body?:object) => {
 	}
 
 	useEffect(() => {
-		handleFetch()
+		if (interval) {
+			const handleInterval = setInterval(() => {
+				handleFetch()
+			}, 1000);
+			return () => clearInterval(handleInterval);
+		}else {
+			handleFetch()
+		}
 	},[JSON.stringify(options)])
 
 	return { data, error, load }

@@ -1,6 +1,6 @@
 import React, {FormEvent, useState} from 'react';
 import styles from "./OrderForm.module.css";
-import {useAppSelector} from "@/store/store";
+import {useAppDispatch, useAppSelector} from "@/store/store";
 import {ORDER_FORM_INITIAL} from "@/constants/order";
 import UserForm from "@/components/order-page/OrderForm/components/UserForm/UserForm";
 import {EDelivery, EPayment, IOrderForm} from "@/types/order";
@@ -14,9 +14,12 @@ import {TOAST_ERROR} from "@/constants/toasts";
 import {handleRequest} from "@/functions/handleRequest";
 import {API_ORDER, API_ORDER_PLATI} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
+import {LINK_ORDER_ID} from "@/constants/links";
+import {clearShopCart} from "@/store/slices/shopCartSlice";
 
 const OrderForm = () => {
 
+	const dispatch = useAppDispatch();
 	const shopCartData = useAppSelector(state => state.shopCart.data);
 	const [formData, setFormData] = useState<IOrderForm>(ORDER_FORM_INITIAL(shopCartData));
 	const [load, setLoad] = useState<boolean>(false);
@@ -29,9 +32,7 @@ const OrderForm = () => {
 			return;
 		}
 
-		//TODO: сделать страницы для редиректа после оформления заказа и оплаты
-		//TODO: на странице запрос (каждые 3 сек) на заказ и там оьбновлять инфу по заказу
-		//TODO: реализовать редиректы
+		//TODO: логика редиректа на страницу оплаты и статуса заказа
 
 		setLoad(true)
 		handleRequest(REQUEST_METHODS.POST, API_ORDER, formData)
@@ -41,10 +42,14 @@ const OrderForm = () => {
 						.then(res => console.log(res))
 						.catch(err => console.log(err))
 				}else {
-					//TODO: реализовать редирект при заказе при получении
+					dispatch(clearShopCart()); //чистим корзину
+					window.location.replace(LINK_ORDER_ID(res.data._id)) //редиректим на статус
 				}
 			})
-			.catch(() => TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!"))
+			.catch(err => {
+				TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!")
+				console.log(err)
+			})
 			.finally(() => setLoad(false))
 	}
 

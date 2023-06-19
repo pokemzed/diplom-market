@@ -42,9 +42,12 @@ export const shopCartSlice = createSlice({
 		clearItem: (state, action) => { //delete all amount item
 			state.data = state.data.filter(item => item !== findItem(state.data, action.payload));
 		},
+		clearShopCart: state => { // clear all
+			state.data = [];
+		}
 	},
 })
 
 
-export const { addItem, removeItem, clearItem } = shopCartSlice.actions;
+export const { addItem, removeItem, clearItem, clearShopCart } = shopCartSlice.actions;
 export default shopCartSlice.reducer;

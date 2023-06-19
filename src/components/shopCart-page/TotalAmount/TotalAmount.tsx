@@ -17,7 +17,7 @@ const TotalAmount: React.FC<ITotalAmount> = ({ shopCartData }) => {
 	//total amount
 	const { data } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, REQUEST_METHODS.POST, {
 		positions: shopCartData
-	})
+	}, false)
 
 	//count for all products
 	const productsCount = shopCartData.reduce((count, item) => count + item.quantity,0);

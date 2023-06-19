@@ -20,7 +20,7 @@ const OrderAmount: React.FC<IOrderAmount> = ({ shopCartData, formData }) => {
 	//amount data
 	const { data:amountData } = useFetch<IShopCartAmount>(API_ORDER_AMOUNT, REQUEST_METHODS.POST, {
 		positions: shopCartData
-	});
+	}, false);
 
 	if (amountData && amountData.amountWithDelivery) {
 		return (
