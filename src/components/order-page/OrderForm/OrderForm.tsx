@@ -24,6 +24,8 @@ const OrderForm = () => {
 	const [formData, setFormData] = useState<IOrderForm>(ORDER_FORM_INITIAL(shopCartData));
 	const [load, setLoad] = useState<boolean>(false);
 
+
+	//отправляем заказ
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
 
@@ -32,24 +34,23 @@ const OrderForm = () => {
 			return;
 		}
 
-		//TODO: логика редиректа на страницу оплаты и статуса заказа
-
 		setLoad(true)
 		handleRequest(REQUEST_METHODS.POST, API_ORDER, formData)
 			.then(res => {
 				if (res.data.paymentType === EPayment.ONLINE) {
 					handleRequest(REQUEST_METHODS.POST, API_ORDER_PLATI(res.data._id), {})
-						.then(res => console.log(res))
-						.catch(err => console.log(err))
+						.then(resInner => {
+							dispatch(clearShopCart()); //чистим корзину
+							window.open(resInner.data.confirmationURL, '_blank'); //редиректим на оплату
+							window.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
+						})
+						.catch(() => TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!"))
 				}else {
 					dispatch(clearShopCart()); //чистим корзину
-					window.location.replace(LINK_ORDER_ID(res.data._id)) //редиректим на статус
+					window.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
 				}
 			})
-			.catch(err => {
-				TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!")
-				console.log(err)
-			})
+			.catch(() => TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!"))
 			.finally(() => setLoad(false))
 	}
 

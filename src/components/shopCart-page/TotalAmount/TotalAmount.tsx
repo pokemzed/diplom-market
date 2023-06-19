@@ -28,7 +28,7 @@ const TotalAmount: React.FC<ITotalAmount> = ({ shopCartData }) => {
 		<div className={styles.TotalAmount}>
 			<h5 className={"m-0 text-start"}>
 				{productsCount} товар(ов,a): <b>{data?.amount}₽</b> <br/>
-				Скидка: <b>{data?.amount - data?.discountedAmount}₽</b> <br/>
+				Скидка: <b>{(data?.amount - data?.discountedAmount)?.toFixed(1)}₽</b> <br/>
 				Итого: <b>{data?.discountedAmount}₽</b>
 			</h5>
 

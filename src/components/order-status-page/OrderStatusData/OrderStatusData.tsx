@@ -6,8 +6,6 @@ interface IOrderStatusData {
 	data: IOrderFormId,
 }
 
-//TODO: дописать логику для оплаты онлайн
-
 const OrderStatusData: React.FC<IOrderStatusData> = ({ data }) => {
 
 	//count for all products

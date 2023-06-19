@@ -32,7 +32,7 @@ export const useFetch = <T>(url:string, method?:string, body?:object, interval?:
 		}else {
 			handleFetch()
 		}
-	},[JSON.stringify(options)])
+	},[JSON.stringify(options), interval])
 
 	return { data, error, load }
 }
