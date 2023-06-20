@@ -1,9 +1,23 @@
+/*swiper*/
 .SwiperPhoto{
     width: 100%;
 }
 
+
+/*image in swiper slide*/
 .image{
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+}
+
+/*skeleton for images*/
+.placeholder {
+    width: 100%;
+    margin-bottom: 0;
+
+    aspect-ratio: 16 / 9;
+}
+.placeholder span{
+    height: 100%;
 }

@@ -20,7 +20,6 @@ export const getOrders = createAsyncThunk<any, undefined, {rejectValue: string}>
 	'orders/getOrders',
 	async (_,{rejectWithValue}) => {
 		const res = await handleRequest(REQUEST_METHODS.GET, API_ORDER, {});
-		console.log(res)
 		if (res.status !== 200){
 			return rejectWithValue("Возникла ошибка при получении заказов!")
 		}

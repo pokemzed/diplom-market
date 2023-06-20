@@ -12,6 +12,13 @@ export enum EPayment {
 	ONLINE = 'ONLINE',
 }
 
+// тип сортировки для заказов
+export enum EOrderSorts {
+	ALL = "ALL",
+	COMPLETED = "COMPLETED",
+	WAIT = "WAIT",
+}
+
 export interface IOrderAddress {
 	address: string, // адрес
 	addressName?: string, // название адреса

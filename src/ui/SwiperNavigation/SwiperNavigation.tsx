@@ -4,13 +4,24 @@ import styles from "./SwiperNavigation.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Navigation } from "swiper";
+import {Placeholder} from "react-bootstrap";
 
 
 interface ISwiperNavigation {
-	images: string[],
+	images: string[] | null | undefined,
 }
 
 const SwiperNavigation: React.FC<ISwiperNavigation> = ({ images }) => {
+
+	//check images !== null
+	if (!images) {
+		return (
+			<Placeholder as={"div"} animation="glow" className={styles.placeholder}>
+				<Placeholder xs={12} />
+			</Placeholder>
+		)
+	}
+
 	return (
 		<Swiper
 			navigation={true}
@@ -18,7 +29,7 @@ const SwiperNavigation: React.FC<ISwiperNavigation> = ({ images }) => {
 			className={styles.SwiperNavigation}
 		>
 			{
-				images.map((elem,index) => (
+				images?.map((elem,index) => (
 					<SwiperSlide key={index}>
 						<img className={styles.image} src={elem} alt={"image"} />
 					</SwiperSlide>

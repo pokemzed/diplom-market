@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 
 //other
 import React from 'react';
-import Toast from "@/components/general/Toast/Toast";
+import Toast from "@/ui/Toast/Toast";
 import {Provider} from "react-redux";
 import store, {persistedStore} from "@/store/store";
 import NavbarTop from "@/components/general/NavbarTop/NavbarTop";

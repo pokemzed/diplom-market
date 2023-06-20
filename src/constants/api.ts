@@ -7,3 +7,4 @@ export const API_ORDER_AMOUNT = '/order/amount';
 export const API_ORDER = '/order';
 export const API_ORDER_ID = (id:string) => `/order/${id}`;
 export const API_ORDER_PLATI = (id:string) => `/order/plati/${id}`;
+export const API_ORDER_COMPLETE_ID = (id:string) => `/order/complete/${id}`;

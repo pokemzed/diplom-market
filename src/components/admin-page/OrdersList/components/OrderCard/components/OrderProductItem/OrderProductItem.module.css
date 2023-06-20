@@ -1,0 +1,12 @@
+.OrderProductItem {
+    padding: .5em;
+
+    border-radius: .25em;
+    border: 1px solid var(--bs-gray);
+}
+
+/*text*/
+.OrderProductItem p,
+.OrderProductItem h5 {
+    margin: 0;
+}
