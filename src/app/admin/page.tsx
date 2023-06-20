@@ -4,6 +4,7 @@ import CategoriesAdd from "@/components/admin-page/CategoriesAdd/CategoriesAdd";
 import ProductAdd from "@/components/admin-page/ProductAdd/ProductAdd";
 import CategoriesList from "@/components/admin-page/CategoriesList/CategoriesList";
 import ProductsList from "@/components/admin-page/ProductsList/ProductsList";
+import OrdersList from "@/components/admin-page/OrdersList/OrdersList";
 
 const page = () => {
 	return (
@@ -13,6 +14,7 @@ const page = () => {
 			<CategoriesList />
 			<ProductAdd />
 			<ProductsList />
+			<OrdersList />
 		</div>
 	);
 };

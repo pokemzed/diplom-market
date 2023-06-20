@@ -16,16 +16,18 @@ import storage from 'redux-persist/lib/storage';
 import categoriesSlice from "@/store/slices/categoriesSlice";
 import productsSlice from "@/store/slices/productsSlice";
 import shopCartSlice from "@/store/slices/shopCartSlice";
+import ordersSlice from "@/store/slices/ordersSlice";
 
 const rootReducer = combineReducers({
 	categories: categoriesSlice,
 	products: productsSlice,
+	orders: ordersSlice,
 	shopCart: shopCartSlice,
 });
 
 const persistConfig = {
 	key: 'root',
-	blacklist: ['products','categories'],
+	blacklist: ['products','categories','orders'],
 	storage: storage,
 }
 

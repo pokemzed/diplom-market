@@ -43,7 +43,7 @@ export const productsSlice = createSlice({
 			})
 			.addCase(getProducts.rejected, (state) => {
 				state.loading = false;
-				state.error = "Get stories failed!"
+				state.error = "Возникла ошибка при получении товаров!"
 			})
 	}
 })
