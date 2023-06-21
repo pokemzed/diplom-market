@@ -1,5 +1,5 @@
 import React, {FormEvent, useState} from 'react';
-import {IProductId} from "@/types/products";
+import {IProductIdWithImg} from "@/types/products";
 import {Button, Form, Modal, Spinner} from "react-bootstrap";
 import {useGetProducts} from "@/hooks/useGetProducts";
 import {handleRequest} from "@/functions/handleRequest";
@@ -15,19 +15,29 @@ import ProductFormInputs from "@/components/admin-page/ProductAdd/components/Pro
 import {REQUEST_METHODS} from "@/types/general";
 
 interface IProductRedact {
-	data: IProductId,
+	data: IProductIdWithImg,
 	show: boolean,
 	handleClose: () => void,
 }
 
 const ProductRedact: React.FC<IProductRedact> = ({ data, show, handleClose }) => {
 
-	const [formData, setFormData] = useState<IProductId>(data);
+	const [formData, setFormData] = useState<IProductIdWithImg>(data);
 	const { updateProducts } = useGetProducts();
 	const [load, setLoad] = useState<boolean>(false);
 
 	const handleRedact = (e:FormEvent) => {
 		e.preventDefault();
+
+		if (!formData.weights.length) {
+			TOAST_ERROR("Выберите вес товара!");
+			return;
+		}
+
+		if (!formData?.images?.length) {
+			TOAST_ERROR("Загрузите изображения товара!");
+			return;
+		}
 
 		setLoad(true);
 		handleRequest(REQUEST_METHODS.PUT, API_PRODUCT, formData)
@@ -40,7 +50,6 @@ const ProductRedact: React.FC<IProductRedact> = ({ data, show, handleClose }) =>
 				setLoad(false);
 				handleClose();
 			})
-
 	}
 
 	return (

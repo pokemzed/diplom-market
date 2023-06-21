@@ -36,7 +36,7 @@ const OrderAmount: React.FC<IOrderAmount> = ({ shopCartData, formData }) => {
 						<p className={"m-0 fw-bold"}>Доставка курьером</p>
 						<p>{amountData.amountWithDelivery - amountData.discountedAmount}₽</p>
 						{
-							amountData.amountWithDelivery - amountData.discountedAmount &&
+							!!(amountData.amountWithDelivery - amountData.discountedAmount) &&
 							<Alert className={"small p-2 text-center"}>
 								Бесплатная доставка при заказке от {MIN_ORDER_PRICE}₽
 							</Alert>

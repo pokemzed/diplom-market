@@ -1,0 +1,4 @@
+.NotFoundContent{
+    display: flex;
+    flex-direction: column;
+}

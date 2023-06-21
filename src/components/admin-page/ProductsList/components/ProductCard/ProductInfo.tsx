@@ -20,9 +20,6 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 			<Card.Text className={"mb-1 small"}>
 				<b>Состав:</b> {handleCutStr(data?.composition, 80) || "Без состава"}
 			</Card.Text>
-			<Card.Text className={"mb-2 small"}>
-				<b>Время приготовления:</b> {data?.cookingTime}мин.
-			</Card.Text>
 			{
 				categories?.length &&
 				<Card.Text className={"mb-1 small"}>

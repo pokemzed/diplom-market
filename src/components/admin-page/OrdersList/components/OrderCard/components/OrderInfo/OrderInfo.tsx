@@ -8,9 +8,13 @@ interface IOrderInfo {
 
 const OrderInfo: React.FC<IOrderInfo> = ({ data }) => {
 
+	const convertTime = (date:string) => {
+		return new Date(new Date(date)).toLocaleString("ru", {timeZone: 'Europe/Moscow'});
+	}
+
 	return (
 		<div className={styles.OrderInfo}>
-			<p>Дата: <b>{data.createdAt}</b></p>
+			<p>Дата: <b>{convertTime(data.createdAt)}</b></p>
 			<p>Сумма: <b>{data.amount}₽</b></p>
 			<p>Доставка: <b>{data.deliveryType === EDelivery.SELF ? "Самовывоз" : "Курьер"}</b></p>
 			{

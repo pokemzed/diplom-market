@@ -1,10 +1,10 @@
 import React from 'react';
 import {FloatingLabel, Form, FormControl} from "react-bootstrap";
-import {IProduct, IProductId} from "@/types/products";
+import {IProductIdWithImg, IProductWithImg} from "@/types/products";
 
 interface IProductFormInputs {
-	formData: IProduct | IProductId,
-	setFormData: (formData: IProduct | IProductId) => void,
+	formData: IProductWithImg | IProductIdWithImg,
+	setFormData: (formData: IProductWithImg | IProductIdWithImg) => void,
 }
 
 const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData }) => {
@@ -41,14 +41,6 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 					type={"number"}
 					value={formData?.discount || ''}
 					onChange={e => setFormData({...formData, discount: +e.target.value})}
-				/>
-			</FloatingLabel>
-
-			<FloatingLabel label="Время приготовления (мин)">
-				<FormControl
-					required type={"number"}
-					value={formData?.cookingTime || ''}
-					onChange={e => setFormData({...formData, cookingTime: +e.target.value})}
 				/>
 			</FloatingLabel>
 

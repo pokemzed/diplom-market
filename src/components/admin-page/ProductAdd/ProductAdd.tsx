@@ -2,7 +2,7 @@ import React, {FormEvent, useState} from 'react';
 import styles from "./ProductAdd.module.css";
 import {Badge, Button, Form, Spinner} from "react-bootstrap";
 import {ITEM_INITIAL} from "@/constants/products";
-import {IProduct} from "@/types/products";
+import {IProductWithImg} from "@/types/products";
 import ProductFormWeightPrice
 	from "@/components/admin-page/ProductAdd/components/ProductFormWeightPrice/ProductFormWeightPrice";
 import ProductFormImages from "@/components/admin-page/ProductAdd/components/ProductFormImages/ProductFormImages";
@@ -18,13 +18,13 @@ import {REQUEST_METHODS} from "@/types/general";
 const ProductAdd = () => {
 
 	const { updateProducts } = useGetProducts();
-	const [formData, setFormData] = useState<IProduct>(ITEM_INITIAL);
+	const [formData, setFormData] = useState<IProductWithImg>(ITEM_INITIAL);
 	const [load, setLoad] = useState<boolean>(false);
 
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
 
-		if (!formData.images.length) {
+		if (!formData?.images?.length) {
 			TOAST_ERROR("Загрузите изображения товара!");
 			return;
 		}

@@ -2,8 +2,8 @@ import React from 'react';
 import styles from "./ProductCard.module.css";
 import {IShopCartItem} from "@/types/shopCart";
 import {useFetch} from "@/hooks/useFetch";
-import {API_PRODUCT_ID} from "@/constants/api";
-import {IProductId} from "@/types/products";
+import {API_PRODUCT_ID, API_PRODUCT_IMG} from "@/constants/api";
+import {IProductId, IProductImg} from "@/types/products";
 import ShopCartBtn from "@/components/general/ProductCard/components/ShopCartBtn/ShopCartBtn";
 import SwiperNavigation from "@/ui/SwiperNavigation/SwiperNavigation";
 import {useAppDispatch} from "@/store/store";
@@ -19,6 +19,7 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 
 	const dispatch = useAppDispatch();
 	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
+	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(data.itemId), REQUEST_METHODS.GET, {});
 
 	//delete item from shop cart
 	const handleClearItem = () => {
@@ -30,7 +31,7 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 	return (
 		<div className={styles.ProductCard}>
 			<div className={styles.swiperContainer}>
-				<SwiperNavigation images={productData.images} />
+				<SwiperNavigation images={images?.images} />
 			</div>
 
 			<div className="content">

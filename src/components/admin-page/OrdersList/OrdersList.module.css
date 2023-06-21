@@ -14,7 +14,7 @@
 
 /*items container*/
 .content{
-    max-height: 600px;
+    max-height: 95vh;
     padding: .5em;
 
     display: flex;

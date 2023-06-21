@@ -1,11 +1,11 @@
 import React from 'react';
-import {Button, FormSelect, Spinner} from "react-bootstrap";
-import {IProduct, IProductId} from "@/types/products";
+import {Button, FloatingLabel, FormSelect, Spinner} from "react-bootstrap";
+import {IProductIdWithImg, IProductWithImg} from "@/types/products";
 import {useGetCategories} from "@/hooks/useGetCategories";
 
 interface ProductFormCategorySelect {
-	formData: IProduct | IProductId,
-	setFormData: (formData: IProduct | IProductId) => void,
+	formData: IProductIdWithImg | IProductWithImg,
+	setFormData: (formData: IProductIdWithImg | IProductWithImg) => void,
 }
 
 const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formData, setFormData }) => {
@@ -30,16 +30,21 @@ const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formDa
 	}
 
 	return (
-		<FormSelect onChange={e => setFormData({...formData, categoryId: e.target.value})}>
-			<option>Категория товара</option>
-			{
-				data.categories?.map(elem => (
-					<option key={elem._id} value={elem._id}>
-						{elem.name}
-					</option>
-				))
-			}
-		</FormSelect>
+		<FloatingLabel label="Категория товара">
+			<FormSelect
+				onChange={e => setFormData({...formData, categoryId: e.target.value})}
+				value={data?.categories?.find(elem => elem._id === formData.categoryId)?._id}
+			>
+				<option hidden>Выберите категорию для товара</option>
+				{
+					data.categories?.map(elem => (
+						<option key={elem._id} value={elem._id}>
+							{elem.name}
+						</option>
+					))
+				}
+			</FormSelect>
+		</FloatingLabel>
 	);
 };
 

@@ -1,6 +1,6 @@
-import {IProduct} from "@/types/products";
+import {IProductWithImg} from "@/types/products";
 
-export const ITEM_INITIAL:IProduct = {
+export const ITEM_INITIAL:IProductWithImg = {
 	name: '',
 	description: '',
 	categoryId: '',
@@ -9,7 +9,6 @@ export const ITEM_INITIAL:IProduct = {
 	prices: [],
 	weights: [],
 	composition: '',
-	cookingTime: 0,
 	available: true,
 };
 

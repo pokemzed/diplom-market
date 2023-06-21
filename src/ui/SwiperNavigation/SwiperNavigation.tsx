@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from "./SwiperNavigation.module.css";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// import required modules
 import { Navigation } from "swiper";
 import {Placeholder} from "react-bootstrap";
 

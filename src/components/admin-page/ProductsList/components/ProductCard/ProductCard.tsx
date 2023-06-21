@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./ProductCard.module.css";
 import {Button, ButtonGroup, Card} from "react-bootstrap";
-import {IProductId} from "@/types/products";
+import {IProductId, IProductImg} from "@/types/products";
 import SwiperNavigation from "@/ui/SwiperNavigation/SwiperNavigation";
 import {handleRequest} from "@/functions/handleRequest";
-import {API_PRODUCT} from "@/constants/api";
+import {API_PRODUCT, API_PRODUCT_IMG} from "@/constants/api";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import {useGetProducts} from "@/hooks/useGetProducts";
 import ModalConfirm from "@/ui/ModalConfirm/ModalConfirm";
@@ -12,14 +12,18 @@ import ProductPrice from "@/components/admin-page/ProductsList/components/Produc
 import ProductRedact from "@/components/admin-page/ProductRedact/ProductRedact";
 import ProductInfo from "@/components/admin-page/ProductsList/components/ProductCard/ProductInfo";
 import {REQUEST_METHODS} from "@/types/general";
+import {useFetch} from "@/hooks/useFetch";
+import Link from "next/link";
+import {LINK_PRODUCT} from "@/constants/links";
 
 interface IProductCard {
-	data: IProductId
+	data: IProductId,
 }
 
 const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 	const { updateProducts } = useGetProducts();
+	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(data._id), REQUEST_METHODS.GET, {});
 	const [showDelete, setShowDelete] = useState(false);
 	const [showRedact, setShowRedact] = useState(false);
 	const [load, setLoad] = useState<boolean>(false);
@@ -42,10 +46,12 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 		<>
 			<Card className={styles.ProductCard}>
 				{/*SWIPER*/}
-				<SwiperNavigation images={data.images} />
+				<SwiperNavigation images={images?.images} />
 
 				<Card.Body>
-					<Card.Title>{data.name}</Card.Title>
+					<Link href={LINK_PRODUCT(data._id)}>
+						<Card.Title>{data.name}</Card.Title>
+					</Link>
 
 					{/*INFO*/}
 					<ProductInfo data={data} />
@@ -56,9 +62,15 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 				<Card.Footer>
 					<ButtonGroup className={"w-100"}>
-						<Button variant="secondary" size={"sm"} onClick={() => setShowRedact(true)}>
+						{/*не можем изменять если фотки не загрузились*/}
+						<Button
+							variant="secondary" size={"sm"}
+							onClick={() => setShowRedact(true)}
+							hidden={!images?.images}
+						>
 							Изменить
 						</Button>
+
 						<Button variant="danger" size={"sm"} onClick={() => setShowDelete(true)}>
 							Удалить
 						</Button>
@@ -74,11 +86,14 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 				load={load}
 			/>
 
-			<ProductRedact
-				data={data}
-				show={showRedact}
-				handleClose={() => setShowRedact(false)}
-			/>
+			{//если фото загрузились то рендерим модалку для изменения
+				images?.images &&
+				<ProductRedact
+					data={{...data, images: images?.images}}
+					show={showRedact}
+					handleClose={() => setShowRedact(false)}
+				/>
+			}
 		</>
 	);
 };

@@ -2,11 +2,11 @@ import React from 'react';
 import SelectMany from "@/ui/SelectMany/SelectMany";
 import {ITEM_WEIGHTS} from "@/constants/products";
 import {Badge, FloatingLabel, FormControl} from "react-bootstrap";
-import {IProduct, IProductId, IProductPrice, ISelectManyItem} from "@/types/products";
+import {IProductIdWithImg, IProductPrice, IProductWithImg, ISelectManyItem} from "@/types/products";
 
 interface IProductFormWeightPrice {
-	formData: IProduct | IProductId,
-	setFormData: (formData: IProduct | IProductId) => void,
+	formData: IProductWithImg | IProductIdWithImg,
+	setFormData: (formData: IProductWithImg | IProductIdWithImg) => void,
 }
 
 const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, setFormData }) => {

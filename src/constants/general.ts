@@ -3,9 +3,6 @@ import {IShopAddress} from "@/types/general";
 // минимальная цена заказа
 export const MIN_ORDER_PRICE = 600;
 
-// стоимость доставки
-export const DELIVERY_PRICE = 300;
-
 // адреса магазинов
 export const SHOPS_ADDRESSES: IShopAddress[] = [
 	{
