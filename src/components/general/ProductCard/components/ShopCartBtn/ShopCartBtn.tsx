@@ -36,7 +36,7 @@ const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }
 
 	if (thisItem) {
 		return (
-			<div className={styles.ShopCartBtn}>
+			<div className={styles.ShopCartBtnActive}>
 				<button type="button" onClick={handleRemove}>
 					-
 				</button>
@@ -51,11 +51,9 @@ const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }
 	}
 
 	return (
-		<div className={styles.ShopCartBtn}>
-			<button type="button" onClick={handleAdd}>
-				+
-			</button>
-		</div>
+		<button className={styles.ShopCartBtn} type="button" onClick={handleAdd}>
+			В корзину
+		</button>
 	);
 };
 

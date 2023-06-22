@@ -1,8 +1,23 @@
-.container{
+.CategoryProductsList {
+    margin-bottom: 3em;
+}
+
+/*container for items*/
+.itemsContainer {
+    width: 100%;
+
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.sort{
+/*no item in category text*/
+.noItems{
+    min-height: 300px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--bs-gray-500);
 }

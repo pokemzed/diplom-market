@@ -15,4 +15,5 @@ export interface IShopAddress {
 export enum ESort {
 	SALE = 'SALE',
 	DEFAULT = 'DEFAULT',
+	AVAILABLE = 'AVAILABLE',
 }

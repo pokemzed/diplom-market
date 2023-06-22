@@ -1,0 +1,17 @@
+.BackLink{
+    display: flex;
+    align-items: center;
+
+    color: var(--bs-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.BackLink span{
+    line-height: 1;
+}
+
+.BackLink img{
+    margin-top: -1px;
+    margin-right: .35em;
+}

@@ -19,7 +19,7 @@ const WeightsBtns: React.FC<IWeightsBtns> = ({ data, selected, setSelected }) =>
 						disabled={elem === selected}
 						onClick={() => setSelected(elem)}
 					>
-						<h4>{elem.price}₽</h4>
+						<h5>{elem.price}₽</h5>
 						<p className="small">{elem.weight}г</p>
 					</button>
 				))

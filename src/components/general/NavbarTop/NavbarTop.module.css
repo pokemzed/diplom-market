@@ -1,9 +1,39 @@
 .NavbarTop{
-
+    --bs-navbar-padding-y: 1.5em;
 }
 
-/*links color*/
-.NavbarTop a{
-    color: var(--bs-white);
+/*container*/
+.container{
+    align-items: center;
+}
+
+/*logo*/
+.logo img{
+    width: 220px;
+}
+
+/*right block (for align)*/
+.right{
+    display: flex;
+    align-items: center;
+}
+
+/*links Container*/
+.linksContainer{
+    margin-right: 3.5em;
+}
+/*links*/
+.linksContainer a{
+    margin: 0 .25em;
+    padding: .35em .75em;
+
+    border-radius: 30px;
+    color: var(--bs-gray-600);
     text-decoration: none;
+    transition: .25s;
+}
+.linksContainer a:hover,
+.linksContainer a.active{
+    color: var(--bs-white);
+    background: var(--app-primary);
 }

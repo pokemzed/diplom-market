@@ -12,10 +12,8 @@ const CategoryProducts = () => {
 
 	return (
 		<div className={"CategoryProductsList"}>
-			<header>
-				<CategorySelect />
-				<CategoryProductsList selected={selected} />
-			</header>
+			<CategorySelect />
+			<CategoryProductsList selected={selected} />
 		</div>
 	);
 };

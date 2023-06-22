@@ -20,22 +20,38 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 	return (
 		<div className={styles.ProductCard}>
+			{/*link with absolute position*/}
 			<Link href={LINK_PRODUCT(data._id)} className={styles.link} />
 
-			<Badge className={styles.weights}>
-				{data.weights.map(elem => (<p key={elem.value}>{elem.value}г<span>/</span></p>))}
-			</Badge>
+			{/*top badges*/}
+			<header>
+				<Badge className={styles.weights} bg={"light"}>
+					{data.weights.map(elem => (<p key={elem.value}>{elem.value}г<i>/</i></p>))}
+				</Badge>
 
-			<Badge hidden={!data.discount} className={styles.discount}>
-				{"- " + +data.discount + "%"}
-			</Badge>
+				<Badge hidden={!data.discount} bg={"light"}>
+					{"- " + +data.discount + "%"}
+				</Badge>
 
-			<SwiperNavigation images={images?.images} />
+				<Badge bg={"light"}>
+					{!data.available ? "Предзаказ" : "В наличии"}
+				</Badge>
+			</header>
 
-			<h5>{data.name}</h5>
-			<p className="small">{data.composition}</p>
+			{/*swiper*/}
+			<div className={styles.swiperContainer}>
+				<SwiperNavigation images={images?.images} />
+			</div>
 
-			<ProductCardFooter data={data} />
+			{/*content*/}
+			<div className={styles.content}>
+				<h4 className={styles.name}>{data.name}</h4>
+				<hr/>
+				<p className={styles.composition}>{data.composition}</p>
+
+				{/*shop cart buttons*/}
+				<ProductCardFooter data={data} />
+			</div>
 		</div>
 	);
 };

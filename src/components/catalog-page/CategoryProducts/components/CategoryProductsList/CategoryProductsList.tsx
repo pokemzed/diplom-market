@@ -4,8 +4,9 @@ import {useFetch} from "@/hooks/useFetch";
 import {API_CATEGORY_ITEMS} from "@/constants/api";
 import {IProductId} from "@/types/products";
 import ProductCard from "@/components/general/ProductCard/ProductCard";
-import {Form, Spinner} from "react-bootstrap";
 import {ESort, REQUEST_METHODS} from "@/types/general"
+import CategorySort from "@/components/catalog-page/CategoryProducts/components/CategorySort/CategorySort";
+import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
 
 const CategoryProductsList = ({selected} : {selected:string}) => {
 
@@ -16,41 +17,48 @@ const CategoryProductsList = ({selected} : {selected:string}) => {
 	const { data, load } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected),REQUEST_METHODS.GET, {});
 
 	// @ts-ignore sort sale item
-	const getSaleItems = () => data.filter(elem => elem.discount)
+	const getSaleItems = () => data.filter(elem => elem.discount);
+	// @ts-ignore sort sale item
+	const getAvailableItems = () => data.filter(elem => elem.available);
 
 	const getSortedData = () => {
 		if (sort === ESort.DEFAULT) return data;
 		if (sort === ESort.SALE) return getSaleItems();
-	}
+		if (sort === ESort.AVAILABLE) return getAvailableItems();
+	};
 
 	useEffect(() => {
 		setSort(ESort.DEFAULT) //clear sort if we change category
-	},[selected])
+	}, [selected])
 
-	if (load) return <Spinner />;
-	if (!data) return;
+	if (load || !data) {
+		return (
+			<div className={styles.noItems}>
+				<SpinnerPrimary />
+			</div>
+		);
+	}
 
 	return (
 		<div className={styles.CategoryProductsList}>
 
-			<div hidden={!data.length} className={styles.sort}>
-				<Form.Switch // sale switch
-					checked={sort === ESort.SALE}
-					onChange={() => setSort(sort === ESort.SALE ? ESort.DEFAULT : ESort.SALE)}
-					label={"Показывать только товары со скидкой"}
-				/>
-			</div>
+			{/*sort component*/}
+			<CategorySort
+				sort={sort}
+				setSort={setSort}
+				data={data}
+			/>
 
 			{// products map
 				!!(getSortedData() && getSortedData()?.length) &&
-				<div className={styles.container}>
+				<div className={styles.itemsContainer}>
 					{getSortedData()?.map(elem => <ProductCard key={elem._id} data={elem} />)}
 				</div>
 			}
 
 			{// check products length
 				!getSortedData()?.length &&
-				<p>Список товаров для данной категории пуст</p>
+				<p className={styles.noItems}>Список товаров для данной категории пуст</p>
 			}
 		</div>
 	);

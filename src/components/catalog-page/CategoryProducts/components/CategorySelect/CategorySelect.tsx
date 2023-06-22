@@ -1,5 +1,6 @@
 import React from 'react';
 import {useGetCategories} from "@/hooks/useGetCategories";
+import styles from "./CategorySelect.module.css";
 
 const CategorySelect = () => {
 
@@ -8,7 +9,7 @@ const CategorySelect = () => {
 	if (!categories.length || !selected) return;
 
 	return (
-		<div className={"CategorySelect"}>
+		<div className={styles.CategorySelect}>
 			{
 				categories?.map(elem => (
 					<button

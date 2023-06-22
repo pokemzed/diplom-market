@@ -1,23 +1,39 @@
 import React from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import Link from "next/link";
-import {LINK_CATALOG, LINK_HOME} from "@/constants/links";
+import {LINK_HOME, LIST_LINKS} from "@/constants/links";
 import styles from "./NavbarTop.module.css";
 import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink/ShopCartLink";
+import {usePathname} from "next/navigation";
 
 const NavbarTop = () => {
+
+	const path = usePathname();
+
 	return (
-		<Navbar className={styles.NavbarTop} bg="primary">
-			<Container>
+		<Navbar className={styles.NavbarTop}>
+			<Container className={styles.container}>
 				<Link href={LINK_HOME} className={styles.logo}>
-					<h3 className={"m-0"}>Logo</h3>
+					<img src={"./Logo.svg"} alt={"Это хлеб"} />
 				</Link>
 
-				<Nav className={styles.linksContainer}>
-					<Link href={LINK_CATALOG}>Каталог</Link>
-				</Nav>
+				<div className={styles.right}>
+					<Nav className={styles.linksContainer}>
+						{
+							LIST_LINKS.map(elem => (
+								<Link
+									key={elem.title}
+									href={elem.link}
+									className={path === elem.link ? styles.active : ""}
+								>
+									{elem.title}
+								</Link>
+							))
+						}
+					</Nav>
 
-				<ShopCartLink />
+					<ShopCartLink />
+				</div>
 			</Container>
 		</Navbar>
 	);

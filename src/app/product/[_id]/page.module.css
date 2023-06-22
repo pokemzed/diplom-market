@@ -20,6 +20,9 @@
 .sliderContainer{
     width: 50%;
 }
+.sliderContainer img{
+    border-radius: 5px;
+}
 
 .dataContainer{
     width: 45%;

@@ -10,8 +10,8 @@ import {IProductId, IProductImg} from "@/types/products";
 import SwiperPhoto from "@/components/product-page/SwiperPhoto/SwiperPhoto";
 import ProductInfo from "@/components/product-page/ProductInfo/ProductInfo";
 import styles from "./page.module.css";
-import Link from "next/link";
 import {REQUEST_METHODS} from "@/types/general";
+import BackLink from "@/ui/BackLink/BackLink";
 
 const page = () => {
 
@@ -26,9 +26,7 @@ const page = () => {
 		return (
 			<Container className={styles.main}>
 
-				<Link className={styles.linkBack} href={LINK_CATALOG}>
-					Каталог
-				</Link>
+				<BackLink link={LINK_CATALOG} text={"Каталог"} />
 
 				<div className={styles.productData}>
 					<div className={styles.sliderContainer}>

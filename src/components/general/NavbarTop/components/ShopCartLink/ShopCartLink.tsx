@@ -1,12 +1,12 @@
 import React from 'react';
 import {LINK_SHOP_CART} from "@/constants/links";
-import {Button} from "react-bootstrap";
 import Link from "next/link";
 import {useAppSelector} from "@/store/store";
 import {useFetch} from "@/hooks/useFetch";
 import {IShopCartAmount} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
+import styles from "./ShopCartLink.module.css";
 
 const ShopCartLink = () => {
 
@@ -22,22 +22,22 @@ const ShopCartLink = () => {
 	})
 
 	return (
-		<Link href={LINK_SHOP_CART}>
-			<Button variant={"success"}>
-				Корзина
-				{
-					!!productsCount ?
-						<span>({productsCount})</span>:
-						<span>(0)</span>
-				}
-				{
-					// check amountData && productsCount
-					// (если кол-во товаров = 0 то не показываем сумму с бека потому что при передаче пустого массива там выводится ошибка))
-					!!amountData && productsCount ?
-						<span>({amountData.discountedAmount.toFixed() + "₽"})</span>:
-						<span>(0₽)</span>
-				}
-			</Button>
+		<Link href={LINK_SHOP_CART} className={styles.ShopCartLink}>
+			{
+				!!productsCount ?
+					<div className={styles.title}>
+						<img src={"/icons/shop-cart.svg"} alt={"Это хлеб"} />
+						{!!productsCount && <span>{productsCount}</span>}
+					</div>:
+					"Корзина"
+			}
+			{//price
+				// check amountData && productsCount
+				!!(!!amountData && productsCount) &&
+				<span className={styles.price}>
+					{amountData.discountedAmount.toFixed() + "₽"}
+				</span>
+			}
 		</Link>
 	);
 };
