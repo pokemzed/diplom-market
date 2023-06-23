@@ -1,4 +1,18 @@
-.ProductInfo{}
+.ProductInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+/*header with badges*/
+.ProductInfo header{
+    display: flex;
+    margin-bottom: 1.5em;
+}
+.ProductInfo header span{
+    margin-right: .5em;
+    padding: .5em .75em;
+    background: var(--app-primary) !important;
+}
 
 /*weights*/
 .weights {
@@ -7,6 +21,37 @@
 .weights p{
     margin: 0;
 }
+.weights p span{
+    margin: 0;
+    padding: 0;
+}
 .weights p:last-child span{
     display: none;
+}
+
+/*content*/
+.content{
+    margin-bottom: 1.5em;
+}
+
+/*name*/
+.ProductInfo h1{
+    margin-bottom: .6em;
+
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: var(--bs-dark);
+}
+
+/*blockContent*/
+.blockContent{
+    margin-bottom: 1em;
+}
+.blockContent label{
+    color: var(--bs-gray-600);
+    font-weight: bold;
+}
+.blockContent p{
+    margin: 0;
+    color: var(--bs-gray-600);
 }

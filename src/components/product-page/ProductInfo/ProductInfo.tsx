@@ -15,22 +15,26 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<Badge className={styles.weights}>
 					{data.weights.map(item => <p key={item.value}>{item.value}г<span>/</span></p>)}
 				</Badge>
-				<Badge>{!data.available && "Предзаказ"}</Badge>
+				<Badge>
+					{data.available ? "В наличии" : "Предзаказ"}
+				</Badge>
 				<Badge hidden={!data.discount}>
 					{"- " + +data.discount + "%"}
 				</Badge>
 			</header>
 
-			<h1>{data.name}</h1>
+			<div className={styles.content}>
+				<h1>{data.name}</h1>
 
-			<div className={styles.blockContent}>
-				<label>Состав:</label>
-				<p>{data.composition}</p>
-			</div>
+				<div className={styles.blockContent}>
+					<label>Состав:</label>
+					<p>{data.composition}</p>
+				</div>
 
-			<div className={styles.blockContent}>
-				<label>Описание:</label>
-				<p>{data.description}</p>
+				<div className={styles.blockContent}>
+					<label>Описание:</label>
+					<p>{data.description}</p>
+				</div>
 			</div>
 
 			<ProductCardFooter data={data} />

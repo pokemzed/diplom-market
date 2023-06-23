@@ -3,7 +3,7 @@ import React from 'react';
 import {useParams} from "next/navigation";
 import {useFetch} from "@/hooks/useFetch";
 import {API_PRODUCT_ID, API_PRODUCT_IMG} from "@/constants/api";
-import {Container, Spinner} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import {LINK_CATALOG, LINK_ERROR} from "@/constants/links";
 import { redirect } from 'next/navigation';
 import {IProductId, IProductImg} from "@/types/products";
@@ -12,6 +12,8 @@ import ProductInfo from "@/components/product-page/ProductInfo/ProductInfo";
 import styles from "./page.module.css";
 import {REQUEST_METHODS} from "@/types/general";
 import BackLink from "@/ui/BackLink/BackLink";
+import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
+import RandomProducts from "@/components/general/RandomProducts/RandomProducts";
 
 const page = () => {
 
@@ -19,14 +21,20 @@ const page = () => {
 	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), REQUEST_METHODS.GET, {}, false);
 	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(params._id), REQUEST_METHODS.GET, {});
 
-	if (load) return <Spinner />;
+	if (load) {
+		return (
+			<Container className={styles.spinnerContainer}>
+				<SpinnerPrimary />
+			</Container>
+		)
+	}
 	if (error) redirect(LINK_ERROR);
 
 	if (data) {
 		return (
 			<Container className={styles.main}>
 
-				<BackLink link={LINK_CATALOG} text={"Каталог"} />
+				<BackLink link={LINK_CATALOG} text={"В каталог"} />
 
 				<div className={styles.productData}>
 					<div className={styles.sliderContainer}>
@@ -37,6 +45,8 @@ const page = () => {
 						<ProductInfo data={data} />
 					</div>
 				</div>
+
+				<RandomProducts quantity={3} />
 			</Container>
 		);
 	}

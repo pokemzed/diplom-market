@@ -1,3 +1,4 @@
 .SpinnerPrimary{
+    margin: auto;
     color: var(--app-primary);
 }

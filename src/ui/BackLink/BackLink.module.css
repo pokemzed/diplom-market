@@ -2,9 +2,14 @@
     display: flex;
     align-items: center;
 
+    font-size: 18px;
     color: var(--bs-dark);
     font-weight: 700;
     text-decoration: none;
+    transition: .25s;
+}
+.BackLink:hover{
+    opacity: .75;
 }
 
 .BackLink span{

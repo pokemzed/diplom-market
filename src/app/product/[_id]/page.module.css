@@ -1,20 +1,32 @@
 .main{
+    padding-top: 1em;
+    padding-bottom: 3em;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-/*linkBack*/
-.linkBack{
-    margin: 1.5em 0;
+/*spinnerContainer*/
+.spinnerContainer{
+    height: 80vh;
+    margin: 1em auto;
+
+    display: flex;
+
+    border-radius: 5px;
+    background: var(--app-light);
 }
 
 /*productData*/
 .productData{
     width: 100%;
     height: auto;
+    margin-top: 2.5em;
+    margin-bottom: 3em;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .sliderContainer{
