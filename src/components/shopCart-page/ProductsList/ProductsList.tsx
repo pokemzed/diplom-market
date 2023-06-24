@@ -11,7 +11,7 @@ const ProductsList: React.FC<IProductCard> = ({ shopCartData }) => {
 
 	return (
 		<div className={styles.ProductsList}>
-			<h3>Товары:</h3>
+			<h2 className={styles.title}>Корзина</h2>
 
 			<div className={styles.content}>
 				{

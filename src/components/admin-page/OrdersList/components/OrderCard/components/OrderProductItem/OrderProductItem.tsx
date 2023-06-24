@@ -5,6 +5,8 @@ import {useFetch} from "@/hooks/useFetch";
 import {API_PRODUCT_ID} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
 import {IProductId} from "@/types/products";
+import Link from "next/link";
+import {LINK_PRODUCT} from "@/constants/links";
 
 interface IOrderProductItem {
 	data: IShopCartItem,
@@ -18,7 +20,9 @@ const OrderProductItem: React.FC<IOrderProductItem> = ({ data }) => {
 
 	return (
 		<div className={styles.OrderProductItem}>
-			<h5>{itemData.name}</h5>
+			<Link href={LINK_PRODUCT(itemData._id)}>
+				<h5>{itemData.name}</h5>
+			</Link>
 			<p className={"small"}>Вес: <b>{data.weight} грамм</b></p>
 			<p className={"small"}>Кол-во: <b>{data.quantity} шт.</b></p>
 			<p className="small">Состав: <b>{itemData.composition}</b></p>

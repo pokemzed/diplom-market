@@ -1,3 +1,19 @@
-.content {
+.ProductsList {
+    width: calc(100% - 350px - 1em);
+    max-width: 800px;
+    padding: 2.5em 2em;
 
+    background: var(--app-light);
+    border-radius: 5px;
+}
+
+.title{
+    margin-bottom: .4em;
+    font-weight: 700;
+    color: var(--bs-dark);
+}
+
+/*content (items list)*/
+.content {
+    width: 100%;
 }

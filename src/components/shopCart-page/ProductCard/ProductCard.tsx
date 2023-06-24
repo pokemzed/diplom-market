@@ -9,6 +9,9 @@ import SwiperNavigation from "@/ui/SwiperNavigation/SwiperNavigation";
 import {useAppDispatch} from "@/store/store";
 import {clearItem} from "@/store/slices/shopCartSlice";
 import {REQUEST_METHODS} from "@/types/general";
+import Link from "next/link";
+import {LINK_PRODUCT} from "@/constants/links";
+
 
 interface IProductCard {
 	data: IShopCartItem,
@@ -34,8 +37,11 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 				<SwiperNavigation images={images?.images} />
 			</div>
 
-			<div className="content">
-				<p>{productData.name} ({data.weight}г)</p>
+			<div className={styles.content}>
+				<Link href={LINK_PRODUCT(productData._id)}>
+					<h5>{productData.name}</h5>
+				</Link>
+				<p>{data.weight} грамм</p>
 
 				<ShopCartBtn
 					selected={{weight: data.weight, price: data.price}}
@@ -44,15 +50,17 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 				/>
 			</div>
 
-			<footer>
-				<b>
-					{productData.prices.find(elem => elem.weight === data.weight)?.price}₽
-					{!!productData.discount && <span> - {productData.discount}%</span>}
-				</b>
+			<footer className={styles.footer}>
+				<img
+					src={"/icons/close-primary.svg"}
+					alt={"Удалить"}
+					onClick={handleClearItem}
+				/>
 
-				<button onClick={handleClearItem}>
-					Удалить
-				</button>
+				<p>
+					{productData.prices.find(elem => elem.weight === data.weight)?.price}₽
+					{!!productData.discount && <span>- {productData.discount}%</span>}
+				</p>
 			</footer>
 		</div>
 	);

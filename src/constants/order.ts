@@ -17,7 +17,7 @@ export const ORDER_FORM_INITIAL = (positions:IShopCartItem[]): IOrderForm => {
 		},
 		positions: positions,
 		comment: '',
-		deliveryType: EDelivery.SELF,
+		deliveryType: EDelivery.COURIER,
 		paymentType: EPayment.ONLINE,
 	}
 }

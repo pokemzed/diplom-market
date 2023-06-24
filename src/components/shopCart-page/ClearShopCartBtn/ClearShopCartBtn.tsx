@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {useAppDispatch} from "@/store/store";
 import {clearShopCart} from "@/store/slices/shopCartSlice";
-import {Button} from "react-bootstrap";
 import ModalConfirm from "@/ui/ModalConfirm/ModalConfirm";
 import {TOAST_SUCCESS} from "@/constants/toasts";
+import styles from "./ClearShopCartBtn.module.css";
 
 
 const ClearShopCartBtn = () => {
@@ -17,10 +17,10 @@ const ClearShopCartBtn = () => {
 	}
 
 	return (
-		<div className={"ClearShopCartBtn"}>
-			<Button variant={"danger"} onClick={() => setShow(true)}>
+		<>
+			<button className={styles.clearBtn} onClick={() => setShow(true)}>
 				Очистить корзину
-			</Button>
+			</button>
 
 			<ModalConfirm
 				show={show}
@@ -29,7 +29,7 @@ const ClearShopCartBtn = () => {
 				handleConfirm={handleClear}
 				load={false}
 			/>
-		</div>
+		</>
 	);
 };
 

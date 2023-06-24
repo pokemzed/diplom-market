@@ -4,8 +4,8 @@ import {IShopCartAmount, IShopCartItem} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
 import {EDelivery, IOrderForm} from "@/types/order";
 import {REQUEST_METHODS} from "@/types/general";
-import {Alert} from "react-bootstrap";
 import {MIN_ORDER_PRICE} from "@/constants/general";
+import styles from "./OrderAmount.module.css";
 
 interface IOrderAmount {
 	shopCartData: IShopCartItem[],
@@ -24,35 +24,44 @@ const OrderAmount: React.FC<IOrderAmount> = ({ shopCartData, formData }) => {
 
 	if (amountData && amountData.amountWithDelivery) {
 		return (
-			<div>
-				<div>
-					<p className={"m-0 fw-bold"}>{productsCount} товар(ов,a)</p>
-					<p>{amountData.discountedAmount}₽</p>
+			<div className={styles.OrderAmount}>
+				<div className={styles.block}>
+					<p>{productsCount} товар(ов,a)</p>
+					<b>{(amountData?.discountedAmount).toFixed(1)}₽</b>
 				</div>
 
 				{
 					formData.deliveryType === EDelivery.COURIER &&
-					<div>
-						<p className={"m-0 fw-bold"}>Доставка курьером</p>
-						<p>{amountData.amountWithDelivery - amountData.discountedAmount}₽</p>
-						{
-							!!(amountData.amountWithDelivery - amountData.discountedAmount) &&
-							<Alert className={"small p-2 text-center"}>
-								Бесплатная доставка при заказке от {MIN_ORDER_PRICE}₽
-							</Alert>
-						}
-					</div>
+					<>
+						<div className={styles.block}>
+							<p>Доставка курьером</p>
+							<b>{amountData.amountWithDelivery - amountData.discountedAmount}₽</b>
+						</div>
+
+						<div hidden={!(MIN_ORDER_PRICE > amountData.amount)} className={styles.alertDelivery}>
+							<h5><span>Бесплатная</span> доставка при заказе от {MIN_ORDER_PRICE}₽</h5>
+							<p className={"small"}>
+								Добавьте товаров на {MIN_ORDER_PRICE - amountData.amount + "₽"},
+								чтобы воспользоваться акцией
+							</p>
+						</div>
+					</>
 				}
 
-				<div>
-					<p className={"m-0 fw-bold"}>Итого к оплате:</p>
-					<p>
+				<div className={styles.block + " " + styles.border}>
+					<p>Скидка</p>
+					<b>{(amountData.amount - amountData.discountedAmount)?.toFixed(1)}₽</b>
+				</div>
+
+				<div className={styles.block + " " + styles.itog}>
+					<h5>Итого к оплате:</h5>
+					<h5>
 						{
 							formData.deliveryType === EDelivery.COURIER ?
-								amountData.amountWithDelivery:
-								amountData.discountedAmount
+								amountData?.amountWithDelivery?.toFixed(1):
+								amountData?.discountedAmount?.toFixed(1)
 						}₽
-					</p>
+					</h5>
 				</div>
 			</div>
 		)

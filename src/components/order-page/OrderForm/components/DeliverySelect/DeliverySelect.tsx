@@ -1,5 +1,6 @@
 import React from 'react';
 import {EDelivery, IOrderForm} from "@/types/order";
+import styles from "./DeliverySelect.module.css";
 
 interface IDeliverySelect {
 	formData: IOrderForm,
@@ -8,7 +9,7 @@ interface IDeliverySelect {
 
 const DeliverySelect: React.FC<IDeliverySelect> = ({ formData, setFormData }) => {
 	return (
-		<div className={"border p-2"}>
+		<div className={styles.DeliverySelect}>
 			<button
 				disabled={formData.deliveryType === EDelivery.COURIER}
 				onClick={() => setFormData({...formData, deliveryType: EDelivery.COURIER})}

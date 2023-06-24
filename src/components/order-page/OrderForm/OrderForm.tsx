@@ -29,6 +29,13 @@ const OrderForm = () => {
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
 
+		//check items
+		if (!formData.positions || !formData?.positions?.length) {
+			TOAST_ERROR("Товары для заказа не выбраны!")
+			return;
+		}
+
+		//check selected shop if delivery type === self
 		if (formData.deliveryType === EDelivery.SELF && !formData.shopAddress) {
 			TOAST_ERROR("Выберите магазин из которого будет совершен самовывоз!")
 			return;
@@ -56,7 +63,7 @@ const OrderForm = () => {
 
 	return (
 		<Form className={styles.OrderForm} onSubmit={handleSend}>
-			<div className={styles.userAddress}>
+			<div className={styles.orderFormData}>
 				<UserForm formData={formData} setFormData={setFormData} />
 				<DeliverySelect formData={formData} setFormData={setFormData} />
 				{
@@ -74,7 +81,7 @@ const OrderForm = () => {
 				<PaySelect formData={formData} setFormData={setFormData} />
 				<OrderAmount shopCartData={shopCartData} formData={formData} />
 
-				<button type={"submit"}>
+				<button disabled={load} type={"submit"} className={styles.submitOrder}>
 					{load ? <Spinner size={"sm"} /> : "Оформить заказ"}
 				</button>
 			</div>

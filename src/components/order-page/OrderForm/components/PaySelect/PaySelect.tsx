@@ -1,5 +1,6 @@
 import React from 'react';
 import {EPayment, IOrderForm} from "@/types/order";
+import styles from "./PaySelect.module.css";
 
 interface IPaySelect {
 	formData: IOrderForm,
@@ -8,19 +9,27 @@ interface IPaySelect {
 
 const PaySelect: React.FC<IPaySelect> = ({ formData, setFormData }) => {
 	return (
-		<div>
+		<div className={styles.PaySelect}>
 			<button
 				disabled={formData.paymentType === EPayment.ONLINE}
 				onClick={() => setFormData({...formData, paymentType: EPayment.ONLINE})}
 			>
-				Картой онлайн
+				<div className={styles.left}>
+					<div className={styles.circle} />
+					<p>Картой онлайн</p>
+				</div>
+				<img src="/icons/bank-card.svg" alt="online"/>
 			</button>
 
 			<button
 				disabled={formData.paymentType === EPayment.CASH}
 				onClick={() => setFormData({...formData, paymentType: EPayment.CASH})}
 			>
-				При получении
+				<div className={styles.left}>
+					<div className={styles.circle} />
+					<p>При получении</p>
+				</div>
+				<img src="/icons/cash.svg" alt="cash"/>
 			</button>
 		</div>
 	);

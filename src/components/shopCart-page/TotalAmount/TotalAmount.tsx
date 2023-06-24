@@ -3,7 +3,6 @@ import styles from "./TotalAmount.module.css";
 import {IShopCartAmount, IShopCartItem} from "@/types/shopCart";
 import {useFetch} from "@/hooks/useFetch";
 import {API_ORDER_AMOUNT} from "@/constants/api";
-import {Button} from "react-bootstrap";
 import Link from "next/link";
 import {LINK_ORDER} from "@/constants/links";
 import {REQUEST_METHODS} from "@/types/general";
@@ -26,16 +25,23 @@ const TotalAmount: React.FC<ITotalAmount> = ({ shopCartData }) => {
 	if (data)
 	return (
 		<div className={styles.TotalAmount}>
-			<h5 className={"m-0 text-start"}>
-				{productsCount} товар(ов,a): <b>{data?.amount}₽</b> <br/>
-				Скидка: <b>{(data?.amount - data?.discountedAmount)?.toFixed(1)}₽</b> <br/>
-				Итого: <b>{data?.discountedAmount}₽</b>
-			</h5>
+			<div className={styles.content}>
+				<div className={styles.block}>
+					<span>{productsCount} товар(ов,a):</span>
+					<b>{data?.amount}₽</b>
+				</div>
+				<div className={styles.block}>
+					<span>Скидка:</span>
+					<b>{(data?.amount - data?.discountedAmount)?.toFixed(1)}₽</b>
+				</div>
+				<div className={styles.block}>
+					<h4>Итого:</h4>
+					<h4>{data?.discountedAmount?.toFixed(1)}₽</h4>
+				</div>
+			</div>
 
-			<Link href={LINK_ORDER}>
-				<Button>
-					Перейти к оформлению заказа
-				</Button>
+			<Link href={LINK_ORDER} className={styles.btnNext}>
+				Перейти к оформлению
 			</Link>
 		</div>
 	);
