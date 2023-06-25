@@ -5,6 +5,7 @@ import {LINK_HOME, LIST_LINKS} from "@/constants/links";
 import styles from "./NavbarTop.module.css";
 import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink/ShopCartLink";
 import {usePathname} from "next/navigation";
+import {APP_TITLE} from "@/constants/general";
 
 const NavbarTop = () => {
 
@@ -14,7 +15,7 @@ const NavbarTop = () => {
 		<Navbar className={styles.NavbarTop}>
 			<Container className={styles.container}>
 				<Link href={LINK_HOME} className={styles.logo}>
-					<img src={"/Logo.svg"} alt={"Это хлеб"} />
+					<img src={"/Logo.svg"} alt={APP_TITLE} />
 				</Link>
 
 				<div className={styles.right}>

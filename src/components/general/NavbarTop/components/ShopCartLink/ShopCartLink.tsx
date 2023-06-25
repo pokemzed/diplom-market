@@ -7,6 +7,7 @@ import {IShopCartAmount} from "@/types/shopCart";
 import {API_ORDER_AMOUNT} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
 import styles from "./ShopCartLink.module.css";
+import {APP_TITLE} from "@/constants/general";
 
 const ShopCartLink = () => {
 
@@ -26,7 +27,7 @@ const ShopCartLink = () => {
 			{
 				!!productsCount ?
 					<div className={styles.title}>
-						<img src={"/icons/shop-cart.svg"} alt={"Это хлеб"} />
+						<img src={"/icons/shop-cart.svg"} alt={APP_TITLE} />
 						{!!productsCount && <span>{productsCount}</span>}
 					</div>:
 					"Корзина"

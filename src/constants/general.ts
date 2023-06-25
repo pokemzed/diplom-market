@@ -1,5 +1,7 @@
 import {IShopAddress} from "@/types/general";
 
+export const APP_TITLE = "Это хлеб"
+
 // минимальная цена заказа
 export const MIN_ORDER_PRICE = 600;
 

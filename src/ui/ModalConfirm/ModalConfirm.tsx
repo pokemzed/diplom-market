@@ -1,5 +1,6 @@
 import React from 'react';
-import {Modal, Button, Badge, Spinner} from "react-bootstrap";
+import {Modal, Spinner} from "react-bootstrap";
+import styles from "./ModalConfirm.module.css";
 
 interface IModalConfirm {
 	show: boolean,
@@ -11,23 +12,22 @@ interface IModalConfirm {
 
 const ModalConfirm: React.FC<IModalConfirm> = ({ show, handleClose, title, handleConfirm, load }) => {
 	return (
-		<Modal show={show} onHide={handleClose}>
-			<Modal.Header closeButton>
-				<Modal.Title>Подтвердить действие</Modal.Title>
-			</Modal.Header>
+		<Modal className={styles.ModalConfirm} show={show} onHide={handleClose}>
+			<Modal.Body className={styles.modalBody}>
+				<div className={styles.content}>
+					<h3>Подтвердите действие</h3>
+					<p>Вы действительно хотите <b>{title}</b>?</p>
+				</div>
 
-			<Modal.Body>
-				Вы подтверждаете<Badge className={"mx-1"}>{title}</Badge>?
+				<footer>
+					<button className={styles.agree} onClick={handleConfirm}>
+						{load ? <Spinner size={"sm"} /> : 'Подтвердить'}
+					</button>
+					<button onClick={handleClose}>
+						Отмена
+					</button>
+				</footer>
 			</Modal.Body>
-
-			<Modal.Footer>
-				<Button size={"sm"} variant="secondary" onClick={handleClose}>
-					Отмена
-				</Button>
-				<Button size={"sm"} variant="primary" onClick={handleConfirm}>
-					{load ? <Spinner size={"sm"} /> : 'Подтвердить'}
-				</Button>
-			</Modal.Footer>
 		</Modal>
 	);
 };

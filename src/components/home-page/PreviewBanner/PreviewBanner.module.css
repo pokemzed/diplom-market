@@ -1,0 +1,51 @@
+.PreviewBanner{
+    margin-bottom: 5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*image*/
+.PreviewBanner img{
+    width: 50%;
+    margin: -5% 0;
+    aspect-ratio: 827 / 1065;
+}
+
+/*content*/
+.content{
+    width: 47.5%;
+    margin-top: -10%;
+}
+
+/*text*/
+.PreviewBanner h1,
+.PreviewBanner span{
+    margin-bottom: .25em;
+
+    font-size: 56px;
+    color: var(--bs-dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
+.PreviewBanner span{
+    color: var(--app-primary);
+}
+
+.PreviewBanner p{
+    margin-bottom: 3em;
+    color: var(--bs-gray-600);
+    line-height: 1.8;
+}
+
+/*link*/
+.PreviewBanner a{
+    padding: .75em 15%;
+
+    text-decoration: none;
+    color: var(--bs-dark);
+    border: 2px solid var(--app-primary);
+    border-radius: 5px;
+    transition: .25s;
+}
