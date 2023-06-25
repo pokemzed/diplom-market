@@ -6,14 +6,14 @@ const PhoneEmailLinks = () => {
 	return (
 		<div className={styles.PhoneEmailLinks}>
 			<div className={styles.block}>
-				<h5>Позвонить</h5>
+				<h3>Позвонить</h3>
 				<a href={`tel:${CONTACTS.phone.value}`}>
 					{CONTACTS.phone.title}
 				</a>
 			</div>
 
 			<div className={styles.block}>
-				<h5>Написать</h5>
+				<h3>Написать</h3>
 				<a href={`mailto:${CONTACTS.email.value}`}>
 					{CONTACTS.email.title}
 				</a>

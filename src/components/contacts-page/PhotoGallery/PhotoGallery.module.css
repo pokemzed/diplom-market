@@ -1,0 +1,41 @@
+.PhotoGallery{
+    margin: 2em 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*title*/
+.PhotoGallery h2{
+    font-weight: 600;
+    margin-bottom: .5em;
+}
+
+/*containerBlock*/
+.containerBlock{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*images*/
+.images{
+    width: 50%;
+
+    display: flex;
+    justify-content: space-between;
+}
+.images img{
+    width: calc(50% - .25em);
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+/*map container*/
+.map{
+    width: calc(50% - .5em);
+    aspect-ratio: 2 / 1;
+}

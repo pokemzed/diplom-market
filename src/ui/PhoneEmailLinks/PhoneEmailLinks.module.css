@@ -12,9 +12,9 @@
     width: calc(50% - 1em);
 }
 /*text*/
-.PhoneEmailLinks .block h5{
+.PhoneEmailLinks .block h3{
     color: var(--bs-gray-500);
-    margin-bottom: .15em;
+    margin-bottom: .05em;
 }
 .PhoneEmailLinks .block a{
     font-size: 3.75vw;

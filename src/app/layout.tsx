@@ -1,6 +1,7 @@
 import React from "react";
 import Providers from "@/app/providers";
 import type {Metadata} from "next";
+import {APP_TITLE} from "@/constants/general";
 
 export const metadata: Metadata = {
     title: 'Это Хлеб',
@@ -17,6 +18,18 @@ interface IRootLayout {
 const RootLayout = ({children}:IRootLayout) => {
   return (
       <html lang="ru">
+
+          <head>
+              <title>{APP_TITLE}</title>
+              {/*leaflet css*/}
+              <link
+                  rel="stylesheet"
+                  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+                  crossOrigin=""
+              />
+          </head>
+
           <body>
               <Providers>
                   {children}
