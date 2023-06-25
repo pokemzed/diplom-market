@@ -1,6 +1,7 @@
 import React from 'react';
 import {EDelivery, EPayment, IOrderFormId} from "@/types/order";
 import styles from "./OrderStatusData.module.css";
+import {convertDateTime} from "@/functions/convertDateTime";
 
 interface IOrderStatusData {
 	data: IOrderFormId,
@@ -20,18 +21,20 @@ const OrderStatusData: React.FC<IOrderStatusData> = ({ data }) => {
 		<div className={styles[getTheme()]}>
 			<div className={styles.OrderStatusData}>
 				<div className={styles.left}>
-					<h3>
-						{// если оплата при получении или заказ оплачен то показываем "Заказ отправлен!"
-							(data.paymentType === EPayment.CASH ||
-							(data.paymentType === EPayment.ONLINE && data.paid)) &&
-							"Заказ отправлен!"
-						}
-						{// если оплата онлайн и заказ еще не оплачен то выводим "Заказ ожидает оплаты ..."
-							(data.paymentType === EPayment.ONLINE && !data.paid) &&
-							"Заказ ожидает оплаты ..."
-						}
-					</h3>
-					<p className="small">{data.createdAt}</p>
+					<header>
+						<h3>
+							{// если оплата при получении или заказ оплачен то "Заказ отправлен!"
+								(data.paymentType === EPayment.CASH ||
+									(data.paymentType === EPayment.ONLINE && data.paid)) &&
+								"Заказ отправлен!"
+							}
+							{// если оплата онлайн и заказ еще не оплачен то "Заказ ожидает оплаты ..."
+								(data.paymentType === EPayment.ONLINE && !data.paid) &&
+								"Заказ ожидает оплаты ..."
+							}
+						</h3>
+						<p className={styles.date}>{convertDateTime(data.createdAt)}</p>
+					</header>
 
 					{/*скрываем этот блок если оплата онлайн и она еще не проведена*/}
 					<h5 hidden={data.paymentType === EPayment.ONLINE && !data.paid}>
@@ -43,7 +46,7 @@ const OrderStatusData: React.FC<IOrderStatusData> = ({ data }) => {
 						}
 					</h5>
 
-					<p className="m-0 small text-muted">
+					<p className={styles.address}>
 						Адрес {data.deliveryType === EDelivery.SELF ? "пекарни" : "доставки"}:
 						{data.deliveryType === EDelivery.SELF ? " " + data.shopAddress : " " + data.address.address}
 					</p>
@@ -55,11 +58,11 @@ const OrderStatusData: React.FC<IOrderStatusData> = ({ data }) => {
 				</div>
 
 				<div className={styles.right}>
-					<h3>
+					<h4>
 						{data.paymentType === EPayment.CASH && "Оплата при получении"}
-						{data.paymentType === EPayment.ONLINE && data.paid && "Оплата картой онлайн (Завершена)"}
-						{data.paymentType === EPayment.ONLINE && !data.paid && "Оплата картой онлайн (Ожидание оплаты)"}
-					</h3>
+						{data.paymentType === EPayment.ONLINE && data.paid && "Оплата картой онлайн"}
+						{data.paymentType === EPayment.ONLINE && !data.paid && "Ожидание оплаты картой онлайн"}
+					</h4>
 				</div>
 			</div>
 		</div>

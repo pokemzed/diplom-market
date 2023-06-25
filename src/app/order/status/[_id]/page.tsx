@@ -4,10 +4,13 @@ import {redirect, useParams} from "next/navigation";
 import {useFetch} from "@/hooks/useFetch";
 import {API_ORDER_ID} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
-import {LINK_ERROR} from "@/constants/links";
+import {LINK_CATALOG, LINK_ERROR} from "@/constants/links";
 import {EPayment, IOrderFormId} from "@/types/order";
-import {Spinner} from "react-bootstrap";
+import {Container, Spinner} from "react-bootstrap";
 import OrderStatusData from "@/components/order-status-page/OrderStatusData/OrderStatusData";
+import BackLink from "@/ui/BackLink/BackLink";
+import styles from "./page.module.css";
+import PhoneEmailLinks from "@/ui/PhoneEmailLinks/PhoneEmailLinks";
 
 const page = () => {
 
@@ -29,10 +32,11 @@ const page = () => {
 
 	if (data)
 	return (
-		<div>
-			<h1>Статус заказа</h1>
+		<Container className={styles.main}>
+			<BackLink link={LINK_CATALOG} text={"На главную"} />
 			<OrderStatusData data={data} />
-		</div>
+			<PhoneEmailLinks />
+		</Container>
 	);
 };
 

@@ -1,0 +1,28 @@
+.PhoneEmailLinks{
+    width: 100%;
+    padding: 3em 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*block*/
+.PhoneEmailLinks .block{
+    width: calc(50% - 1em);
+}
+/*text*/
+.PhoneEmailLinks .block h5{
+    color: var(--bs-gray-500);
+    margin-bottom: .15em;
+}
+.PhoneEmailLinks .block a{
+    font-size: 3.75vw;
+    font-weight: 600;
+    color: var(--bs-dark);
+    text-decoration: none;
+    transition: .25s;
+}
+.PhoneEmailLinks .block a:hover{
+    text-decoration: underline;
+}

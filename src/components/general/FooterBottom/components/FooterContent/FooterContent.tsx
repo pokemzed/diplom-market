@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./FooterContent.module.css";
 import Link from "next/link";
+import {CONTACTS} from "@/constants/general";
 
 const FooterContent = () => {
 	return (
@@ -14,7 +15,9 @@ const FooterContent = () => {
 					<div className={styles.block}>
 						<p>По телефону</p>
 						<div className={styles.links}>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>+7 (999) 999-99-99</a>
+							<a href={`tel:${CONTACTS.phone.value}`}>
+								{CONTACTS.phone.title}
+							</a>
 						</div>
 					</div>
 

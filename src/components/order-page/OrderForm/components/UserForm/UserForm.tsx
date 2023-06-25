@@ -18,6 +18,7 @@ const UserForm: React.FC<IUserForm> = ({ formData, setFormData }) => {
 			/>
 
 			<input
+				type={"tel"}
 				required
 				value={formData.phoneNumber}
 				onChange={e => setFormData({...formData, phoneNumber: e.target.value})}

@@ -14,7 +14,7 @@ const NavbarTop = () => {
 		<Navbar className={styles.NavbarTop}>
 			<Container className={styles.container}>
 				<Link href={LINK_HOME} className={styles.logo}>
-					<img src={"./Logo.svg"} alt={"Это хлеб"} />
+					<img src={"/Logo.svg"} alt={"Это хлеб"} />
 				</Link>
 
 				<div className={styles.right}>

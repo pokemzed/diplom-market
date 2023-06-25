@@ -11,16 +11,16 @@ export const SHOPS_ADDRESSES: IShopAddress[] = [
 		workTime: 'Ежедневно с 09:00-21:00',
 		selected: false,
 	},
-	// {
-	// 	address: 'ул.Нижегородская, д.53',
-	// 	city: 'г.Дзержинск',
-	// 	workTime: 'Ежедневно с 09:00-22:00',
-	// 	selected: false,
-	// },
-	// {
-	// 	address: 'ул.Героев, д.21',
-	// 	city: 'г.Дзержинск',
-	// 	workTime: 'Ежедневно с 10:00-20:00',
-	// 	selected: false,
-	// },
 ];
+
+// контакты
+export const CONTACTS = {
+	phone: {
+		title: "+7 (999) 999-99-99",
+		value: "+79999999999",
+	},
+	email: {
+		title: "yourmail@yourmail.ru",
+		value: "yourmail@yourmail.ru",
+	},
+};

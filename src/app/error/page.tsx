@@ -1,10 +1,10 @@
+'use client'
 import React from 'react';
+import NotFoundContent from "@/components/not-found-page/NotFoundContent/NotFoundContent";
 
 const page = () => {
 	return (
-		<div>
-			<h1>ERROR</h1>
-		</div>
+		<NotFoundContent />
 	);
 };
 

@@ -19,13 +19,3 @@
     justify-content: space-between;
     align-items: flex-start;
 }
-
-/*--------------------------*/
-/*shop cart without items*/
-.noItems{
-    min-height: 60vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

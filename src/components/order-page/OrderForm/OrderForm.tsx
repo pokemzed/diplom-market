@@ -29,7 +29,7 @@ const OrderForm = () => {
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
 
-		//check items
+		//check items length
 		if (!formData.positions || !formData?.positions?.length) {
 			TOAST_ERROR("Товары для заказа не выбраны!")
 			return;
@@ -38,6 +38,12 @@ const OrderForm = () => {
 		//check selected shop if delivery type === self
 		if (formData.deliveryType === EDelivery.SELF && !formData.shopAddress) {
 			TOAST_ERROR("Выберите магазин из которого будет совершен самовывоз!")
+			return;
+		}
+
+		//check phone number
+		if (!formData.phoneNumber.match(/^[\\+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4,6}$/)) {
+			TOAST_ERROR("Введите телефон в формате +7(XXX)XXX-XX-XX!")
 			return;
 		}
 
