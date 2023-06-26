@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: flex-end;
 }
-.ReviewsSlider header h1{
+.ReviewsSlider header h2{
     margin-bottom: 0;
     font-weight: 800;
     color: var(--bs-gray-600);

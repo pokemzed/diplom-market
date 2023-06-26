@@ -11,6 +11,7 @@ import {clearItem} from "@/store/slices/shopCartSlice";
 import {REQUEST_METHODS} from "@/types/general";
 import Link from "next/link";
 import {LINK_PRODUCT} from "@/constants/links";
+import AvailableTooltip from "@/components/shopCart-page/ProductCard/components/AvailableTooltip/AvailableTooltip";
 
 
 interface IProductCard {
@@ -38,10 +39,11 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 			</div>
 
 			<div className={styles.content}>
+				<AvailableTooltip available={productData.available} />
 				<Link href={LINK_PRODUCT(productData._id)}>
 					<h5>{productData.name}</h5>
 				</Link>
-				<p>{data.weight} грамм</p>
+				<p className={styles.weight}>{data.weight} грамм</p>
 
 				<ShopCartBtn
 					selected={{weight: data.weight, price: data.price}}

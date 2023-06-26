@@ -5,6 +5,7 @@ import RandomProducts from "@/components/general/RandomProducts/RandomProducts";
 import {Container} from "react-bootstrap";
 import MeetBanner from "@/components/home-page/MeetBanner/MeetBanner";
 import ReviewsSlider from "@/components/home-page/ReviewsSlider/ReviewsSlider";
+import Advantages from "@/components/home-page/Advantages/Advantages";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
                   title={"Вам может понравиться"}
               />
               <ReviewsSlider />
+              <Advantages />
           </Container>
       </main>
   )

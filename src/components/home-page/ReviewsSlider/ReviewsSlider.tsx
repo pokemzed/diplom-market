@@ -9,7 +9,7 @@ const ReviewsSlider = () => {
 	return (
 		<div className={styles.ReviewsSlider}>
 			<header>
-				<h1>Отзывы клиентов</h1>
+				<h2>Отзывы клиентов</h2>
 			</header>
 
 			<Swiper
