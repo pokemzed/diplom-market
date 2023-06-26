@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./ProductsList.module.css";
 import {useGetProducts} from "@/hooks/useGetProducts";
-import {Badge} from "react-bootstrap";
 import ProductCard from "@/components/admin-page/ProductsList/components/ProductCard/ProductCard";
 
 const ProductsList = () => {
@@ -12,9 +11,9 @@ const ProductsList = () => {
 
 	return (
 		<div className={styles.ProductsList}>
-			<Badge className={"w-100 mb-2 text-center"}>
+			<h1 className={styles.title}>
 				Список товаров ({data.loading ? "Обновление..." : data.products.length})
-			</Badge>
+			</h1>
 
 			<div className={styles.content}>
 				{

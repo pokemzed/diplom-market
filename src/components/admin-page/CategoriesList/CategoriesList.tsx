@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "./CategoriesList.module.css";
-import {Badge} from "react-bootstrap";
 import CategoryCard from "@/components/admin-page/CategoriesList/components/CategoryCard/CategoryCard";
 import {useGetCategories} from "@/hooks/useGetCategories";
 
@@ -12,9 +11,9 @@ const CategoriesList = () => {
 
 	return (
 		<div className={styles.CategoriesList}>
-			<Badge className={"w-100 mb-2 text-center"}>
+			<h1 className={styles.title}>
 				Список категорий ({data.loading ? "Обновление..." : data.categories.length})
-			</Badge>
+			</h1>
 
 			<div className={styles.content}>
 				{

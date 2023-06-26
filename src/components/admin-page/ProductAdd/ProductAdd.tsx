@@ -1,6 +1,6 @@
 import React, {FormEvent, useState} from 'react';
 import styles from "./ProductAdd.module.css";
-import {Badge, Button, Form, Spinner} from "react-bootstrap";
+import {Button, Form, Spinner} from "react-bootstrap";
 import {ITEM_INITIAL} from "@/constants/products";
 import {IProductWithImg} from "@/types/products";
 import ProductFormWeightPrice
@@ -54,7 +54,7 @@ const ProductAdd = () => {
 
 	return (
 		<div className={styles.ProductAdd}>
-			<Badge className={"w-100 mb-2 text-center"}>Добавить товар</Badge>
+			<h1 className={styles.title}>Добавить товар</h1>
 
 			<Form onSubmit={handleSend}>
 				<ProductFormCategorySelect formData={formData} setFormData={setFormData} />
@@ -65,7 +65,7 @@ const ProductAdd = () => {
 
 				<ProductFormWeightPrice formData={formData} setFormData={setFormData} />
 
-				<Button disabled={load} size={"sm"} variant={"outline-primary"} className={"w-100"} type={"submit"}>
+				<Button disabled={load} size={"sm"} variant={"dark"} className={"w-100"} type={"submit"}>
 					{load ? <Spinner size={"sm"} /> : 'Отправить'}
 				</Button>
 			</Form>

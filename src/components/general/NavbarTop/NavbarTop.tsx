@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import Link from "next/link";
 import {LINK_HOME, LIST_LINKS} from "@/constants/links";
@@ -6,10 +6,12 @@ import styles from "./NavbarTop.module.css";
 import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink/ShopCartLink";
 import {usePathname} from "next/navigation";
 import {APP_TITLE} from "@/constants/general";
+import NavbarMobile from "@/components/general/NavbarTop/components/NavbarMobile/NavbarMobile";
 
 const NavbarTop = () => {
 
 	const path = usePathname();
+	const [showMobile, setShowMobile] = useState<boolean>(false);
 
 	return (
 		<Navbar className={styles.NavbarTop}>
@@ -34,8 +36,18 @@ const NavbarTop = () => {
 					</Nav>
 
 					<ShopCartLink />
+
+					<img
+						onClick={() => setShowMobile(!showMobile)}
+						className={styles.openMenu}
+						src={"/icons/menu.svg"}
+						alt={APP_TITLE}
+					/>
 				</div>
 			</Container>
+
+			{/*mobile menu*/}
+			<NavbarMobile show={showMobile} handleClose={() => setShowMobile(false)} />
 		</Navbar>
 	);
 };

@@ -37,3 +37,59 @@
     color: var(--bs-white);
     background: var(--app-primary);
 }
+
+/*openMenu*/
+.openMenu{
+    display: none;
+    width: 32px;
+    margin-left: 15px;
+}
+
+/*media*/
+@media (max-width: 1200px) {
+    /*logo*/
+    .logo img{
+        width: 180px;
+    }
+    /*links Container*/
+    .linksContainer{
+        margin-right: 2.5em;
+    }
+}
+
+@media (max-width: 991px) {
+    /*logo*/
+    .logo img{
+        width: 110px;
+    }
+    /*links Container*/
+    .linksContainer{
+        margin-right: 1.25em;
+    }
+    /*links*/
+    .linksContainer a:nth-child(2){
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /*links Container*/
+    .linksContainer{
+        margin-right: .5em;
+    }
+    /*links*/
+    .linksContainer a:nth-child(3){
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    /*links and shop cart*/
+    .linksContainer{
+        display: none;
+    }
+    /*openMenu*/
+    .openMenu{
+        display: inline-block;
+    }
+}

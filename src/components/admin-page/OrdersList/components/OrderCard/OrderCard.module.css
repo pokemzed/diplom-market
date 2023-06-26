@@ -6,9 +6,5 @@
 
 .itemsContainer{
     max-height: 250px;
-    padding: .5em;
-
-    border-radius: .25em;
-    border: 1px solid var(--bs-gray);
     overflow-y: auto;
 }

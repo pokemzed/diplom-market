@@ -1,21 +1,20 @@
 .CategoriesList{
     width: 100%;
     height: auto;
-    padding: 1em;
+}
 
-    border: 1px solid var(--bs-gray-300);
-    border-radius: .5em;
+.title{
+    margin-bottom: .75em;
+    font-weight: 800;
+    color: var(--bs-dark);
+    font-family: 'Playfair Display', serif;
 }
 
 .content{
     max-height: 95vh;
-    padding: .5em;
+    overflow-y: auto;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    border: 1px solid var(--bs-gray-300);
-    border-radius: .5em;
-    overflow-y: auto;
 }

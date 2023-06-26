@@ -43,7 +43,7 @@ const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, s
 				handleSelect={handleSelectWeight}
 			/>
 
-			<Badge hidden={!!formData.weights.length} className={"w-100 mb-1"}>
+			<Badge hidden={!!formData.weights.length} className={"w-100 mb-1"} bg={"danger"}>
 				Выберите вес товара для того, чтобы указать цену
 			</Badge>
 

@@ -5,17 +5,21 @@ import ProductAdd from "@/components/admin-page/ProductAdd/ProductAdd";
 import CategoriesList from "@/components/admin-page/CategoriesList/CategoriesList";
 import ProductsList from "@/components/admin-page/ProductsList/ProductsList";
 import OrdersList from "@/components/admin-page/OrdersList/OrdersList";
+import {Container} from "react-bootstrap";
 
 const page = () => {
 	return (
-		<div className={"p-3"}>
-			<h1>Admin page</h1>
-			<CategoriesAdd />
-			<CategoriesList />
-			<ProductAdd />
-			<ProductsList />
+		<Container className={"pt-3 pb-3"}>
 			<OrdersList />
-		</div>
+			<hr className={"my-5"} />
+			<CategoriesAdd />
+			<hr className={"my-5"} />
+			<CategoriesList />
+			<hr className={"my-5"} />
+			<ProductAdd />
+			<hr className={"my-5"} />
+			<ProductsList />
+		</Container>
 	);
 };
 

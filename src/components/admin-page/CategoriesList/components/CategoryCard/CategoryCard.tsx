@@ -41,19 +41,19 @@ const CategoryCard: React.FC<ICategoryCard> = ({ data }) => {
 			<Card className={styles.CategoryCard}>
 				<Card.Img className={styles.img} variant="top" src={data.image} />
 				<Card.Body>
-					<Card.Title>{data.name}</Card.Title>
-					<Card.Text className={"mb-1 small"}>
-						{handleCutStr(data?.description, 80) || "Без описания"}
+					<h4>{data.name}</h4>
+					<Card.Text className={"mb-1"}>
+						<b>Описание:</b> {handleCutStr(data?.description, 80) || "Без описания"}
 					</Card.Text>
-					<Badge className={"mb-3"} bg={data.hasSale ? "success" : "secondary"}>
+					<Badge className={"mb-3"} bg={"dark"}>
 						Распродажа в категории: {data.hasSale ? "Да" : "Нет"}
 					</Badge>
 
 					<ButtonGroup className={"w-100"}>
-						<Button variant="secondary" size={"sm"} onClick={() => setShowRedact(true)}>
+						<Button variant="light" size={"sm"} onClick={() => setShowRedact(true)}>
 							Изменить
 						</Button>
-						<Button variant="danger" size={"sm"} onClick={() => setShowDelete(true)}>
+						<Button variant="dark" size={"sm"} onClick={() => setShowDelete(true)}>
 							Удалить
 						</Button>
 					</ButtonGroup>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, ButtonGroup, Card} from "react-bootstrap";
+import {Button, ButtonGroup, Table} from "react-bootstrap";
 import {IProductId} from "@/types/products";
 
 interface IProductPrice {
@@ -17,8 +17,8 @@ const ProductPrice: React.FC<IProductPrice> = ({ data }) => {
 					data?.weights?.map(elem => (
 						<Button
 							key={elem.value}
+							variant={"outline-dark"}
 							active={elem.value === selectedWeight}
-							variant={"outline-primary"}
 							onClick={() => setSelectedWeight(elem.value)}
 						>
 							{elem.title}
@@ -27,10 +27,14 @@ const ProductPrice: React.FC<IProductPrice> = ({ data }) => {
 				}
 			</ButtonGroup>
 
-			<Card.Text className={"mb-2 small"}>
-				<b style={{ marginRight: 3 }}>Цена за {selectedWeight} грамм:</b>
-				{data?.prices?.find(elem => elem.weight === selectedWeight)?.price}₽/шт
-			</Card.Text>
+			<Table bordered className={"small"}>
+				<tbody>
+					<tr>
+						<td>Цена за {selectedWeight} грамм:</td>
+						<td>{data?.prices?.find(elem => elem.weight === selectedWeight)?.price}₽/шт</td>
+					</tr>
+				</tbody>
+			</Table>
 		</>
 	);
 };

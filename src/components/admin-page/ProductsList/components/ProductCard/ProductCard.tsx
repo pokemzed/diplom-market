@@ -8,9 +8,9 @@ import {API_PRODUCT, API_PRODUCT_IMG} from "@/constants/api";
 import {TOAST_ERROR, TOAST_SUCCESS} from "@/constants/toasts";
 import {useGetProducts} from "@/hooks/useGetProducts";
 import ModalConfirm from "@/ui/ModalConfirm/ModalConfirm";
-import ProductPrice from "@/components/admin-page/ProductsList/components/ProductCard/ProductPrice";
+import ProductPrice from "@/components/admin-page/ProductsList/components/ProductCard/components/ProductPrice";
 import ProductRedact from "@/components/admin-page/ProductRedact/ProductRedact";
-import ProductInfo from "@/components/admin-page/ProductsList/components/ProductCard/ProductInfo";
+import ProductInfo from "@/components/admin-page/ProductsList/components/ProductCard/components/ProductInfo";
 import {REQUEST_METHODS} from "@/types/general";
 import {useFetch} from "@/hooks/useFetch";
 import Link from "next/link";
@@ -64,14 +64,14 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 					<ButtonGroup className={"w-100"}>
 						{/*не можем изменять если фотки не загрузились*/}
 						<Button
-							variant="secondary" size={"sm"}
+							variant="light" size={"sm"}
 							onClick={() => setShowRedact(true)}
 							hidden={!images?.images}
 						>
 							Изменить
 						</Button>
 
-						<Button variant="danger" size={"sm"} onClick={() => setShowDelete(true)}>
+						<Button variant="dark" size={"sm"} onClick={() => setShowDelete(true)}>
 							Удалить
 						</Button>
 					</ButtonGroup>

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from "./OrderProductItem.module.css";
 import {IShopCartItem} from "@/types/shopCart";
 import {useFetch} from "@/hooks/useFetch";
 import {API_PRODUCT_ID} from "@/constants/api";
@@ -7,6 +6,7 @@ import {REQUEST_METHODS} from "@/types/general";
 import {IProductId} from "@/types/products";
 import Link from "next/link";
 import {LINK_PRODUCT} from "@/constants/links";
+import {Table} from "react-bootstrap";
 
 interface IOrderProductItem {
 	data: IShopCartItem,
@@ -19,14 +19,34 @@ const OrderProductItem: React.FC<IOrderProductItem> = ({ data }) => {
 	if (!itemData) return;
 
 	return (
-		<div className={styles.OrderProductItem}>
-			<Link href={LINK_PRODUCT(itemData._id)}>
-				<h5>{itemData.name}</h5>
-			</Link>
-			<p className={"small"}>Вес: <b>{data.weight} грамм</b></p>
-			<p className={"small"}>Кол-во: <b>{data.quantity} шт.</b></p>
-			<p className="small">Состав: <b>{itemData.composition}</b></p>
-		</div>
+		<Table bordered className={"mb-2 small"}>
+			<tbody>
+			<tr>
+				<td>Товар:</td>
+				<td className={"fw-bold"}>
+					<Link href={LINK_PRODUCT(itemData._id)}>
+						{itemData.name}
+					</Link>
+				</td>
+			</tr>
+			<tr>
+				<td>Вес:</td>
+				<td>{data.weight} грамм</td>
+			</tr>
+			<tr>
+				<td>Кол-во:</td>
+				<td>{data.quantity} шт.</td>
+			</tr>
+			<tr>
+				<td>Состав:</td>
+				<td>{itemData.composition}</td>
+			</tr>
+			<tr hidden={itemData.available}>
+				<td>Предзаказ:</td>
+				<td>Да</td>
+			</tr>
+			</tbody>
+		</Table>
 	);
 };
 

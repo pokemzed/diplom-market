@@ -50,3 +50,11 @@
     margin-left: .75em;
     line-height: 1;
 }
+
+/*media*/
+@media (max-width: 768px) {
+    .ShopCartLink{
+        width: 120px;
+        height: 40px;
+    }
+}

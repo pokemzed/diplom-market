@@ -39,7 +39,7 @@
 }
 /*link*/
 .RandomProducts .btnContainer a{
-    padding: .8em 3em;
+    padding: .8em 6.5%;
 
     text-decoration: none;
     color: var(--bs-dark);

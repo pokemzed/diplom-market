@@ -19,17 +19,20 @@ const SelectMany: React.FC<ISelectMany> = ({ title, data, selectedItems, handleS
 
 	return (
 		<div className={styles.SelectMany}>
-			<Button className={"w-100"} onClick={() => setShow(!show)} size={"sm"}>
+			<Button
+				className={"w-100"} variant={"outline-dark"} size={"sm"}
+				onClick={() => setShow(!show)}
+			>
 				{title} ({show ? "закрыть" : "открыть"})
 			</Button>
 
 			<div hidden={!selectedItems.length} className={styles.selectedList}>
-				<Badge bg={"secondary"} className={"w-100 mb-1 text-center"}>
+				<Badge bg={"dark"} className={"w-100 mb-1 text-center"}>
 					Выбранные варианты веса:
 				</Badge>
 				{
 					selectedItems?.map(elem => (
-						<Badge className={styles.selectedItem} key={elem.title}>
+						<Badge className={styles.selectedItem} key={elem.title} bg={"dark"}>
 							{elem.title}
 						</Badge>
 					))

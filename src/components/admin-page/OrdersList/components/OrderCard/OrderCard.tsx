@@ -56,7 +56,10 @@ const OrderCard: React.FC<IOrderCard> = ({ data }) => {
 			</Button>
 
 			{/*ORDER PRODUCTS BUTTON SHOW*/}
-			<Button size={"sm"} onClick={() => setShowItems(!showItems)} className={"my-1"}>
+			<Button
+				variant={"dark"} size={"sm"} className={"my-1"}
+				onClick={() => setShowItems(!showItems)}
+			>
 				{showItems ? "Скрыть" : "Показать"} товары заказа
 			</Button>
 

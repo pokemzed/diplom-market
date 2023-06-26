@@ -7,3 +7,7 @@
     aspect-ratio: 4 / 3;
     object-fit: cover;
 }
+
+.CategoryCard h4{
+    font-weight: 800;
+}

@@ -1,8 +1,5 @@
 .SelectMany {
     width: inherit;
-    padding: .25em;
-    border: 1px solid var(--bs-gray-300);
-    border-radius: .5em;
 }
 
 /*dropdown items list*/

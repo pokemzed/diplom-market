@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import styles from "./OrdersList.module.css";
 import {useGetOrders} from "@/hooks/useGetOrders";
-import {Badge, Button, ButtonGroup} from "react-bootstrap";
+import {Button, ButtonGroup} from "react-bootstrap";
 import OrderCard from "@/components/admin-page/OrdersList/components/OrderCard/OrderCard";
 import {EOrderSorts} from "@/types/order";
 
 const OrdersList = () => {
 
 	//list orders
-	const { data } = useGetOrders();
+	const { data, updateOrders } = useGetOrders();
 
 	const [sort, setSort] = useState(EOrderSorts.WAIT);
 
@@ -24,9 +24,13 @@ const OrdersList = () => {
 
 	return (
 		<div className={styles.OrdersList}>
-			<Badge className={"w-100 mb-2 text-center"}>
-				Список заказов ({data.loading ? "Обновление..." : data.orders.length})
-			</Badge>
+			<div className={styles.header}>
+				<h1>Список заказов ({data.loading ? "Обновление..." : data.orders.length})</h1>
+
+				<Button variant={"dark"} onClick={updateOrders} disabled={!!data.loading}>
+					Обновить заказы
+				</Button>
+			</div>
 
 			{/*SORT BUTTONS*/}
 			<ButtonGroup className={styles.sortsContainer}>
@@ -55,9 +59,9 @@ const OrdersList = () => {
 
 			{// смотрим не пустой ли массив в категории
 				(!getSortedItems() || !getSortedItems()?.length) &&
-				<h6 className={styles.noOrders}>
+				<h5 className={styles.noOrders}>
 					Список заказов в данной категории пуст!
-				</h6>
+				</h5>
 			}
 		</div>
 	);

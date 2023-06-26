@@ -1,5 +1,5 @@
 import React, {FormEvent, useState} from 'react';
-import {Alert, Badge, Button, FloatingLabel, Form, FormControl, Spinner} from "react-bootstrap";
+import {Alert, Button, FloatingLabel, Form, FormControl, Spinner} from "react-bootstrap";
 import styles from "./CategoriesAdd.module.css";
 import {convertToBase64} from "@/functions/convertToBase64";
 import {CATEGORY_INITIAL} from "@/constants/categories";
@@ -47,7 +47,7 @@ const CategoriesAdd = () => {
 
 	return (
 		<div className={styles.CategoriesAdd}>
-			<Badge className={"w-100 mb-2 text-center"}>Добавить категорию</Badge>
+			<h1>Добавить категорию</h1>
 
 			<Form onSubmit={handleSend}>
 				<FloatingLabel label={"Название"}>
@@ -60,7 +60,7 @@ const CategoriesAdd = () => {
 
 				<FloatingLabel label={"Описание"}>
 					<FormControl
-						as={"textarea"} rows={3}
+						as={"textarea"}
 						value={formData.description}
 						onChange={e => setFormData({...formData, description: e.target.value})}
 					/>
@@ -74,7 +74,7 @@ const CategoriesAdd = () => {
 					/>
 				</FloatingLabel>
 
-				<Alert hidden={!formData.image} variant={"success"} className={"my-1 p-2 small text-center"}>
+				<Alert hidden={!formData.image} className={styles.alertPhoto}>
 					Изображение успешно загружено!
 				</Alert>
 
@@ -86,7 +86,7 @@ const CategoriesAdd = () => {
 					onChange={() => setFormData({...formData, hasSale: !formData.hasSale})}
 				/>
 
-				<Button disabled={load} type={"submit"} size={"sm"} className={"w-100"} variant={"outline-primary"}>
+				<Button disabled={load} type={"submit"} size={"sm"} className={"w-100"} variant={"dark"}>
 					{load ? <Spinner size={"sm"} /> : 'Отправить'}
 				</Button>
 			</Form>

@@ -49,3 +49,7 @@
     border-radius: 5px;
     transition: .25s;
 }
+.PreviewBanner a:hover{
+    color: var(--bs-white);
+    background: var(--app-primary);
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./FooterContent.module.css";
 import Link from "next/link";
 import {CONTACTS} from "@/constants/general";
+import {LINK_PRIVACY, LINK_REQUISITES} from "@/constants/links";
 
 const FooterContent = () => {
 	return (
@@ -44,14 +45,14 @@ const FooterContent = () => {
 			<div className={styles.bottom}>
 				<div className={styles.left}>
 					<h6>
-						ООО «Хлеб» © 2023 <br/>
-						ОГРН 9999999999999, ИНН/КПП 9999999999/999999999
+						ООО «Это Хлеб» © 2023 <br/>
+						ИНН/КПП 5249043499/524901001
 					</h6>
 				</div>
 
 				<div className={styles.right}>
-					<Link href={"/"}>Политика конфиденциальности</Link>
-					<Link href={"/"}>Пользовательское соглашение</Link>
+					<Link href={LINK_REQUISITES}>Реквизиты и юр. информация</Link>
+					<Link href={LINK_PRIVACY}>Политика конфиденциальности</Link>
 				</div>
 			</div>
 		</footer>
