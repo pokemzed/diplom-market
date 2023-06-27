@@ -34,6 +34,11 @@ const ProductRedact: React.FC<IProductRedact> = ({ data, show, handleClose }) =>
 			return;
 		}
 
+		if (formData.weights.length > 2) {
+			TOAST_ERROR("Вы можете выбрать максимум 2 разновидности веса для товара!");
+			return;
+		}
+
 		if (!formData?.images?.length) {
 			TOAST_ERROR("Загрузите изображения товара!");
 			return;
