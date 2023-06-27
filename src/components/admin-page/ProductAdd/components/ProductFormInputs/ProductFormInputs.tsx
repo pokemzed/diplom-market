@@ -49,6 +49,12 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 				checked={formData?.available}
 				onChange={() => setFormData({...formData, available: !formData?.available})}
 			/>
+
+			<Form.Switch
+				label="Рекомендовать к покупке"
+				checked={formData?.isRecommendation}
+				onChange={() => setFormData({...formData, isRecommendation: !formData?.isRecommendation})}
+			/>
 		</>
 	);
 };

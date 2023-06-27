@@ -35,6 +35,10 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<td>Наличие:</td>
 				<td>{!!data?.available ? "Да" : "Нет"}</td>
 			</tr>
+			<tr>
+				<td>Рекомендация:</td>
+				<td>{!!data?.isRecommendation ? "Да" : "Нет"}</td>
+			</tr>
 			</tbody>
 		</Table>
 	);

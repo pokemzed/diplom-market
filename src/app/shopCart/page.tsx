@@ -9,6 +9,7 @@ import {LINK_CATALOG} from "@/constants/links";
 import {Container} from "react-bootstrap";
 import styles from "./page.module.css";
 import ShopCartNoItems from "@/components/shopCart-page/ShopCartNoItems/ShopCartNoItems";
+import RecommendItems from "@/components/shopCart-page/RecommendItems/RecommendItems";
 
 const page = () => {
 
@@ -24,8 +25,14 @@ const page = () => {
 				<ClearShopCartBtn />
 			</header>
 			<div className={styles.content}>
-				<ProductsList shopCartData={shopCartData} />
-				<TotalAmount shopCartData={shopCartData} />
+				<div className={styles.products}>
+					<ProductsList shopCartData={shopCartData} />
+					<RecommendItems />
+				</div>
+
+				<div className={styles.amount}>
+					<TotalAmount shopCartData={shopCartData} />
+				</div>
 			</div>
 		</Container>
 	);

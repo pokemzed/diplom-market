@@ -22,6 +22,7 @@ export interface IProduct {
 	weights: ISelectManyItem[],
 	composition: string,
 	available: boolean,
+	isRecommendation: boolean,
 }
 
 export interface IProductId extends IProduct {

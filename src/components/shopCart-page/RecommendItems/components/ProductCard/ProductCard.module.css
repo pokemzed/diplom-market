@@ -1,0 +1,89 @@
+.ProductCard{
+    width: 100%;
+    margin-bottom: .75em;
+
+    display: flex;
+
+    background: var(--app-light);
+    border-radius: 5px;
+}
+.ProductCard:last-child{
+    margin-bottom: 0;
+}
+
+/*slider Container*/
+.ProductCard .sliderContainer{
+    position: relative;
+    width: 40%;
+    height: inherit;
+}
+/*slider images*/
+.ProductCard .sliderContainer img{
+    aspect-ratio: 5 / 3;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/*badges container*/
+.ProductCard .sliderContainer .badges{
+    position: absolute;
+    padding: 1em;
+
+    display: flex;
+
+    z-index: 5;
+}
+/*badges*/
+.ProductCard .badges .badge{
+    margin-right: .5em;
+    padding: .5em 1em;
+    color: var(--bs-dark);
+}
+.ProductCard .badges .badge:last-child{
+    margin-right: 0;
+}
+.ProductCard .badges .badge p{
+    margin: 0;
+}
+.ProductCard .badges .badge p:last-child i{
+    display: none;
+}
+
+/*content*/
+.ProductCard .content{
+    width: 60%;
+    height: inherit;
+    padding: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*topContainer*/
+.ProductCard .topContainer{
+    margin-bottom: .5em;
+}
+.ProductCard .topContainer a{
+    text-decoration: none;
+    color: var(--bs-dark);
+    font-weight: 700;
+}
+.ProductCard .topContainer a:hover{
+    text-decoration: underline;
+}
+/*hr*/
+.ProductCard .topContainer hr{
+    margin: .5em 0;
+}
+/*TEXT*/
+.ProductCard .topContainer p{
+    margin: 0;
+    color: var(--bs-gray-600);
+}
+.ProductCard .topContainer h4,
+.ProductCard .topContainer p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -10,9 +10,18 @@ export const ITEM_INITIAL:IProductWithImg = {
 	weights: [],
 	composition: '',
 	available: true,
+	isRecommendation: false,
 };
 
 export const ITEM_WEIGHTS = [
+	{
+		title: '20 грамм',
+		value: 20,
+	},
+	{
+		title: '40 грамм',
+		value: 40,
+	},
 	{
 		title: '60 грамм',
 		value: 60,

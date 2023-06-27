@@ -67,7 +67,6 @@
 /*bottom block*/
 .bottom{
     margin-top: 3em;
-
     align-items: flex-end;
 }
 
@@ -89,4 +88,58 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+
+/*media*/
+@media (max-width: 1200px) {
+    .FooterContent .top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    /*top block title left*/
+    .FooterContent .top h4{
+        max-width: 100%;
+        margin-bottom: 1.5em;
+    }
+    /*top block container right BLOCK*/
+    .FooterContent .top .right .block{
+        margin-left: 0;
+        margin-right: 2em;
+
+        align-items: flex-start;
+    }
+    /*bottom block*/
+    .bottom{
+        margin-top: 2.25em;
+    }
+}
+
+@media (max-width: 768px) {
+    .FooterContent{
+        padding: 2.25em 0 3em;
+    }
+    /*top block container right container*/
+    .FooterContent .top .right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    /*top block container right block*/
+    .FooterContent .top .right .block{
+        margin-bottom: .5em;
+    }
+
+    /*bottom main block*/
+    .FooterContent .bottom{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    /*bottom left block*/
+    .FooterContent .bottom .left{
+        margin-bottom: 1em;
+    }
+    /*bottom right block*/
+    .bottom .right{
+        align-items: flex-start;
+    }
 }

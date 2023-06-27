@@ -19,3 +19,14 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+/*products container*/
+.products{
+    width: calc(100% - 350px - 1em);
+    max-width: 800px;
+}
+/*sticky amount container*/
+.amount{
+    position: sticky;
+    top: 1em;
+    width: 350px;
+}

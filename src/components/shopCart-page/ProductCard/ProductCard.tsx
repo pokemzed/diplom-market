@@ -22,12 +22,18 @@ interface IProductCard {
 const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 
 	const dispatch = useAppDispatch();
-	const { data:productData } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
+	const { data:productData, error } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
 	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(data.itemId), REQUEST_METHODS.GET, {});
 
 	//delete item from shop cart
 	const handleClearItem = () => {
 		dispatch(clearItem(data))
+	}
+
+	//если при получении товара вылетает ошибка то удаляем его из корзины
+	if (error) {
+		handleClearItem();
+		return;
 	}
 
 	if (!productData) return;
