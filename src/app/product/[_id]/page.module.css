@@ -8,7 +8,7 @@
 
 /*spinnerContainer*/
 .spinnerContainer{
-    height: 80vh;
+    height: 60vh;
     margin: 1em auto;
 
     display: flex;
@@ -27,8 +27,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
+/*slider*/
 .sliderContainer{
     width: 50%;
 }
@@ -36,6 +38,34 @@
     border-radius: 5px;
 }
 
+/*data item*/
 .dataContainer{
     width: 45%;
+}
+
+/*media*/
+@media (max-width: 1400px) {
+    /*productData*/
+    .productData{
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 991px) {
+    /*slider*/
+    .sliderContainer{
+        width: 65%;
+        margin-bottom: 2em;
+    }
+    /*data item*/
+    .dataContainer{
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    /*slider*/
+    .sliderContainer{
+        width: 100%;
+    }
 }

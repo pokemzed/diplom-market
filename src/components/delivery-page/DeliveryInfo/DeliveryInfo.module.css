@@ -8,7 +8,7 @@
 
 /*block*/
 .DeliveryInfo .block{
-    max-width: 800px;
+    max-width: 1000px;
     margin-bottom: 1.25em;
     display: flex;
     align-items: flex-start;
@@ -28,4 +28,12 @@
 
     border-radius: 5px;
     background: var(--app-primary);
+}
+
+
+/*media*/
+@media (max-width: 1200px) {
+    .DeliveryInfo .block{
+        max-width: 800px;
+    }
 }

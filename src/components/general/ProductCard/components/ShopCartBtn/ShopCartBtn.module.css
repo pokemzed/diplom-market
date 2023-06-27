@@ -2,6 +2,8 @@
 .ShopCartBtn{
     padding: .65em 1.25em;
 
+    white-space: nowrap;
+
     z-index: 3;
     border: none;
     border-radius: 5px;
@@ -15,6 +17,7 @@
 
 /*active button*/
 .ShopCartBtnActive{
+    display: flex;
     z-index: 3;
 }
 
@@ -38,4 +41,15 @@
 .ShopCartBtnActive button:first-child:hover,
 .ShopCartBtnActive button:last-child:hover{
     color: var(--app-primary);
+}
+
+/*media*/
+@media (max-width: 1200px) {
+    /*no active button*/
+    .ShopCartBtn{
+        padding: .65em;
+    }
+    .ShopCartBtnActive button {
+        padding: .65em .85em;
+    }
 }

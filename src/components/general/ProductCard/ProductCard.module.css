@@ -1,7 +1,7 @@
 .ProductCard {
     position: relative;
 
-    width: calc(33.33% - 1em);
+    width: calc(33.33% - .75em);
     margin-bottom: 1.5em;
 
     display: flex;
@@ -89,4 +89,40 @@ p.composition{
     margin-bottom: 2em;
 
     color: var(--bs-gray-600);
+}
+
+
+/*media*/
+@media (max-width: 1200px) {
+    /*name h4*/
+    h4.name{
+        padding: .15em 0;
+        font-weight: 800;
+    }
+    /*composition*/
+    .ProductCard p.composition{
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 991px) {
+    .ProductCard {
+        width: calc(50% - .5em);
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .ProductCard {
+        width: 100%;
+    }
+    /*slider aspect ratio*/
+    .ProductCard .swiperContainer img{
+        aspect-ratio: 2 / 1;
+    }
+    /*content*/
+    .content{
+        width: 100%;
+        padding: 1em;
+    }
 }
