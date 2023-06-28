@@ -3,18 +3,21 @@
     padding: 1.25em 0;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
 
     border-bottom: 2px solid var(--bs-gray-300);
 }
 .ProductCard:last-child{
+    padding-bottom: 0;
     border-bottom: 0;
 }
 
 /*swiperContainer*/
 .swiperContainer{
     width: 30%;
+
+    display: flex;
+    align-items: center;
 }
 .swiperContainer img{
     border-radius: 5px;
@@ -22,8 +25,18 @@
 
 /*content (count and title item)*/
 .content{
-    width: 50%;
+    width: 55%;
     margin-left: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/*innerTop*/
+.innerTop{
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -31,15 +44,17 @@
 }
 
 .content a{
+    width: 100%;
     text-decoration: none;
 }
 .content h5{
+    width: 100%;
     margin-bottom: 0;
 
-    color: var(--bs-dark);
     overflow:hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
+    color: var(--bs-dark);
 }
 .content h5:hover{
     text-decoration: underline;
@@ -54,18 +69,19 @@
 
 /*footer*/
 .footer{
-    width: 15%;
+    width: 10%;
+    height: inherit;
+    padding-top: 3px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
 /*delete item*/
 .footer img{
     width: 15px;
-    margin-bottom: calc(100% - 32px);
-
     cursor: pointer;
 }
 .footer img:hover{
@@ -85,4 +101,36 @@
 .footer p span{
     margin-left: .2em;
     color: var(--bs-gray-600);
+}
+
+
+/*media*/
+@media (max-width: 1200px) {
+    /*p weight*/
+    .content .weight{
+        margin-bottom: .25em;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiperContainer img{
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    /*item name*/
+    .content h5{
+        font-size: 16px;
+    }
+    /*item weight*/
+    .content .weight{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .swiperContainer img{
+        aspect-ratio: 7 / 8;
+    }
 }

@@ -45,11 +45,13 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 			</div>
 
 			<div className={styles.content}>
-				<AvailableTooltip available={productData.available} />
-				<Link href={LINK_PRODUCT(productData._id)}>
-					<h5>{productData.name}</h5>
-				</Link>
-				<p className={styles.weight}>{data.weight} грамм</p>
+				<div className={styles.innerTop}>
+					<AvailableTooltip available={productData.available} />
+					<Link href={LINK_PRODUCT(productData._id)}>
+						<h5>{productData.name}</h5>
+					</Link>
+					<p className={styles.weight}>{data.weight} грамм</p>
+				</div>
 
 				<ShopCartBtn
 					selected={{weight: data.weight, price: data.price}}

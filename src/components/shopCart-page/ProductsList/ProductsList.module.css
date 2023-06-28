@@ -16,3 +16,10 @@
 .content {
     width: 100%;
 }
+
+/*media*/
+@media (max-width: 450px) {
+    .ProductsList {
+        padding: 1.5em 1em;
+    }
+}

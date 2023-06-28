@@ -62,3 +62,10 @@
 .btnNext:hover{
     background: var(--app-primary-hover);
 }
+
+/*media*/
+@media (max-width: 450px) {
+    .TotalAmount {
+        padding: 1.5em 1em;
+    }
+}

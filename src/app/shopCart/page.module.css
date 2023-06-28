@@ -30,3 +30,22 @@
     top: 1em;
     width: 350px;
 }
+
+/*media*/
+@media (max-width: 991px) {
+    /*main content*/
+    .content{
+        flex-direction: column-reverse;
+    }
+    /*sticky amount container*/
+    .amount{
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    /*products container*/
+    .products{
+        width: 100%;
+    }
+}
