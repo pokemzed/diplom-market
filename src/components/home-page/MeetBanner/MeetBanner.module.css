@@ -13,6 +13,7 @@
     background-size: contain;
     background-position: right;
 
+    overflow: hidden;
     color: var(--bs-white);
 }
 
@@ -59,15 +60,98 @@
     right: 0;
     bottom: 3em;
 
+    max-width: 500px;
     width: 30%;
     z-index: 3;
 }
 /*img right*/
 .imageLogo{
     position: absolute;
-    right: 17.5%;
+    right: 15%;
     top: 7.5%;
 
+    max-width: 400px;
     width: 25%;
     z-index: 2;
+}
+
+
+/*media*/
+@media (max-width: 1200px) {
+    /*img right*/
+    .imageLogo{
+        top: 12.5%;
+    }
+    .imageRight{
+        bottom: 12.5%;
+    }
+}
+
+@media (max-width: 991px) {
+    .MeetBanner{
+        background-position: 150%;
+    }
+    /*content*/
+    .content{
+        width: 100%;
+    }
+    /*img right*/
+    .imageLogo{
+        width: 250px;
+        top: auto;
+        bottom: -25px;
+        right: -25px;
+    }
+    .imageRight{
+        display: none;
+    }
+    /*img left*/
+    .imageLeft{
+        width: 500px;
+        margin: 0 0 -7.5em -5%;
+    }
+}
+
+@media (max-width: 768px) {
+    /*imageLeft*/
+    .imageLeft{
+        width: 400px;
+        margin: 0 0 -7.5em -15%;
+    }
+    /*img right*/
+    .imageLogo{
+        width: 250px;
+        top: auto;
+        bottom: -50px;
+        right: -50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .MeetBanner{
+        background-image: none;
+    }
+}
+
+@media (max-width: 600px) {
+    /*img right*/
+    .imageLogo{
+        width: 200px;
+    }
+    /*img left*/
+    .imageLeft{
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    /*img left*/
+    .imageLeft{
+        width: 100%;
+        margin: 0 0 -7.5em -12.5%;
+    }
+    /*img right*/
+    .imageLogo{
+        width: 150px;
+    }
 }

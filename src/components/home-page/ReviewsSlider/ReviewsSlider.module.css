@@ -1,8 +1,12 @@
 .ReviewsSlider{
     margin: 4em 0;
+    overflow: hidden;
 
     /*vars*/
+    --swiper-navigation-size: 25px;
     --swiper-theme-color: var(--app-primary);
+    --swiper-navigation-color: var(--app-primary);
+    --swiper-navigation-sides-offset: -26px;
 }
 
 /*header*/
@@ -19,10 +23,16 @@
     color: var(--bs-gray-600);
 }
 
+/*slider*/
+.slider{
+    overflow: visible;
+    user-select: none;
+}
+
 /*slide*/
 .slide{
     height: auto;
-    padding: 2em 2.5em;
+    padding: 3em 2.5em;
 
     border-radius: 5px;
     background: var(--app-light);
@@ -63,4 +73,11 @@
 .text{
     min-height: 7em;
     margin: 0;
+}
+
+/*media*/
+@media (max-width: 450px) {
+    .slide{
+        padding: 2.5em 1.5em;
+    }
 }

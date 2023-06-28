@@ -42,3 +42,30 @@
 .block p{
     color: var(--bs-gray-600);
 }
+
+/*media*/
+@media (max-width: 1200px) {
+    .block:first-child{
+        width: 30%;
+    }
+    .block:last-child{
+        width: 67.5%;
+    }
+}
+
+@media (max-width: 991px) {
+    .Advantages {
+        margin: 5em 0 2.5em;
+    }
+
+    /*blocks*/
+    .block:first-child{
+        display: none;
+    }
+    .block:last-child{
+        width: 100%;
+    }
+    .block h2{
+        margin-bottom: .65em;
+    }
+}

@@ -26,7 +26,11 @@ const Home = () => {
                   quantity={3}
                   title={"Вам может понравиться"}
               />
-              <ReviewsSlider />
+          </Container>
+
+          <ReviewsSlider />
+
+          <Container>
               <Advantages />
           </Container>
       </main>

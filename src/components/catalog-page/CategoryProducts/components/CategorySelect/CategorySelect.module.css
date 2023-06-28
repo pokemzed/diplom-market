@@ -34,3 +34,9 @@
 .CategorySelect button:hover{
     border-color: var(--bs-gray-600);
 }
+
+@media (max-width: 767px) {
+    .CategorySelect{
+        margin: 40px 0 0;
+    }
+}
