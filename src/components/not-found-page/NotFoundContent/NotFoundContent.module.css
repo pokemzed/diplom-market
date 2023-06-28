@@ -2,7 +2,7 @@
     position: relative;
 
     width: 100%;
-    min-height: 70vh;
+    min-height: 65vh;
 
     display: flex;
     flex-direction: column;
@@ -28,11 +28,12 @@
 .content h5{
     font-weight: 700;
     color: var(--bs-dark);
+    text-align: center;
 }
 
 /*goBack link*/
 .goBack{
     position: absolute;
-    left: 0;
+    left: calc(var(--bs-gutter-x) * .5);
     top: 1em;
 }

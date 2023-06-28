@@ -6,8 +6,28 @@ import CategoriesList from "@/components/admin-page/CategoriesList/CategoriesLis
 import ProductsList from "@/components/admin-page/ProductsList/ProductsList";
 import OrdersList from "@/components/admin-page/OrdersList/OrdersList";
 import {Container} from "react-bootstrap";
+import {useFetch} from "@/hooks/useFetch";
+import {API_ADMIN_AUTH} from "@/constants/api";
+import {REQUEST_METHODS} from "@/types/general";
+import {redirect} from "next/navigation";
+import {LINK_ERROR} from "@/constants/links";
+import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
+import styles from "./page.module.css";
 
 const page = () => {
+
+	const { data, error, load } = useFetch<boolean>(API_ADMIN_AUTH, REQUEST_METHODS.POST, {}, false);
+
+	if (error) redirect(LINK_ERROR);
+	if (load) {
+		return (
+			<Container className={styles.spinnerContainer}>
+				<SpinnerPrimary />
+			</Container>
+		)
+	}
+
+	if (data)
 	return (
 		<Container className={"pt-3 pb-3"}>
 			<OrdersList />
