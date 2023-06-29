@@ -15,20 +15,20 @@ const page = () => {
 	//send form
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();
-		window.localStorage.setItem('key', key);
+		globalThis.localStorage.setItem('key', key);
 		setLoad(true);
 		handleRequest(REQUEST_METHODS.POST, API_ADMIN_AUTH, {})
 			.then(res => {
 				if (res.data === true) {
-					window.location.replace(LINK_ADMIN);
+					globalThis.location.replace(LINK_ADMIN);
 				}else {
-					window.localStorage.removeItem('key');
-					window.location.replace(LINK_ERROR);
+					globalThis.localStorage.removeItem('key');
+					globalThis.location.replace(LINK_ERROR);
 				}
 			})
 			.catch(() => {
-				window.localStorage.removeItem('key');
-				window.location.replace(LINK_ERROR);
+				globalThis.localStorage.removeItem('key');
+				globalThis.location.replace(LINK_ERROR);
 			})
 			.finally(() => {
 				setLoad(false);

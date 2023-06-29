@@ -54,13 +54,13 @@ const OrderForm = () => {
 					handleRequest(REQUEST_METHODS.POST, API_ORDER_PLATI(res.data._id), {})
 						.then(resInner => {
 							dispatch(clearShopCart()); //чистим корзину
-							window.open(resInner.data.confirmationURL, '_blank'); //редиректим на оплату
-							window.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
+							globalThis.open(resInner.data.confirmationURL, '_blank'); //редиректим на оплату
+							globalThis.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
 						})
 						.catch(() => TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!"))
 				}else {
 					dispatch(clearShopCart()); //чистим корзину
-					window.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
+					globalThis.location.replace(LINK_ORDER_ID(res.data._id)); //редиректим на статус
 				}
 			})
 			.catch(() => TOAST_ERROR("Ошибка оформления заказа, пожалуйста попробуйте позже!"))

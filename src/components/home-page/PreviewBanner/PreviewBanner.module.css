@@ -22,7 +22,7 @@
 /*text*/
 .PreviewBanner h1,
 .PreviewBanner span{
-    margin-bottom: .25em;
+    margin-bottom: .35em;
 
     font-size: 56px;
     color: var(--bs-dark);
@@ -52,4 +52,51 @@
 .PreviewBanner a:hover{
     color: var(--bs-white);
     background: var(--app-primary);
+}
+
+/*media*/
+@media (max-width: 1400px) {
+    /*content*/
+    .content{
+        margin-top: -5%;
+    }
+    /*text*/
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 1200px) {
+    /*text*/
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 35px;
+    }
+    .PreviewBanner p{
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 991px) {
+    .PreviewBanner{
+        padding-top: 5em;
+        padding-bottom: .5em;
+    }
+    .PreviewBanner img{
+        display: none;
+    }
+    /*content*/
+    .content{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    /*text*/
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 28px;
+    }
 }
