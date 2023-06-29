@@ -4,7 +4,7 @@ import {redirect, useParams} from "next/navigation";
 import {useFetch} from "@/hooks/useFetch";
 import {API_ORDER_ID} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
-import {LINK_CATALOG, LINK_ERROR} from "@/constants/links";
+import {LINK_ERROR, LINK_HOME} from "@/constants/links";
 import {EPayment, IOrderFormId} from "@/types/order";
 import {Container, Spinner} from "react-bootstrap";
 import OrderStatusData from "@/components/order-status-page/OrderStatusData/OrderStatusData";
@@ -33,7 +33,7 @@ const page = () => {
 	if (data)
 	return (
 		<Container className={styles.main}>
-			<BackLink link={LINK_CATALOG} text={"На главную"} />
+			<BackLink link={LINK_HOME} text={"На главную"} />
 			<OrderStatusData data={data} />
 			<PhoneEmailLinks />
 		</Container>

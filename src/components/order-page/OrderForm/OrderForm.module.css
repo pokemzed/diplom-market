@@ -64,3 +64,41 @@
 .OrderForm .submitOrder:hover{
     background: var(--app-primary-hover);
 }
+
+/*media*/
+@media (max-width: 991px) {
+    /*userAddress*/
+    .orderFormData{
+        width: calc(100% - 320px - 1em);
+    }
+    /*payment*/
+    .payment{
+        width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .OrderForm{
+        flex-direction: column;
+    }
+    /*payment*/
+    .orderFormData{
+        margin-bottom: 2em;
+    }
+    .orderFormData,
+    .payment{
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    /*payment*/
+    .payment{
+        padding: 1.5em 1em;
+    }
+    /*input textarea in form*/
+    .orderFormData input,
+    .orderFormData textarea{
+        padding: .5em;
+    }
+}

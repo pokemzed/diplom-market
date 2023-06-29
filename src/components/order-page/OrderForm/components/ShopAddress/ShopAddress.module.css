@@ -48,6 +48,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap;
 }
 .ShopAddress button footer b{
     color: var(--bs-dark);
@@ -55,4 +56,12 @@
 .ShopAddress button footer span{
     color: var(--app-primary);
     font-weight: 700;
+}
+
+/*media*/
+@media (max-width: 500px) {
+    /*button*/
+    .ShopAddress button{
+        padding: 1em 1.5em;
+    }
 }
