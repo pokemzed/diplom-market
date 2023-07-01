@@ -1,4 +1,3 @@
-import {API_URL} from "@/constants/api";
 import axios, {AxiosResponse} from "axios";
 import {REQUEST_METHODS} from "@/types/general";
 import {getAdminKey} from "@/functions/getKey";
@@ -7,7 +6,7 @@ export const handleRequest = (method:REQUEST_METHODS, url:string, data:any): Pro
 
 	const options = {
 		method: method,
-		url: API_URL + url,
+		url: process.env.NEXT_PUBLIC_API_LINK + url,
 		headers: {
 			'Content-Type': 'application/json',
 			'Authorization': getAdminKey(),

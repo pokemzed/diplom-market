@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {API_URL} from "@/constants/api";
 import {REQUEST_METHODS} from "@/types/general";
 import {getAdminKey} from "@/functions/getKey";
 
@@ -11,7 +10,7 @@ export const useFetch = <T>(url:string, method?:string, body?:object, interval?:
 
 	const options = {
 		method: method || REQUEST_METHODS.GET,
-		url: API_URL + url,
+		url: process.env.NEXT_PUBLIC_API_LINK + url,
 		headers: {
 			'Content-Type': 'application/json',
 			'Authorization': getAdminKey(),
