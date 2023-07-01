@@ -33,7 +33,6 @@ const page = () => {
 	if (data) {
 		return (
 			<Container className={styles.main}>
-
 				<BackLink link={LINK_CATALOG} text={"В каталог"} />
 
 				<div className={styles.productData}>

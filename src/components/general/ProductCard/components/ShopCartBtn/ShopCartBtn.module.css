@@ -23,6 +23,7 @@
 
 .ShopCartBtnActive button {
     padding: .65em 1em;
+    color: var(--bs-dark);
 
     border: none;
     font-weight: 700;

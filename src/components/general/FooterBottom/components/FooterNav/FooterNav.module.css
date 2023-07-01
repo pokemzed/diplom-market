@@ -50,6 +50,9 @@
         background: var(--app-light);
         border-radius: 5px;
     }
+    .FooterNav a:hover{
+        border-bottom: none;
+    }
     .FooterNav a.active,
     .FooterNav a.active:hover{
         color: var(--bs-white);
