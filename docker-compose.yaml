@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  app:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    command: [ "npm", "run", "start" ]
