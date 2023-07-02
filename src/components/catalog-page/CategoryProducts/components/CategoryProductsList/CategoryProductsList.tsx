@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from "./CategoryProductsList.module.css";
 import {useFetch} from "@/hooks/useFetch";
 import {API_CATEGORY_ITEMS} from "@/constants/api";
@@ -17,19 +17,15 @@ const CategoryProductsList = ({selected} : {selected:string}) => {
 	const { data, load } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected),REQUEST_METHODS.GET, {});
 
 	// @ts-ignore sort sale item
-	const getSaleItems = () => data.filter(elem => elem.discount);
+	const getNotAvailableItems = () => data.filter(elem => !elem.available);
 	// @ts-ignore sort sale item
 	const getAvailableItems = () => data.filter(elem => elem.available);
 
 	const getSortedData = () => {
 		if (sort === ESort.DEFAULT) return data;
-		if (sort === ESort.SALE) return getSaleItems();
+		if (sort === ESort.NOT_AVAILABLE) return getNotAvailableItems();
 		if (sort === ESort.AVAILABLE) return getAvailableItems();
 	};
-
-	useEffect(() => {
-		setSort(ESort.DEFAULT) //clear sort if we change category
-	}, [selected])
 
 	if (load || !data) {
 		return (

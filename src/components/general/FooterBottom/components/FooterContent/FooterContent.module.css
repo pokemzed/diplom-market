@@ -16,6 +16,9 @@
 }
 
 /*top and bottom blocks*/
+.FooterContent .top:first-child{
+    margin-bottom: 1.5em;
+}
 .FooterContent .top,
 .FooterContent .bottom{
     width: 100%;
@@ -31,6 +34,9 @@
     margin: 0;
     font-weight: 700;
     color: var(--bs-gray-600);
+}
+.FooterContent .top h4 span{
+    color: var(--app-primary);
 }
 
 /*top block container right*/
@@ -93,6 +99,9 @@
 
 /*media*/
 @media (max-width: 1200px) {
+    .FooterContent .top:first-child{
+        margin-bottom: 2em;
+    }
     .FooterContent .top{
         flex-direction: column;
         align-items: flex-start;
@@ -100,7 +109,7 @@
     /*top block title left*/
     .FooterContent .top h4{
         max-width: 100%;
-        margin-bottom: 1.5em;
+        margin-bottom: .5em;
     }
     /*top block container right BLOCK*/
     .FooterContent .top .right .block{

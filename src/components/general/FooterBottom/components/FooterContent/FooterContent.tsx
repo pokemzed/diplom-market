@@ -10,7 +10,7 @@ const FooterContent = () => {
 			<div className={styles.top}>
 				<h4>
 					Свяжитесь с нами, <br />
-					задайте интересующие вопросы
+					задайте интересующие <span>вопросы</span>
 				</h4>
 				<div className={styles.right}>
 					<div className={styles.block}>
@@ -37,6 +37,32 @@ const FooterContent = () => {
 							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Вконтакте</a>
 							<span>|</span>
 							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Instargram</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className={styles.top}>
+				<h4>
+					По вопросам <br />
+					<span>сотрудничества</span>
+				</h4>
+				<div className={styles.right}>
+					<div className={styles.block}>
+						<p>По телефону</p>
+						<div className={styles.links}>
+							<a href={`tel:${CONTACTS.phone.value}`}>
+								{CONTACTS.phone.title}
+							</a>
+						</div>
+					</div>
+
+					<div className={styles.block}>
+						<p>В мессенджерах</p>
+						<div className={styles.links}>
+							<a href={"/"} target={"_blank"} rel={"noreferrer"}>WhatsApp</a>
+							<span>|</span>
+							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Telegram</a>
 						</div>
 					</div>
 				</div>

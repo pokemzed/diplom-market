@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import Link from "next/link";
 import {LINK_HOME, LIST_LINKS} from "@/constants/links";
@@ -12,9 +12,19 @@ const NavbarTop = () => {
 
 	const path = usePathname();
 	const [showMobile, setShowMobile] = useState<boolean>(false);
+	const [scroll, setScroll] = useState<number>(0);
+
+	const handleScroll = () => {
+		setScroll(+globalThis.scrollY);
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	return (
-		<Navbar className={styles.NavbarTop}>
+		<Navbar sticky={"top"} className={scroll ? styles.NavbarTopScroll : styles.NavbarTop}>
 			<Container className={styles.container}>
 				<Link href={LINK_HOME} className={styles.logo}>
 					<img src={"/Logo.svg"} alt={APP_TITLE} />

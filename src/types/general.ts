@@ -13,7 +13,7 @@ export interface IShopAddress {
 }
 
 export enum ESort {
-	SALE = 'SALE',
+	NOT_AVAILABLE = 'NOT_AVAILABLE',
 	DEFAULT = 'DEFAULT',
 	AVAILABLE = 'AVAILABLE',
 }

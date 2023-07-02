@@ -15,7 +15,7 @@ const Home = () => {
           <Container>
               <RandomProducts
                   quantity={6}
-                  title={"Выбор наших покупателей"}
+                  title={"Вам может понравиться"}
               />
           </Container>
 

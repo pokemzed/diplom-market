@@ -1,5 +1,4 @@
 import React from 'react';
-import CategorySelect from "@/components/catalog-page/CategoryProducts/components/CategorySelect/CategorySelect";
 import CategoryProductsList from "@/components/catalog-page/CategoryProducts/components/CategoryProductsList/CategoryProductsList";
 import {useGetCategories} from "@/hooks/useGetCategories";
 import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
@@ -18,7 +17,6 @@ const CategoryProducts = () => {
 
 	return (
 		<div className={"CategoryProductsList"}>
-			<CategorySelect />
 			<CategoryProductsList selected={selected} />
 		</div>
 	);
