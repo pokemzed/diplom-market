@@ -49,10 +49,10 @@ const FooterContent = () => {
 				</h4>
 				<div className={styles.right}>
 					<div className={styles.block}>
-						<p>По телефону</p>
+						<p>По почте</p>
 						<div className={styles.links}>
-							<a href={`tel:${CONTACTS.phone.value}`}>
-								{CONTACTS.phone.title}
+							<a href={`mailto:${CONTACTS.email.value}`}>
+								{CONTACTS.email.title}
 							</a>
 						</div>
 					</div>

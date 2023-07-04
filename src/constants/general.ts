@@ -13,6 +13,18 @@ export const SHOPS_ADDRESSES: IShopAddress[] = [
 		workTime: 'Ежедневно с 09:00-21:00',
 		selected: false,
 	},
+	{
+		address: 'Гайдара 51, кафе «Шадэ»',
+		city: 'г.Дзержинск',
+		workTime: 'Ежедневно с 09:30-23:00',
+		selected: false,
+	},
+	{
+		address: 'Окская набережная 5а, «Пекарня»',
+		city: 'г.Дзержинск',
+		workTime: 'Ежедневно с 10:00-19:00',
+		selected: false,
+	},
 ];
 
 // контакты

@@ -20,6 +20,7 @@ const ProductCardFooter: React.FC<IProductCardFooter> = ({ data }) => {
 		<footer className={styles.ProductCardFooter}>
 			<WeightsBtns
 				data={data.prices}
+				discount={data.discount}
 				selected={selected}
 				setSelected={setSelected}
 			/>

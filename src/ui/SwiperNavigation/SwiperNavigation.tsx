@@ -11,7 +11,7 @@ interface ISwiperNavigation {
 
 const SwiperNavigation: React.FC<ISwiperNavigation> = ({ images }) => {
 
-	//check images !== null
+	//check images !== null || undefined
 	if (!images) {
 		return (
 			<Placeholder as={"div"} animation="glow" className={styles.placeholder}>

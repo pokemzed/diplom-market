@@ -41,4 +41,16 @@
     color: var(--bs-gray-600);
 }
 
+/*priceContainer*/
+.priceContainer{
+    display: flex;
+    align-items: flex-end;
+}
+.priceContainer p{
+    margin: 0;
+    line-height: 1.3;
+
+    font-weight: 700;
+    color: var(--app-primary);
+}
 

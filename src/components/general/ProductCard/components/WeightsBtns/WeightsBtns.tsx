@@ -5,13 +5,22 @@ import {IProductPrice} from "@/types/products";
 interface IWeightsBtns {
 	data: IProductPrice[],
 	selected: IProductPrice,
+	discount: number,
 	setSelected: (elem:IProductPrice) => void,
 }
 
-const WeightsBtns: React.FC<IWeightsBtns> = ({ data, selected, setSelected }) => {
+const WeightsBtns: React.FC<IWeightsBtns> = ({ data, selected, setSelected, discount }) => {
+
 	return (
 		<div className={styles.WeightsBtns}>
-			{data.length === 1 && <h3>{data[0].price}₽</h3>}
+			{
+				data.length === 1 &&
+				<div className={styles.priceContainer}>
+					<h3>{data[0].price}₽</h3>
+					{!!discount && <p>-{discount}%</p>}
+				</div>
+			}
+
 			{
 				data.length > 1 && data.map(elem => (
 					<button
