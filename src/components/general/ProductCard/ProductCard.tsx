@@ -18,6 +18,8 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(data._id), REQUEST_METHODS.GET, {});
 
+	if (!data.show) return;
+
 	return (
 		<div className={styles.ProductCard}>
 			{/*link with absolute position*/}

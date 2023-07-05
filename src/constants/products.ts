@@ -11,6 +11,7 @@ export const ITEM_INITIAL:IProductWithImg = {
 	composition: '',
 	available: true,
 	isRecommendation: false,
+	show: true,
 };
 
 export const ITEM_WEIGHTS = [

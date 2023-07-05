@@ -11,8 +11,6 @@ interface IProductFormImages {
 
 const ProductFormImages: React.FC<IProductFormImages> = ({ formData, setFormData }) => {
 
-	console.log(formData.images)
-
 	const handleUploadFiles = async (images:Blob[]) => {
 		const imagesInner:string[] = [];
 		for (let elem of images) {

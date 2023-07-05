@@ -23,6 +23,7 @@ export interface IProduct {
 	composition: string,
 	available: boolean,
 	isRecommendation: boolean,
+	show: boolean,
 }
 
 export interface IProductId extends IProduct {
