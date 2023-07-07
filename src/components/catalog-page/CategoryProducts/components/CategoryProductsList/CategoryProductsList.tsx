@@ -29,7 +29,7 @@ const CategoryProductsList = ({selected} : {selected:string}) => {
 
 	if (load || !data) {
 		return (
-			<div className={styles.noItems}>
+			<div className={styles.loadContainer}>
 				<SpinnerPrimary />
 			</div>
 		);

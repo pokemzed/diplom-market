@@ -16,8 +16,17 @@ const WeightsBtns: React.FC<IWeightsBtns> = ({ data, selected, setSelected, disc
 			{
 				data.length === 1 &&
 				<div className={styles.priceContainer}>
-					<h3>{data[0].price}₽</h3>
-					{!!discount && <p>-{discount}%</p>}
+					<h3>
+						{
+							!!discount ?
+								data[0].price / 100 * (100 - discount):
+								data[0].price
+						}₽
+					</h3>
+					{
+						!!discount &&
+						<p>{data[0].price}₽</p>
+					}
 				</div>
 			}
 
