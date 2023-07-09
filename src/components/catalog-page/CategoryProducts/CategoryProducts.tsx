@@ -2,6 +2,7 @@ import React from 'react';
 import CategoryProductsList from "@/components/catalog-page/CategoryProducts/components/CategoryProductsList/CategoryProductsList";
 import {useGetCategories} from "@/hooks/useGetCategories";
 import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
+import styles from "./CategoryProducts.module.css";
 
 const CategoryProducts = () => {
 
@@ -9,7 +10,7 @@ const CategoryProducts = () => {
 
 	if (!selected) {
 		return (
-			<div className={"w-100 py-5 d-flex"}>
+			<div className={styles.loadContainer}>
 				<SpinnerPrimary />
 			</div>
 		)

@@ -13,7 +13,6 @@ const CategoryProductsList = ({selected} : {selected:string}) => {
 	//sort type
 	const [sort, setSort] = useState<ESort>(ESort.DEFAULT);
 
-	//@ts-ignore
 	const { data, load } = useFetch<IProductId[]>(API_CATEGORY_ITEMS(selected),REQUEST_METHODS.GET, {});
 
 	// @ts-ignore sort sale item
