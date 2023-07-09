@@ -24,7 +24,6 @@ const OrderForm = () => {
 	const [formData, setFormData] = useState<IOrderForm>(ORDER_FORM_INITIAL(shopCartData));
 	const [load, setLoad] = useState<boolean>(false);
 
-
 	//отправляем заказ
 	const handleSend = (e:FormEvent) => {
 		e.preventDefault();

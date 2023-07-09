@@ -1,4 +1,4 @@
-import {IShopAddress} from "@/types/general";
+import {EShopsIds, IShopAddress} from "@/types/general";
 
 export const APP_TITLE = "Это хлеб"
 
@@ -8,18 +8,21 @@ export const MIN_ORDER_PRICE = 600;
 // адреса магазинов
 export const SHOPS_ADDRESSES: IShopAddress[] = [
 	{
+		id: EShopsIds.ITS_BREAD,
 		address: 'ул.Петрищева, д.12',
 		city: 'г.Дзержинск',
 		workTime: 'Ежедневно с 09:00-21:00',
 		selected: false,
 	},
 	{
+		id: EShopsIds.SHADE,
 		address: 'Гайдара 51, кафе «Шадэ»',
 		city: 'г.Дзержинск',
 		workTime: 'Ежедневно с 09:30-23:00',
 		selected: false,
 	},
 	{
+		id: EShopsIds.PEKARNYA,
 		address: 'Окская набережная 5а, «Пекарня»',
 		city: 'г.Дзержинск',
 		workTime: 'Ежедневно с 10:00-19:00',

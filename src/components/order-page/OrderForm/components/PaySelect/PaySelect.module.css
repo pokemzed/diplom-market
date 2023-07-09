@@ -60,3 +60,12 @@
 .PaySelect button img{
     width: 20px;
 }
+
+.PaySelect p.payWarning{
+    margin-top: 1em;
+    padding: .5em 1em;
+
+    border-radius: 5px;
+    border: 1px solid  var(--app-primary);
+    text-align: center;
+}

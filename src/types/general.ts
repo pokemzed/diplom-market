@@ -5,7 +5,14 @@ export enum REQUEST_METHODS {
 	GET = "GET",
 }
 
+export enum EShopsIds {
+	"ITS_BREAD" = "ITS_BREAD",
+	"SHADE" = "SHADE",
+	"PEKARNYA" = "PEKARNYA",
+}
+
 export interface IShopAddress {
+	id: EShopsIds,
 	address: string,
 	city: string,
 	workTime: string,
