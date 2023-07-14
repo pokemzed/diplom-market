@@ -28,7 +28,7 @@
 }
 
 /*media*/
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .FooterNav {
         padding-top: 2.5em;
 
@@ -52,6 +52,9 @@
     }
     .FooterNav a:hover{
         border-bottom: none;
+    }
+    .FooterNav a:first-child{
+        width: 100%;
     }
     .FooterNav a.active,
     .FooterNav a.active:hover{

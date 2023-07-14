@@ -1,0 +1,21 @@
+.VacanciesList{
+    padding-top: 10em;
+    padding-bottom: 7.5em;
+}
+
+/*title*/
+.VacanciesList h1.title{
+    margin-bottom: .75em;
+
+    font-size: 56px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/*content*/
+.content{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}

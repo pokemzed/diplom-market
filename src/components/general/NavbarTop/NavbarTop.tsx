@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import Link from "next/link";
-import {LINK_HOME, LIST_LINKS} from "@/constants/links";
+import {LINK_HOME, LINK_VACANCIES, LIST_LINKS} from "@/constants/links";
 import styles from "./NavbarTop.module.css";
 import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink/ShopCartLink";
 import {usePathname} from "next/navigation";
@@ -18,13 +18,17 @@ const NavbarTop = () => {
 		setScroll(+globalThis.scrollY);
 	};
 
+	const getHiddenNavbar = ():boolean => {
+		return path === LINK_VACANCIES;
+	}
+
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	return (
-		<Navbar sticky={"top"} className={scroll ? styles.NavbarTopScroll : styles.NavbarTop}>
+		<Navbar hidden={getHiddenNavbar()} sticky={"top"} className={scroll ? styles.NavbarTopScroll : styles.NavbarTop}>
 			<Container className={styles.container}>
 				<Link href={LINK_HOME} className={styles.logo}>
 					<img src={"/Logo.svg"} alt={APP_TITLE} />

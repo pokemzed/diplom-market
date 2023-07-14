@@ -32,7 +32,7 @@ const createNoopStorage = () => {
 	};
 };
 
-const storage = typeof globalThis !== "undefined" ? createWebStorage("local") : createNoopStorage();
+const storage = typeof window !== "undefined" ? createWebStorage("local") : createNoopStorage();
 
 const rootReducer = combineReducers({
 	categories: categoriesSlice,
