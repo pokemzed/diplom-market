@@ -61,6 +61,12 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 				checked={formData?.show}
 				onChange={() => setFormData({...formData, show: !formData?.show})}
 			/>
+
+			<Form.Switch
+				label="Доступно только в Это Хлеб"
+				checked={formData?.onlyBread}
+				onChange={() => setFormData({...formData, onlyBread: !formData?.onlyBread})}
+			/>
 		</>
 	);
 };

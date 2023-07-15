@@ -37,11 +37,12 @@
     right: 10px;
 
     display: flex;
+    flex-wrap: wrap;
 
     z-index: 3;
 }
 .ProductCard header span{
-    margin-right: .5em;
+    margin: 0 .5em .5em 0;
     padding: .5em 1em;
     color: var(--bs-dark);
     background: var(--bs-light);
@@ -87,7 +88,6 @@ h4.name{
 /*composition p*/
 p.composition{
     margin-bottom: 2em;
-
     color: var(--bs-gray-600);
 }
 

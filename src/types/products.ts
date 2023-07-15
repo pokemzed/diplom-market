@@ -24,6 +24,7 @@ export interface IProduct {
 	available: boolean,
 	isRecommendation: boolean,
 	show: boolean,
+	onlyBread: boolean,
 }
 
 export interface IProductId extends IProduct {

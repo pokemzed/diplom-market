@@ -17,6 +17,7 @@ import categoriesSlice from "@/store/slices/categoriesSlice";
 import productsSlice from "@/store/slices/productsSlice";
 import shopCartSlice from "@/store/slices/shopCartSlice";
 import ordersSlice from "@/store/slices/ordersSlice";
+import vacanciesSlice from "@/store/slices/vacanciesSlice";
 
 const createNoopStorage = () => {
 	return {
@@ -39,11 +40,12 @@ const rootReducer = combineReducers({
 	products: productsSlice,
 	orders: ordersSlice,
 	shopCart: shopCartSlice,
+	vacancies: vacanciesSlice,
 });
 
 const persistConfig = {
 	key: 'root',
-	blacklist: ['products','categories','orders'],
+	blacklist: ['products','categories','orders','vacancies'],
 	storage: storage,
 }
 

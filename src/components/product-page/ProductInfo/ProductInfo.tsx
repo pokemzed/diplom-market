@@ -21,6 +21,9 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<Badge hidden={!data.discount}>
 					{"- " + +data.discount + "%"}
 				</Badge>
+				<Badge hidden={!data?.onlyBread} bg={"light"}>
+					Уникально в ЭХ
+				</Badge>
 			</header>
 
 			<div className={styles.content}>

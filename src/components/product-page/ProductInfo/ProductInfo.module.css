@@ -6,10 +6,11 @@
 /*header with badges*/
 .ProductInfo header{
     display: flex;
-    margin-bottom: 1.5em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
 }
 .ProductInfo header span{
-    margin-right: .5em;
+    margin: 0 .5em .5em 0;
     padding: .5em .75em;
     background: var(--app-primary) !important;
 }
@@ -53,6 +54,8 @@
 }
 .blockContent p{
     margin: 0;
+
+    white-space: pre-wrap;
     color: var(--bs-gray-600);
 }
 

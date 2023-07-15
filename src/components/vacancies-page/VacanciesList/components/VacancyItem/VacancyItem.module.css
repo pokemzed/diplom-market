@@ -80,7 +80,14 @@
 }
 .info .inner h5{
     margin-bottom: 0;
+
+    white-space: pre-wrap;
     color: #666;
     line-height: 1.4;
     font-weight: 400;
+}
+.info .inner a{
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--app-primary);
 }

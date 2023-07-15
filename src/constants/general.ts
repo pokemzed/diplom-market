@@ -9,7 +9,7 @@ export const MIN_ORDER_PRICE = 600;
 export const SHOPS_ADDRESSES: IShopAddress[] = [
 	{
 		id: EShopsIds.ITS_BREAD,
-		address: 'ул.Петрищева, д.12',
+		address: 'пр. Циолковского д.78 (центральный рынок), пекарня «Это Хлеб»',
 		city: 'г.Дзержинск',
 		workTime: 'Ежедневно с 09:00-21:00',
 		selected: false,

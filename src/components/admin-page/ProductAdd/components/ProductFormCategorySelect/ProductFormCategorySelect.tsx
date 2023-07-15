@@ -22,7 +22,7 @@ const ProductFormCategorySelect: React.FC<ProductFormCategorySelect> = ({ formDa
 
 	if (data.loading) {
 		return (
-			<Button disabled className={"w-100"}>
+			<Button disabled className={"w-100"} variant={"dark"}>
 				Загрузка категорий
 				<Spinner size={"sm"} className={"mx-2"} />
 			</Button>

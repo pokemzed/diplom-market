@@ -33,6 +33,10 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 					<Badge className={styles.badge} bg={"light"}>
 						{!data.available ? "Предзаказ" : "В наличии"}
 					</Badge>
+
+					<Badge hidden={!data?.onlyBread} bg={"light"}>
+						Уникально в ЭХ
+					</Badge>
 				</div>
 
 				<SwiperNavigation images={images?.images} />

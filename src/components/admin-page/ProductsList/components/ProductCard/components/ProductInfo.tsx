@@ -43,6 +43,10 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<td>Показывать:</td>
 				<td>{!!data?.show ? "Да" : "Нет"}</td>
 			</tr>
+			<tr>
+				<td>Только в "Это хлеб":</td>
+				<td>{!!data?.onlyBread ? "Да" : "Нет"}</td>
+			</tr>
 			</tbody>
 		</Table>
 	);
