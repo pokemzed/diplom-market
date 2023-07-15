@@ -39,3 +39,22 @@ h5.noItems{
     display: flex;
     flex-direction: column;
 }
+
+/*media*/
+@media (max-width: 768px) {
+    .VacanciesList{
+        padding-top: 5em;
+        padding-bottom: 2.5em;
+    }
+    /*title*/
+    .VacanciesList h1.title{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    /*title*/
+    .VacanciesList h1.title{
+        font-size: 30px;
+    }
+}

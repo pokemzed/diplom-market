@@ -29,6 +29,12 @@ const Preview = () => {
 					<h3>С нами ты в надёжной компании</h3>
 				</div>
 
+				<img
+					className={styles.mobileImage}
+					src="/other/vacancies-mobile.svg"
+					alt={APP_TITLE}
+				/>
+
 				<footer className={styles.footer}>
 					<div className={styles.inner}>
 						<p>Смотреть список вакансий</p>

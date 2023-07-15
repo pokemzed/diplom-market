@@ -20,8 +20,7 @@ const VacancyAdd = () => {
 		e.preventDefault();
 
 		setLoad(true);
-		//TODO: delete onlyBread
-		handleRequest(REQUEST_METHODS.POST, API_VACANCY, {...formData, onlyBread: false})
+		handleRequest(REQUEST_METHODS.POST, API_VACANCY, formData)
 			.then(() => {
 				TOAST_SUCCESS('Вакансия успешно добавлена');
 				updateVacancies();

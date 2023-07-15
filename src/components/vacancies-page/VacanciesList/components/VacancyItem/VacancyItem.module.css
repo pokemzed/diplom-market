@@ -91,3 +91,26 @@
     font-weight: 700;
     color: var(--app-primary);
 }
+
+/*media*/
+@media (max-width: 768px) {
+    .title,
+    .info.active{
+        padding: 1.25em 1.75em;
+    }
+    /*text*/
+    .title h2{
+        font-size: calc(1rem + .8vw);
+    }
+    /*arrow image*/
+    .title .arrow{
+        width: 40px;
+    }
+    /*text inner*/
+    .info .inner h3{
+        font-size: calc(1.1rem + .6vw);
+    }
+    .info .inner h5{
+        font-size: 1.05rem;
+    }
+}
