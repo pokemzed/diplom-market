@@ -86,5 +86,6 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./
           file: ./Dockerfile
+          target: base
           tags: "${{ env.IMAGE_TAG }}"
           push: true
