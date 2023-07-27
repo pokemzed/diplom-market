@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile
       target: nginx
       args:
-          DOMAIN: "${DOMAIN:-hleb365.ru}"
+        DOMAIN: "${DOMAIN:-hleb365.ru}"
     ports:
       - 80:80
       - 443:443

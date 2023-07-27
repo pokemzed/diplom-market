@@ -15,7 +15,8 @@ FROM nginx:alpine AS nginx
 
 ARG DOMAIN=localhost
 
-RUN apk update && apk add openssl; \
+RUN apk update --no-cache && apk add openssl --no-cache; \
+    rm -Rf /var/cache/apk/*; \
     mkdir -p /etc/nginx/ssl/live/hleb365.ru; \
     openssl req -x509 -newkey rsa:2048 -sha256 -days 1 \ 
     -keyout /etc/nginx/ssl/live/hleb365.ru/privkey.pem \
