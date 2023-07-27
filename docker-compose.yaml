@@ -2,6 +2,7 @@ version: '3.9'
 services:
   app:
     restart: always
+    image: app
     build:
       dockerfile: Dockerfile
       context: .
@@ -9,4 +10,4 @@ services:
       - 80:3000
     env_file:
       - .env
-    command: [ "npm", "run", "start" ]
+    command: ["npm", "run", "start"]

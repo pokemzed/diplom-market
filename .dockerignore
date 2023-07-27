@@ -1,0 +1,12 @@
+README.md
+
+.env
+
+*.log 
+
+.gitignore
+.git 
+
+.dockerignore
+Dockerfile*
+docker-compose*ml
