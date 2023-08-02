@@ -23,24 +23,13 @@ const PaySelect: React.FC<IPaySelect> = ({ formData, setFormData }) => {
 	useEffect(() => {
 		//для автоматического выбора способа оплаты при смене заведения
 		if (formData.shopAddress !== itsBreadShop?.address){
-			setFormData({...formData, paymentType: EPayment.CASH})
-		}else {
 			setFormData({...formData, paymentType: EPayment.ONLINE})
 		}
 	}, [formData.shopAddress])
 
-	useEffect(() => {
-		//для автоматического выбора способа оплаты при смене способа доставки
-		if (formData.deliveryType === EDelivery.COURIER){
-			setFormData({...formData, paymentType: EPayment.ONLINE})
-		}
-	}, [formData.deliveryType]);
-
-
 	return (
 		<div className={styles.PaySelect}>
 			<button
-				hidden={hiddenCardPayment()}
 				disabled={formData.paymentType === EPayment.ONLINE}
 				onClick={() => setFormData({...formData, paymentType: EPayment.ONLINE})}
 			>
@@ -52,6 +41,7 @@ const PaySelect: React.FC<IPaySelect> = ({ formData, setFormData }) => {
 			</button>
 
 			<button
+				hidden={hiddenCardPayment()}
 				disabled={formData.paymentType === EPayment.CASH}
 				onClick={() => setFormData({...formData, paymentType: EPayment.CASH})}
 			>
@@ -66,7 +56,7 @@ const PaySelect: React.FC<IPaySelect> = ({ formData, setFormData }) => {
 			<p hidden={!hiddenCardPayment()} className={styles.payWarning}>
 				{
 					formData.shopAddress ?
-						"При самовывозе из данного заведения, оплата онлайн недоступна":
+						"При самовывозе из данного заведения, оплата при получении недоступна":
 						"Выберите заведение для получения вашего заказа"
 				}
 			</p>

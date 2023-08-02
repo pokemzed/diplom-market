@@ -12,7 +12,7 @@ const AddressForm: React.FC<IAddressForm> = ({ formData, setFormData }) => {
 	return (
 		<div className={styles.AddressForm}>
 
-			<FormGroup className={styles.block + " " + styles.w50}>
+			<FormGroup className={styles.block + " " + styles.w100}>
 				<label>Адрес доставки*</label>
 				<input
 					required
@@ -22,14 +22,15 @@ const AddressForm: React.FC<IAddressForm> = ({ formData, setFormData }) => {
 				/>
 			</FormGroup>
 
-			<FormGroup className={styles.block + " " + styles.w50}>
-				<label>Название адреса</label>
-				<input
-					placeholder={"Название адреса"}
-					value={formData.address.addressName}
-					onChange={e => setFormData({...formData, address: {...formData.address, addressName: e.target.value}})}
-				/>
-			</FormGroup>
+			{/*TODO: removed item*/}
+			{/*<FormGroup className={styles.block + " " + styles.w50}>*/}
+			{/*	<label>Название адреса</label>*/}
+			{/*	<input*/}
+			{/*		placeholder={"Название адреса"}*/}
+			{/*		value={formData.address.addressName}*/}
+			{/*		onChange={e => setFormData({...formData, address: {...formData.address, addressName: e.target.value}})}*/}
+			{/*	/>*/}
+			{/*</FormGroup>*/}
 
 			<FormGroup className={styles.block + " " + styles.w25}>
 				<label>Квартира, офис</label>
