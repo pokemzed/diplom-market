@@ -62,7 +62,7 @@
 }
 
 .PaySelect p.payWarning{
-    margin-top: 1em;
+    margin-top: .25em;
     padding: .5em 1em;
 
     border-radius: 5px;

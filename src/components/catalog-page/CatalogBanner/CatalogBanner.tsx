@@ -7,8 +7,8 @@ const CatalogBanner = () => {
 		<div className={styles.CatalogBanner}>
 			<div className={styles.content}>
 				<h1>
-					Вкусные завтраки по <br/>
-					ВКУСНОЙ цене
+					Сделайте утро еще <br/>
+					добрее с нашими круасанами
 				</h1>
 				<h5>Начните свой день вместе с нашей выпечкой</h5>
 			</div>

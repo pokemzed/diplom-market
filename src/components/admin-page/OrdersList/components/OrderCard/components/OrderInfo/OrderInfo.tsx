@@ -76,10 +76,11 @@ const OrderInfo: React.FC<IOrderInfo> = ({ data }) => {
 						<td>Адрес:</td>
 						<td>{data.address.address}</td>
 					</tr>
-					<tr>
-						<td>Адрес (название):</td>
-						<td>{data.address.addressName || "-"}</td>
-					</tr>
+					{/*TODO: item was removed*/}
+					{/*<tr>*/}
+					{/*	<td>Адрес (название):</td>*/}
+					{/*	<td>{data.address.addressName || "-"}</td>*/}
+					{/*</tr>*/}
 					<tr>
 						<td>Комментарий к адресу:</td>
 						<td>{data.address.commentAddress || "-"}</td>

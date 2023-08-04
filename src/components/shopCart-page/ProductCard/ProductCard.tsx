@@ -12,6 +12,7 @@ import {REQUEST_METHODS} from "@/types/general";
 import Link from "next/link";
 import {LINK_PRODUCT} from "@/constants/links";
 import AvailableTooltip from "@/components/shopCart-page/ProductCard/components/AvailableTooltip/AvailableTooltip";
+import SpinnerPrimary from "@/ui/SpinnerPrimary/SpinnerPrimary";
 
 
 interface IProductCard {
@@ -22,7 +23,7 @@ interface IProductCard {
 const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 
 	const dispatch = useAppDispatch();
-	const { data:productData, error } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
+	const { data:productData, error, load } = useFetch<IProductId>(API_PRODUCT_ID(data.itemId), REQUEST_METHODS.GET, {}, false);
 	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(data.itemId), REQUEST_METHODS.GET, {});
 
 	//delete item from shop cart
@@ -34,6 +35,14 @@ const ProductCard: React.FC<IProductCard> = ({ data, shopCartData }) => {
 	if (error) {
 		handleClearItem();
 		return;
+	}
+
+	if (load) {
+		return (
+			<div className={styles.ProductCardLoad}>
+				<SpinnerPrimary />
+			</div>
+		)
 	}
 
 	if (!productData) return;
