@@ -93,11 +93,15 @@ jobs:
   deploy:
 #    needs: [build]
     runs-on: ubuntu-latest
-    container: ghcr.io/it-s-bread/infrastructure:latest
+    container:
+      image: ghcr.io/it-s-bread/infrastructure:latest
+      credentials:
+         username: ${{ github.actor }}
+         #password: ${{  secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
+         password: ${{ secrets.GITHUB_TOKEN }}
 #    if: github.ref_name == github.event.repository.default_branch
     env:
       SSH_RSA_KEY: ${{ secrets.SSH_KEY_ROOT }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
 
       - uses: actions/checkout@v2
