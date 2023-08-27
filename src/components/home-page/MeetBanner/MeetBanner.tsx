@@ -21,7 +21,7 @@ const MeetBanner = () => {
 					</p>
 
 					<Link href={LINK_ABOUT}>
-						Узнать о нас подробнее
+						Подробнее о пекарне
 					</Link>
 				</div>
 
