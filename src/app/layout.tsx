@@ -2,6 +2,7 @@ import React from "react";
 import Providers from "@/app/providers";
 import type {Metadata} from "next";
 import {APP_TITLE} from "@/constants/general";
+import Head from "next/head";
 
 export const metadata: Metadata = {
     title: APP_TITLE,
@@ -21,6 +22,10 @@ interface IRootLayout {
 const RootLayout = ({children}:IRootLayout) => {
   return (
       <html lang="ru">
+          <Head>
+              <meta name="yandex-verification" content="5d4090c515673279" />
+          </Head>
+
           <body>
               <Providers>
                   {children}
