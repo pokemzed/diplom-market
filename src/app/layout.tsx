@@ -22,7 +22,10 @@ const RootLayout = ({children}:IRootLayout) => {
   return (
       <html lang="ru">
           <head>
+              {/*yandex*/}
               <meta name="yandex-verification" content="5d4090c515673279" />
+              {/*google*/}
+              <meta name="google-site-verification" content="3u4D2YEt-B8KQW4HTys7FYlPmGRKkS0V5woBKQ3Hyc8" />
           </head>
 
           <body>
