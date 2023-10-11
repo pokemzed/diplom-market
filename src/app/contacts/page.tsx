@@ -1,17 +1,19 @@
-'use client'
 import React from 'react';
-import {Container} from "react-bootstrap";
-import PhoneEmailLinks from "@/ui/PhoneEmailLinks/PhoneEmailLinks";
-import styles from "./page.module.css";
-import PhotoGallery from "@/components/contacts-page/PhotoGallery/PhotoGallery";
+import ContactsPage from "@/pages/ContactsPage/ContactsPage";
+import {Metadata} from "next";
+import {APP_TITLE_CONTACTS} from "@/constants/general";
 
-const page = () => {
-	return (
-		<Container className={styles.main}>
-			<PhoneEmailLinks />
-			<PhotoGallery />
-		</Container>
-	);
-};
+export const metadata: Metadata = {
+	title: APP_TITLE_CONTACTS,
+	description:
+		'Мы всегда остаемся на связи с нашими клиентами! ' +
+		'Это Хлеб - это что-то очень настоящее. Это Хлеб.',
+	icons: {
+		icon: '/favicon.ico',
+	},
+}
+
+
+const page = () => <ContactsPage />;
 
 export default page;

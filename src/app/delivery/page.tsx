@@ -1,19 +1,18 @@
-'use client'
 import React from 'react';
-import {Container} from "react-bootstrap";
-import styles from "./page.module.css";
-import DeliveryInfo from "@/components/delivery-page/DeliveryInfo/DeliveryInfo";
-import PayInfo from "@/components/delivery-page/PayInfo/PayInfo";
+import DeliveryPage from "@/pages/DeliveryPage/DeliveryPage";
+import {Metadata} from "next";
+import {APP_TITLE_DELIVERY} from "@/constants/general";
 
-const page = () => {
-	return (
-		<Container className={styles.main}>
-			<h1 className={styles.title}>Доставка и оплата</h1>
+export const metadata: Metadata = {
+	title: APP_TITLE_DELIVERY,
+	description:
+		'Доставим вашу любимую продукцию прямо к вам домой. Доставка от 30 минут только в Это Хлеб. ' +
+		'Бесплатная доставка - при сумме заказа от 600₽',
+	icons: {
+		icon: '/favicon.ico',
+	},
+}
 
-			<DeliveryInfo />
-			<PayInfo />
-		</Container>
-	);
-};
+const page = () => <DeliveryPage />;
 
 export default page;
