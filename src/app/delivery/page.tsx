@@ -1,17 +1,9 @@
 import React from 'react';
 import DeliveryPage from "@/pages/DeliveryPage/DeliveryPage";
 import {Metadata} from "next";
-import {APP_TITLE_DELIVERY} from "@/constants/general";
+import {META_DELIVERY} from "@/constants/metadata";
 
-export const metadata: Metadata = {
-	title: APP_TITLE_DELIVERY,
-	description:
-		'Доставим вашу любимую продукцию прямо к вам домой. Доставка от 30 минут только в Это Хлеб. ' +
-		'Бесплатная доставка - при сумме заказа от 600₽',
-	icons: {
-		icon: '/favicon.ico',
-	},
-}
+export const metadata: Metadata = META_DELIVERY;
 
 const page = () => <DeliveryPage />;
 

@@ -1,16 +1,10 @@
-'use client'
 import React from 'react';
-import {Container} from "react-bootstrap";
-import AboutContent from "@/components/about-page/AboutContent/AboutContent";
-import styles from "./page.module.css";
+import AboutPage from "@/pages/AboutPage/AboutPage";
+import {Metadata} from "next";
+import {META_ABOUT} from "@/constants/metadata";
 
-const page = () => {
-	return (
-		<Container className={styles.main}>
-			<h1 className={styles.title}>О компании</h1>
-			<AboutContent />
-		</Container>
-	);
-};
+export const metadata: Metadata = META_ABOUT;
+
+const page = () => <AboutPage />
 
 export default page;

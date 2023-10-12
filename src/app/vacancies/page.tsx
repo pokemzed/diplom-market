@@ -1,15 +1,10 @@
-'use client'
 import React from 'react';
-import Preview from "@/components/vacancies-page/Preview/Preview";
-import VacanciesList from "@/components/vacancies-page/VacanciesList/VacanciesList";
+import VacanciesPage from "@/pages/VacanciesPage/VacanciesPage";
+import {Metadata} from "next";
+import {META_VACANCIES} from "@/constants/metadata";
 
-const page = () => {
-	return (
-		<>
-			<Preview />
-			<VacanciesList />
-		</>
-	);
-};
+export const metadata: Metadata = META_VACANCIES;
+
+const page = () => <VacanciesPage />;
 
 export default page;

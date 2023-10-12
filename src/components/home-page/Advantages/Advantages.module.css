@@ -26,6 +26,10 @@
     color: var(--bs-dark);
     font-family: 'Playfair Display', serif;
 }
+.block h2 b{
+    font-family: inherit;
+    color: var(--app-primary);
+}
 
 /*ul*/
 .block ul{
@@ -37,6 +41,9 @@
 /*p*/
 .block p{
     line-height: 1.8;
+}
+.block p b{
+    color: var(--app-primary);
 }
 .block ul li,
 .block p{

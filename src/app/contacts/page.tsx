@@ -1,18 +1,9 @@
 import React from 'react';
 import ContactsPage from "@/pages/ContactsPage/ContactsPage";
 import {Metadata} from "next";
-import {APP_TITLE_CONTACTS} from "@/constants/general";
+import {META_CONTACTS} from "@/constants/metadata";
 
-export const metadata: Metadata = {
-	title: APP_TITLE_CONTACTS,
-	description:
-		'Мы всегда остаемся на связи с нашими клиентами! ' +
-		'Это Хлеб - это что-то очень настоящее. Это Хлеб.',
-	icons: {
-		icon: '/favicon.ico',
-	},
-}
-
+export const metadata: Metadata = META_CONTACTS;
 
 const page = () => <ContactsPage />;
 

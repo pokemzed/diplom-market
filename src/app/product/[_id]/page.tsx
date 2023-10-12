@@ -1,17 +1,9 @@
 import React from 'react';
 import ProductPage from "@/pages/ProductPage/ProductPage";
 import {Metadata} from "next";
-import {APP_TITLE_PRODUCT} from "@/constants/general";
+import {META_PRODUCT} from "@/constants/metadata";
 
-export const metadata: Metadata = {
-	title: APP_TITLE_PRODUCT,
-	description:
-		'Каталог в Это Хлеб - то самое место, где вы точно найдете, то, что вам по вкусу. ' +
-		'Онлайн оплата, доставка и горячий хлеб не оставят вас равнодушными.',
-	icons: {
-		icon: '/favicon.ico',
-	},
-}
+export const metadata: Metadata = META_PRODUCT;
 
 const page = () => <ProductPage />
 
