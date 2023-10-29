@@ -1,5 +1,5 @@
 import React from 'react';
-import CatalogPage from "@/pages/CatalogPage/CatalogPage";
+import CatalogPage from "@/pagesList/CatalogPage/CatalogPage";
 import {Metadata} from "next";
 import {META_CATALOG} from "@/constants/metadata";
 

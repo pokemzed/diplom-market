@@ -1,5 +1,5 @@
 import React from 'react';
-import VacanciesPage from "@/pages/VacanciesPage/VacanciesPage";
+import VacanciesPage from "@/pagesList/VacanciesPage/VacanciesPage";
 import {Metadata} from "next";
 import {META_VACANCIES} from "@/constants/metadata";
 

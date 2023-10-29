@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductPage from "@/pages/ProductPage/ProductPage";
+import ProductPage from "@/pagesList/ProductPage/ProductPage";
 import {Metadata} from "next";
 import {META_PRODUCT} from "@/constants/metadata";
 

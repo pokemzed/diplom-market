@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactsPage from "@/pages/ContactsPage/ContactsPage";
+import ContactsPage from "@/pagesList/ContactsPage/ContactsPage";
 import {Metadata} from "next";
 import {META_CONTACTS} from "@/constants/metadata";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import DeliveryPage from "@/pages/DeliveryPage/DeliveryPage";
+import DeliveryPage from "@/pagesList/DeliveryPage/DeliveryPage";
 import {Metadata} from "next";
 import {META_DELIVERY} from "@/constants/metadata";
 
