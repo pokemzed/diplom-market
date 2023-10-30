@@ -1,4 +1,12 @@
+.PreviewBannerContainer{
+    overflow: hidden;
+}
 .PreviewBanner{
+    position: relative;
+
+    height: 90vh;
+    max-height: 800px;
+    min-height: 700px;
     margin-bottom: 5em;
 
     display: flex;
@@ -8,15 +16,21 @@
 
 /*image*/
 .PreviewBanner img{
-    width: 50%;
-    margin: -4.5% 0;
-    aspect-ratio: 827 / 1065;
+    position: absolute;
+    right: -150px;
+
+    height: 90vh;
+    max-height: 800px;
+    min-height: 700px;
+    margin-bottom: -100px;
+    aspect-ratio: 22 / 19;
+    object-fit: contain;
 }
 
 /*content*/
 .content{
-    width: 47.5%;
-    margin-top: -10%;
+    width: 650px;
+    margin-top: -3.5%;
 }
 
 /*text*/
@@ -55,34 +69,48 @@
 }
 
 /*media*/
+@media (max-width: 1800px) {
+    .PreviewBanner{
+        max-height: 700px;
+        min-height: 600px;
+    }
+    /*image*/
+    .PreviewBanner img{
+        position: absolute;
+        right: -100px;
+
+        max-height: 700px;
+        min-height: 600px;
+        margin-bottom: -75px;
+    }
+}
 @media (max-width: 1400px) {
+    .PreviewBanner{
+        max-height: 650px;
+        min-height: 550px;
+    }
+    /*image*/
+    .PreviewBanner img{
+        right: -150px;
+
+        max-height: 600px;
+        min-height: 500px;
+        margin-bottom: -75px;
+    }
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 50px;
+    }
+}
+@media (max-width: 1200px) {
     /*content*/
     .content{
-        margin-top: -5%;
-    }
-    /*text*/
-    .PreviewBanner h1,
-    .PreviewBanner span{
-        font-size: 45px;
+        width: 550px;
+        margin-top: -3.5%;
     }
 }
-
-@media (max-width: 1200px) {
-    /*text*/
-    .PreviewBanner h1,
-    .PreviewBanner span{
-        font-size: 35px;
-    }
-    .PreviewBanner p{
-        line-height: 1.6;
-    }
-}
-
 @media (max-width: 991px) {
-    .PreviewBanner{
-        padding-top: 5em;
-        padding-bottom: .5em;
-    }
+    /*image*/
     .PreviewBanner img{
         display: none;
     }
@@ -92,11 +120,31 @@
         margin-top: 0;
     }
 }
-
-@media (max-width: 400px) {
-    /*text*/
+@media (max-width: 768px) {
+    .PreviewBanner{
+        height: 70vh;
+        max-height: 650px;
+        min-height: 350px;
+    }
     .PreviewBanner h1,
     .PreviewBanner span{
-        font-size: 28px;
+        font-size: 42px;
+    }
+}
+@media (max-width: 500px) {
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 35px;
+    }
+    .PreviewBanner p{
+        margin-bottom: 2em;
+        color: var(--bs-gray-600);
+        line-height: 1.5;
+    }
+}
+@media (max-width: 400px) {
+    .PreviewBanner h1,
+    .PreviewBanner span{
+        font-size: 30px;
     }
 }
