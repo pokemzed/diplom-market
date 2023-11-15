@@ -2,7 +2,6 @@ version: '3.9'
 services:
   app:
     restart: always
-    image: ghcr.io/it-s-bread/online-shop-front:latest
     build:
       dockerfile: Dockerfile
       context: .
