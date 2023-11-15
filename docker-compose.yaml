@@ -37,7 +37,7 @@ services:
     volumes:
       - certbot-www:/var/www/certbot/:rw
       - data-certs:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal -d hleb365.ru --agree-tos --email pr0sto@hotmail.com
+    command: certonly --webroot -w /var/www/certbot --force-renewal -d hleb365.ru --agree-tos --email maxim.shnyagin@yandex.ru
     depends_on:
       - nginx
 
