@@ -1,19 +1,10 @@
-'use client'
 import React from 'react';
-import {Container} from "react-bootstrap";
-import styles from "./page.module.css";
-import DeliveryInfo from "@/components/delivery-page/DeliveryInfo/DeliveryInfo";
-import PayInfo from "@/components/delivery-page/PayInfo/PayInfo";
+import DeliveryPage from "@/pagesList/DeliveryPage/DeliveryPage";
+import {Metadata} from "next";
+import {META_DELIVERY} from "@/constants/metadata";
 
-const page = () => {
-	return (
-		<Container className={styles.main}>
-			<h1 className={styles.title}>Доставка и оплата</h1>
+export const metadata: Metadata = META_DELIVERY;
 
-			<DeliveryInfo />
-			<PayInfo />
-		</Container>
-	);
-};
+const page = () => <DeliveryPage />;
 
 export default page;

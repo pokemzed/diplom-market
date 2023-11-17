@@ -25,18 +25,24 @@ const FooterContent = () => {
 					<div className={styles.block}>
 						<p>В мессенджерах</p>
 						<div className={styles.links}>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>WhatsApp</a>
+							<a
+								href={`https://wa.me/${CONTACTS.phone.valueWS}`}
+								target={"_blank"} rel={"noreferrer"}>
+								WhatsApp
+							</a>
 							<span>|</span>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Telegram</a>
+							<a
+								href={`https://t.me/${CONTACTS.tg.nick}`}
+								target={"_blank"} rel={"noreferrer"}>
+								Telegram
+							</a>
 						</div>
 					</div>
 
 					<div className={styles.block}>
 						<p>В соцсетях</p>
 						<div className={styles.links}>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Вконтакте</a>
-							<span>|</span>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Instargram</a>
+							<a href={"https://vk.com/cafe_shade"} target={"_blank"} rel={"noreferrer"}>Вконтакте</a>
 						</div>
 					</div>
 				</div>
@@ -60,9 +66,17 @@ const FooterContent = () => {
 					<div className={styles.block}>
 						<p>В мессенджерах</p>
 						<div className={styles.links}>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>WhatsApp</a>
+							<a
+								href={`https://wa.me/${CONTACTS.phone.valueWS}`}
+								target={"_blank"} rel={"noreferrer"}>
+								WhatsApp
+							</a>
 							<span>|</span>
-							<a href={"/"} target={"_blank"} rel={"noreferrer"}>Telegram</a>
+							<a
+								href={`https://t.me/${CONTACTS.tg.nick}`}
+								target={"_blank"} rel={"noreferrer"}>
+								Telegram
+							</a>
 						</div>
 					</div>
 				</div>
@@ -72,7 +86,7 @@ const FooterContent = () => {
 				<div className={styles.left}>
 					<h6>
 						ООО «Это Хлеб» © 2023 <br/>
-						ИНН/КПП 5249043499/524901001
+						ИНН/КПП 524907027706/524901001
 					</h6>
 				</div>
 

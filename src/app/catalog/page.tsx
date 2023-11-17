@@ -1,17 +1,10 @@
-'use client'
 import React from 'react';
-import CategoryProducts from "@/components/catalog-page/CategoryProducts/CategoryProducts";
-import {Container} from "react-bootstrap";
-import CatalogBanner from "@/components/catalog-page/CatalogBanner/CatalogBanner";
+import CatalogPage from "@/pagesList/CatalogPage/CatalogPage";
+import {Metadata} from "next";
+import {META_CATALOG} from "@/constants/metadata";
 
-const page = () => {
+export const metadata: Metadata = META_CATALOG;
 
-	return (
-		<Container>
-			<CatalogBanner />
-			<CategoryProducts />
-		</Container>
-	);
-};
+const page = () => <CatalogPage />;
 
 export default page;

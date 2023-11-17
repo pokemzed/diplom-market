@@ -1,6 +1,6 @@
 import {EShopsIds, IShopAddress} from "@/types/general";
 
-export const APP_TITLE = "Это хлеб"
+export const APP_TITLE = "Это Хлеб | Пекарня г.Дзержинск"
 
 // минимальная цена заказа
 export const MIN_ORDER_PRICE = 600;
@@ -33,11 +33,15 @@ export const SHOPS_ADDRESSES: IShopAddress[] = [
 // контакты
 export const CONTACTS = {
 	phone: {
-		title: "+7 (999) 999-99-99",
-		value: "+79999999999",
+		title: "+7 (905) 190-30-90",
+		value: "+79051903090",
+		valueWS: "79051903090",
 	},
 	email: {
-		title: "yourmail@yourmail.ru",
-		value: "yourmail@yourmail.ru",
+		title: "eto.hleb365@gmail.com",
+		value: "eto.hleb365@gmail.com",
 	},
+	tg: {
+		nick: "batonetta"
+	}
 };

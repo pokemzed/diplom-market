@@ -1,17 +1,10 @@
-'use client'
 import React from 'react';
-import {Container} from "react-bootstrap";
-import PhoneEmailLinks from "@/ui/PhoneEmailLinks/PhoneEmailLinks";
-import styles from "./page.module.css";
-import PhotoGallery from "@/components/contacts-page/PhotoGallery/PhotoGallery";
+import ContactsPage from "@/pagesList/ContactsPage/ContactsPage";
+import {Metadata} from "next";
+import {META_CONTACTS} from "@/constants/metadata";
 
-const page = () => {
-	return (
-		<Container className={styles.main}>
-			<PhoneEmailLinks />
-			<PhotoGallery />
-		</Container>
-	);
-};
+export const metadata: Metadata = META_CONTACTS;
+
+const page = () => <ContactsPage />;
 
 export default page;

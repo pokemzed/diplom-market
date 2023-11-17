@@ -19,3 +19,7 @@
     font-family: 'Nunito Sans', sans-serif;
     /*font-family: 'Playfair Display', serif;*/
 }
+
+html {
+    height: 100%;
+}

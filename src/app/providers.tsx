@@ -15,6 +15,8 @@ import store, {persistedStore} from "@/store/store";
 import NavbarTop from "@/components/general/NavbarTop/NavbarTop";
 import {PersistGate} from "redux-persist/integration/react";
 import FooterBottom from "@/components/general/FooterBottom/FooterBottom";
+import TestWebsiteAlert from "@/components/general/TestWebsiteAlert/TestWebsiteAlert";
+import useScrollTop from "@/hooks/useScrollTop";
 
 interface IProviders {
 	children: React.ReactNode
@@ -22,10 +24,13 @@ interface IProviders {
 
 const Providers = ({ children }:IProviders) => {
 
+	useScrollTop()
+
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistedStore}>
 				<Toast />
+				<TestWebsiteAlert />
 				<NavbarTop />
 				{children}
 				<FooterBottom />

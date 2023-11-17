@@ -15,7 +15,7 @@ const DeliveryInfo = () => {
 			<div className={styles.block}>
 				<div className={styles.circle} />
 				<p>
-					Заказы, оформленные в период <b>с 20:00 до 9:00</b>,
+					Заказы, оформленные в период <b>с 19:00 до 9:00</b>,
 					будут обработаны на следующий день
 				</p>
 			</div>
