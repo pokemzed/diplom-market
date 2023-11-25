@@ -16,7 +16,7 @@ const page = () => {
 
 	const params = useParams();
 	const [interval, setInterval] = useState<false | number>(false);
-	const { data, error, load } = useFetch<IOrderFormId>(API_ORDER_ID(params._id), REQUEST_METHODS.GET, {}, interval);
+	const { data, error, load } = useFetch<IOrderFormId>(API_ORDER_ID(params._id as string), REQUEST_METHODS.GET, {}, interval);
 
 	useEffect(() => {
 		//если онлайн оплата не завершена то обновляем статус каждые 3 секунды

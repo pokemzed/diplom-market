@@ -18,8 +18,8 @@ import RandomProducts from "@/components/general/RandomProducts/RandomProducts";
 const ProductPage = () => {
 
 	const params = useParams();
-	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id), REQUEST_METHODS.GET, {}, false);
-	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(params._id), REQUEST_METHODS.GET, {});
+	const {data, error, load} = useFetch<IProductId>(API_PRODUCT_ID(params._id as string), REQUEST_METHODS.GET, {}, false);
+	const { data:images } = useFetch<IProductImg>(API_PRODUCT_IMG(params._id as string), REQUEST_METHODS.GET, {});
 
 	if (load) {
 		return (
