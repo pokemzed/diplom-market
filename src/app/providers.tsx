@@ -30,7 +30,7 @@ const Providers = ({ children }:IProviders) => {
 		<Provider store={store}>
 			<PersistGate persistor={persistedStore}>
 				<Toast />
-				<TestWebsiteAlert />
+				{process.env.NEXT_PUBLIC_APP_TEST === "true" && <TestWebsiteAlert />}
 				<NavbarTop />
 				{children}
 				<FooterBottom />

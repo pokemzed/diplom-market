@@ -49,6 +49,8 @@ const OrderStatusData: React.FC<IOrderStatusData> = ({ data }) => {
 					<p className={styles.address}>
 						Адрес {data.deliveryType === EDelivery.SELF ? "пекарни" : "доставки"}:
 						{data.deliveryType === EDelivery.SELF ? " " + data.shopAddress : " " + data.address.address}
+						<br/>
+						Наш администратор свяжется с вами в ближайшее время
 					</p>
 				</div>
 
