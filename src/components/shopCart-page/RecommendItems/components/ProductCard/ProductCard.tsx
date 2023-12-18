@@ -34,7 +34,7 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 						{!data.available ? "Предзаказ" : "В наличии"}
 					</Badge>
 
-					<Badge hidden={!data?.onlyBread} bg={"light"}>
+					<Badge hidden={!data?.onlyBread} className={styles.badge} bg={"light"}>
 						Уникально в ЭХ
 					</Badge>
 				</div>
