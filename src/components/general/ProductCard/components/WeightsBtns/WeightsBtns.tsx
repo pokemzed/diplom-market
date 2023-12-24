@@ -19,7 +19,7 @@ const WeightsBtns: React.FC<IWeightsBtns> = ({ data, selected, setSelected, disc
 					<h3>
 						{
 							!!discount ?
-								data[0].price / 100 * (100 - discount):
+								(data[0].price / 100 * (100 - discount))?.toFixed(1):
 								data[0].price
 						}₽
 					</h3>
