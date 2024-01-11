@@ -14,6 +14,10 @@
 .ShopCartBtn:hover{
     background: var(--app-primary-hover);
 }
+.ShopCartBtn.noItems{
+    background: var(--bs-gray);
+    cursor: no-drop;
+}
 
 /*active button*/
 .ShopCartBtnActive{

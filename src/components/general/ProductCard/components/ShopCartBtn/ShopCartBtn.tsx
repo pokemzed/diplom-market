@@ -4,6 +4,7 @@ import {IProductId, IProductPrice} from "@/types/products";
 import {useDispatch} from "react-redux";
 import {IShopCartItem} from "@/types/shopCart";
 import {addItem, removeItem} from "@/store/slices/shopCartSlice";
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
 
 interface IShopCartBtn {
 	selected: IProductPrice,
@@ -25,13 +26,30 @@ const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }
 	};
 
 	const handleAdd = () => {
-		// console.log(shopCartObject)
 		dispatch(addItem(shopCartObject))
 	}
 
 	const handleRemove = () => {
-		// console.log(shopCartObject)
 		dispatch(removeItem(shopCartObject))
+	}
+
+	const renderTooltip = (props: any) => (
+		<Tooltip id="button-tooltip" {...props}>
+			Товар доступен только по предзаказу
+		</Tooltip>
+	);
+
+	if (!product.available) {
+		return (
+			<OverlayTrigger
+				placement="bottom"
+				overlay={renderTooltip}
+			>
+			<button className={`${styles.ShopCartBtn} ${styles.noItems}`} type="button">
+				Предзаказ
+			</button>
+			</OverlayTrigger>
+		)
 	}
 
 	if (thisItem) {
