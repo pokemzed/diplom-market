@@ -17,12 +17,13 @@ const DeliverySelect: React.FC<IDeliverySelect> = ({ formData, setFormData }) =>
 				Самовывоз
 			</button>
 
-			<button
-				disabled={formData.deliveryType === EDelivery.COURIER}
-				onClick={() => setFormData({...formData, deliveryType: EDelivery.COURIER})}
-			>
-				Доставка
-			</button>
+			{/*TODO: поменять тут когда доставка станет доступной*/}
+			{/*<button*/}
+			{/*	disabled={formData.deliveryType === EDelivery.COURIER}*/}
+			{/*	onClick={() => setFormData({...formData, deliveryType: EDelivery.COURIER})}*/}
+			{/*>*/}
+			{/*	Доставка*/}
+			{/*</button>*/}
 		</div>
 	);
 };

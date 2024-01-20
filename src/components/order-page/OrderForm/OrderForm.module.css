@@ -50,6 +50,18 @@
     border: 1px solid var(--bs-gray-600);
 }
 
+/*no delivery*/
+.noDelivery{
+    padding: 1em 2em;
+    line-height: 1.2;
+    text-align: center;
+    border: 1px solid var(--app-primary);
+    border-radius: 5px;
+}
+.noDelivery b{
+    color: var(--app-primary);
+}
+
 /*button submit form*/
 .OrderForm .submitOrder{
     width: 100%;
@@ -100,5 +112,8 @@
     .orderFormData input,
     .orderFormData textarea{
         padding: .5em;
+    }
+    .noDelivery{
+        font-size: 14px;
     }
 }

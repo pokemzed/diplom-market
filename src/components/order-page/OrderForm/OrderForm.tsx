@@ -69,21 +69,27 @@ const OrderForm = () => {
 	return (
 		<Form className={styles.OrderForm} onSubmit={handleSend}>
 			<div className={styles.orderFormData}>
-				<UserForm formData={formData} setFormData={setFormData} />
-				<DeliverySelect formData={formData} setFormData={setFormData} />
+				<UserForm formData={formData} setFormData={setFormData}/>
+
+				<p className={styles.noDelivery}>
+					Доставка недоступна на данный момент, но вы можете обсудить
+					этот вопрос индивидуально с нашими менеджерами. <b>Спасибо за понимание!</b>
+				</p>
+
+				<DeliverySelect formData={formData} setFormData={setFormData}/>
 				{
 					formData.deliveryType === EDelivery.COURIER &&
-					<AddressForm formData={formData} setFormData={setFormData} />
+					<AddressForm formData={formData} setFormData={setFormData}/>
 				}
 				{
 					formData.deliveryType === EDelivery.SELF &&
-					<ShopAddress formData={formData} setFormData={setFormData} />
+					<ShopAddress formData={formData} setFormData={setFormData}/>
 				}
 			</div>
 
 			<div className={styles.payment}>
 				<h3>Оплата</h3>
-				<PaySelect formData={formData} setFormData={setFormData} />
+				<PaySelect formData={formData} setFormData={setFormData}/>
 				<OrderAmount shopCartData={shopCartData} formData={formData} />
 
 				<button disabled={load} type={"submit"} className={styles.submitOrder}>
