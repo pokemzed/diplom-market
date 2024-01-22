@@ -5,22 +5,30 @@ const DeliveryInfo = () => {
 	return (
 		<div className={styles.DeliveryInfo}>
 			<div className={styles.block}>
-				<div className={styles.circle} />
+				<div className={styles.circle}/>
 				<p>
-					Прием заказов с доставкой курьером
-					осуществляется <b>с 9:00 до 16:00</b>
+					При оплате наличными резерв на заказ действует <b>до 16:00</b>,
+					чтобы время не было ограничено, необходимо оплачивать заказ <b>картой</b>.
 				</p>
 			</div>
 
 			<div className={styles.block}>
-				<div className={styles.circle} />
+				<div className={styles.circle}/>
+				<p>
+					Доставка недоступна на данный момент, но вы можете обсудить
+					этот вопрос индивидуально с нашими менеджерами. <b>Спасибо за понимание!</b>
+				</p>
+			</div>
+
+			<div className={styles.block}>
+				<div className={styles.circle}/>
 				<p>
 					Заказы, оформленные в период <b>с 19:00 до 9:00</b>,
 					будут обработаны на следующий день
 				</p>
 			</div>
 			<div className={styles.block}>
-				<div className={styles.circle} />
+				<div className={styles.circle}/>
 				<p>
 					Наличие отметки <b>"Предзаказ"</b> говорит об отсутствии в данный
 					момент этого товара на прилавке он-лайн магазина и
