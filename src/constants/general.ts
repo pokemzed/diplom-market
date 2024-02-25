@@ -21,13 +21,13 @@ export const SHOPS_ADDRESSES: IShopAddress[] = [
 		workTime: 'Ежедневно с 11:00-23:00',
 		selected: false,
 	},
-	{
-		id: EShopsIds.PEKARNYA,
-		address: 'Окская набережная 5а, «Пекарня»',
-		city: 'г.Дзержинск',
-		workTime: 'Ежедневно с 10:00-18:00',
-		selected: false,
-	},
+	// {
+	// 	id: EShopsIds.PEKARNYA,
+	// 	address: 'Окская набережная 5а, «Пекарня»',
+	// 	city: 'г.Дзержинск',
+	// 	workTime: 'Ежедневно с 10:00-18:00',
+	// 	selected: false,
+	// },
 ];
 
 // контакты
