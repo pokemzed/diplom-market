@@ -23,7 +23,7 @@
 
 /*logo*/
 .logo img{
-    width: 220px;
+    width: 150px;
 }
 
 /*right block (for align)*/
@@ -48,8 +48,8 @@
 }
 .linksContainer a:hover,
 .linksContainer a.active{
-    color: var(--bs-white);
-    background: var(--app-primary);
+    color: var(--app-primary);
+    /*background: var(--app-primary);*/
 }
 
 /*openMenu*/

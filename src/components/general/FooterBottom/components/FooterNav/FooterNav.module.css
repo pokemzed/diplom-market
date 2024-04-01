@@ -24,7 +24,7 @@
     border-bottom: 2px solid var(--app-primary);
 }
 .FooterNav a:hover{
-    border-bottom: 2px solid var(--bs-gray-600);
+    border-bottom: 2px solid var(--app-primary);
 }
 
 /*media*/

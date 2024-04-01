@@ -29,9 +29,5 @@ export const LIST_LINKS = [
 	{
 		title: "Контакты",
 		link: LINK_CONTACTS,
-	},
-	{
-		title: "Вакансии",
-		link: LINK_VACANCIES,
-	},
+	}
 ];

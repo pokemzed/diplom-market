@@ -70,7 +70,11 @@ const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }
 
 	return (
 		<button className={styles.ShopCartBtn} type="button" onClick={handleAdd}>
-			В корзину
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M15.5 8.77157H9.23529V15.1245H6.73529V8.77157H0.5V6.50687H6.73529V0.124512H9.23529V6.50687H15.5V8.77157Z"
+					fill="white"/>
+			</svg>
 		</button>
 	);
 };

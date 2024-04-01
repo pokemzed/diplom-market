@@ -48,6 +48,7 @@
 }
 
 .PreviewBanner p{
+    max-width: 85%;
     margin-bottom: 3em;
     color: var(--bs-gray-600);
     line-height: 1.8;

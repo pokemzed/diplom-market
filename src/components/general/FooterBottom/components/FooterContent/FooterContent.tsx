@@ -85,8 +85,8 @@ const FooterContent = () => {
 			<div className={styles.bottom}>
 				<div className={styles.left}>
 					<h6>
-						ООО «Это Хлеб» © 2023 <br/>
-						ИНН/КПП 524907027706/524901001
+						ООО «soudemy» © 2023 <br/>
+						ИНН/КПП 000000000000/0000000000
 					</h6>
 				</div>
 
