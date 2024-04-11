@@ -1,6 +1,6 @@
 import {EShopsIds, IShopAddress} from "@/types/general";
 
-export const APP_TITLE = "Это Хлеб | Пекарня г.Дзержинск"
+export const APP_TITLE = "Soudemy"
 
 // минимальная цена заказа
 export const MIN_ORDER_PRICE = 600;
