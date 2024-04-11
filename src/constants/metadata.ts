@@ -50,6 +50,7 @@ export const META_PRODUCT: Metadata = {
 	},
 }
 
+
 export const META_VACANCIES: Metadata = {
 	title: 'Вакансии | Это Хлеб',
 	description:
