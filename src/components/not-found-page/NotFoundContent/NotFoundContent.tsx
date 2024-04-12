@@ -5,6 +5,7 @@ import {LINK_CATALOG} from "@/constants/links";
 import {Container} from "react-bootstrap";
 
 const NotFoundContent = () => {
+	//todo
 	return (
 		<Container className={styles.NotFoundContent}>
 			<div className={styles.goBack}>
