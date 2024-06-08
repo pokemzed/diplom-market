@@ -37,21 +37,21 @@ const ProductFormWeightPrice: React.FC<IProductFormWeightPrice> = ({ formData, s
 	return (
 		<>
 			<SelectMany
-				title={"Варианты веса"}
+				title={"Варианты количества"}
 				data={ITEM_WEIGHTS}
 				selectedItems={formData.weights}
 				handleSelect={handleSelectWeight}
 			/>
 
 			<Badge hidden={!!formData.weights.length} className={"w-100 mb-1"} bg={"danger"}>
-				Выберите вес товара для того, чтобы указать цену
+				Выберите количество товара для того, чтобы указать цену
 			</Badge>
 
 			{
 				[...formData.prices]
 					.sort((a,b) => a.weight - b.weight)
 					.map(elem => (
-						<FloatingLabel key={elem.weight} label={`Цена за ${elem.weight} грамм (Рубли)`}>
+						<FloatingLabel key={elem.weight} label={`Цена за ${elem.weight} шт. (Рубли)`}>
 							<FormControl
 								required
 								type={"number"}

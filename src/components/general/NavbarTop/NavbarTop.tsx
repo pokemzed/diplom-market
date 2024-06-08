@@ -7,6 +7,7 @@ import ShopCartLink from "@/components/general/NavbarTop/components/ShopCartLink
 import {usePathname} from "next/navigation";
 import {APP_TITLE} from "@/constants/general";
 import NavbarMobile from "@/components/general/NavbarTop/components/NavbarMobile/NavbarMobile";
+import ProfileLink from "@/components/general/NavbarTop/components/ProfileLink/ProfileLink";
 
 const NavbarTop = () => {
 
@@ -50,6 +51,7 @@ const NavbarTop = () => {
 					</Nav>
 
 					<ShopCartLink />
+					<ProfileLink/>
 
 					<img
 						onClick={() => setShowMobile(!showMobile)}

@@ -35,7 +35,7 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 					</Badge>
 
 					<Badge hidden={!data?.onlyBread} className={styles.badge} bg={"light"}>
-						Уникально в ЭХ
+						Уникально в soudemy
 					</Badge>
 				</div>
 

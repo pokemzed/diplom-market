@@ -1,0 +1,26 @@
+.ProfileLink{
+    width: 150px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--bs-dark);
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--app-light);
+    border-radius: 5px;
+    transition: .25s;
+}
+.ProfileLink:hover{
+    background: var(--app-light-hover);
+}
+
+/*media*/
+@media (max-width: 768px) {
+    .ProfileLink{
+        width: 120px;
+        height: 40px;
+    }
+}

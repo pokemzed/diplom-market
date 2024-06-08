@@ -26,7 +26,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 				/>
 			</FloatingLabel>
 
-			<FloatingLabel label="Состав">
+			<FloatingLabel label="Материал">
 				<FormControl
 					required as={"textarea"} rows={4}
 					value={formData?.composition}
@@ -63,7 +63,7 @@ const ProductFormInputs: React.FC<IProductFormInputs> = ({ formData, setFormData
 			/>
 
 			<Form.Switch
-				label="Доступно только в Это Хлеб"
+				label="Доступно только в soudemy"
 				checked={formData?.onlyBread}
 				onChange={() => setFormData({...formData, onlyBread: !formData?.onlyBread})}
 			/>

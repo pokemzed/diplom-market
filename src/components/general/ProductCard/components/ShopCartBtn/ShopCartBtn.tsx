@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {IShopCartItem} from "@/types/shopCart";
 import {addItem, removeItem} from "@/store/slices/shopCartSlice";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
+import {TOAST_ERROR} from "@/constants/toasts";
 
 interface IShopCartBtn {
 	selected: IProductPrice,
@@ -15,7 +16,7 @@ interface IShopCartBtn {
 const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }) => {
 
 	const dispatch = useDispatch();
-
+	const user = globalThis.localStorage.getItem("user")
 	const thisItem = shopCartData.find(item => item.itemId === product._id && item.weight === selected.weight);
 
 	const shopCartObject:IShopCartItem = {
@@ -26,6 +27,9 @@ const ShopCartBtn: React.FC<IShopCartBtn> = ({ selected, shopCartData, product }
 	};
 
 	const handleAdd = () => {
+		if(!user){
+			return TOAST_ERROR('Необходима авторизация для тобавления товара')
+		}
 		dispatch(addItem(shopCartObject))
 	}
 

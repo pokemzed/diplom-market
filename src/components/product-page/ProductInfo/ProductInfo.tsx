@@ -12,9 +12,9 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 	return (
 		<div className={styles.ProductInfo}>
 			<header>
-				<Badge className={styles.weights}>
-					{data.weights.map(item => <p key={item.value}>{item.value}г<span>/</span></p>)}
-				</Badge>
+				{/*<Badge className={styles.weights}>*/}
+				{/*	{data.weights.map(item => <p key={item.value}>{item.value}г<span>/</span></p>)}*/}
+				{/*</Badge>*/}
 				<Badge>
 					{data.available ? "В наличии" : "Предзаказ"}
 				</Badge>
@@ -22,7 +22,7 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 					{"- " + +data.discount + "%"}
 				</Badge>
 				<Badge hidden={!data?.onlyBread} bg={"light"}>
-					Уникально в ЭХ
+					Уникально в soudemy
 				</Badge>
 			</header>
 
@@ -30,7 +30,7 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<h1>{data.name}</h1>
 
 				<div className={styles.blockContent}>
-					<label>Состав:</label>
+					<label>Характеристики:</label>
 					<p>{data.composition}</p>
 				</div>
 

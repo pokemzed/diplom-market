@@ -17,163 +17,163 @@ export const ITEM_INITIAL:IProductWithImg = {
 
 export const ITEM_WEIGHTS = [
 	{
-		title: '20 грамм',
+		title: '1',
+		value: 1,
+	},
+	{
+		title: '2',
+		value: 2,
+	},
+	{
+		title: '3',
+		value: 3,
+	},
+	{
+		title: '4',
+		value: 4,
+	},
+	{
+		title: '5',
+		value: 5,
+	},
+	{
+		title: '6',
+		value: 6,
+	},
+	{
+		title: '7',
+		value: 7,
+	},
+	{
+		title: '8',
+		value: 8,
+	},
+	{
+		title: '9',
+		value: 9,
+	},
+	{
+		title: '10',
+		value: 10,
+	},
+	{
+		title: '11',
+		value: 11,
+	},
+	{
+		title: '12',
+		value: 12,
+	},
+	{
+		title: '13',
+		value: 13,
+	},
+	{
+		title: '14',
+		value: 14,
+	},
+	{
+		title: '15',
+		value: 15,
+	},
+	{
+		title: '16',
+		value: 16,
+	},
+	{
+		title: '17',
+		value: 17,
+	},
+	{
+		title: '18',
+		value: 18,
+	},
+	{
+		title: '19',
+		value: 19,
+	},
+	{
+		title: '20',
 		value: 20,
 	},
 	{
-		title: '40 грамм',
-		value: 40,
+		title: '21',
+		value: 21,
 	},
 	{
-		title: '60 грамм',
-		value: 60,
+		title: '22',
+		value: 22,
 	},
 	{
-		title: '80 грамм',
-		value: 80,
+		title: '23',
+		value: 23,
 	},
 	{
-		title: '100 грамм',
+		title: '24',
+		value: 24,
+	},
+	{
+		title: '25',
+		value: 25,
+	},
+	{
+		title: '26',
+		value: 26,
+	},
+	{
+		title: '27',
+		value: 27,
+	},
+	{
+		title: '28',
+		value: 28,
+	},
+	{
+		title: '29',
+		value: 29,
+	},
+	{
+		title: '30',
+		value: 30,
+	},
+	{
+		title: '50',
+		value: 50,
+	},
+	{
+		title: '100',
 		value: 100,
 	},
 	{
-		title: '120 грамм',
-		value: 120,
+		title: '125',
+		value: 125,
 	},
 	{
-		title: '140 грамм',
-		value: 140,
+		title: '150',
+		value: 150,
 	},
 	{
-		title: '160 грамм',
-		value: 160,
-	},
-	{
-		title: '180 грамм',
-		value: 180,
-	},
-	{
-		title: '200 грамм',
+		title: '200',
 		value: 200,
 	},
 	{
-		title: '220 грамм',
-		value: 220,
-	},
-	{
-		title: '240 грамм',
-		value: 240,
-	},
-	{
-		title: '260 грамм',
-		value: 260,
-	},
-	{
-		title: '280 грамм',
-		value: 280,
-	},
-	{
-		title: '300 грамм',
+		title: '300',
 		value: 300,
 	},
 	{
-		title: '320 грамм',
-		value: 320,
-	},
-	{
-		title: '340 грамм',
-		value: 340,
-	},
-	{
-		title: '360 грамм',
-		value: 360,
-	},
-	{
-		title: '380 грамм',
-		value: 380,
-	},
-	{
-		title: '400 грамм',
+		title: '400',
 		value: 400,
 	},
 	{
-		title: '420 грамм',
-		value: 420,
-	},
-	{
-		title: '440 грамм',
-		value: 440,
-	},
-	{
-		title: '460 грамм',
-		value: 460,
-	},
-	{
-		title: '480 грамм',
-		value: 480,
-	},
-	{
-		title: '500 грамм',
+		title: '500',
 		value: 500,
 	},
 	{
-		title: '550 грамм',
-		value: 550,
-	},
-	{
-		title: '600 грамм',
+		title: '600',
 		value: 600,
 	},
 	{
-		title: '650 грамм',
-		value: 650,
-	},
-	{
-		title: '700 грамм',
+		title: '700',
 		value: 700,
-	},
-	{
-		title: '750 грамм',
-		value: 750,
-	},
-	{
-		title: '800 грамм',
-		value: 800,
-	},
-	{
-		title: '850 грамм',
-		value: 850,
-	},
-	{
-		title: '900 грамм',
-		value: 900,
-	},
-	{
-		title: '950 грамм',
-		value: 950,
-	},
-	{
-		title: '1000 грамм',
-		value: 1000,
-	},
-	{
-		title: '1100 грамм',
-		value: 1100,
-	},
-	{
-		title: '1200 грамм',
-		value: 1200,
-	},
-	{
-		title: '1300 грамм',
-		value: 1300,
-	},
-	{
-		title: '1400 грамм',
-		value: 1400,
-	},
-	{
-		title: '1500 грамм',
-		value: 1500,
 	},
 ];

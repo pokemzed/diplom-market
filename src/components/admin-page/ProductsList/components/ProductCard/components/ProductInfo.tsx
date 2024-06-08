@@ -20,7 +20,7 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<td>{handleCutStr(data?.description, 60) || "Без описания"}</td>
 			</tr>
 			<tr>
-				<td>Состав:</td>
+				<td>Материал:</td>
 				<td>{handleCutStr(data?.composition, 60) || "Без состава"}</td>
 			</tr>
 			<tr hidden={!categories?.length}>
@@ -44,7 +44,7 @@ const ProductInfo: React.FC<IProductInfo> = ({ data }) => {
 				<td>{!!data?.show ? "Да" : "Нет"}</td>
 			</tr>
 			<tr>
-				<td>Только в "Это хлеб":</td>
+				<td>Только в "soudemy":</td>
 				<td>{!!data?.onlyBread ? "Да" : "Нет"}</td>
 			</tr>
 			</tbody>

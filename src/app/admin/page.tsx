@@ -20,7 +20,10 @@ const page = () => {
 
 	const { data, error, load } = useFetch<boolean>(API_ADMIN_AUTH, REQUEST_METHODS.POST, {}, false);
 
-	if (error) redirect(LINK_ERROR);
+	if (error) {
+		globalThis.localStorage.removeItem('key');
+		redirect(LINK_ERROR)
+	}
 	if (load) {
 		return (
 			<Container className={styles.spinnerContainer}>

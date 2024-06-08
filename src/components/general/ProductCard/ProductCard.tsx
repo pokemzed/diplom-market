@@ -27,9 +27,9 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 
 			{/*top badges*/}
 			<header>
-				<Badge className={styles.weights} bg={"light"}>
+{/*				<Badge className={styles.weights} bg={"light"}>
 					{data.weights.map(elem => (<p key={elem.value}>{elem.value}г<i>/</i></p>))}
-				</Badge>
+				</Badge>*/}
 
 				<Badge hidden={!data.discount} bg={"light"}>
 					{"- " + +data.discount + "%"}
@@ -40,7 +40,7 @@ const ProductCard: React.FC<IProductCard> = ({ data }) => {
 				</Badge>
 
 				<Badge hidden={!data?.onlyBread} bg={"light"}>
-					Уникально в ЭХ
+					Уникально в soudemy
 				</Badge>
 			</header>
 

@@ -4,11 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.main h1{
+    font-size: 24px;
 }
 
 /*form*/
 .main form{
-    width: 300px;
+    width: 400px;
 }
 
 /*button*/

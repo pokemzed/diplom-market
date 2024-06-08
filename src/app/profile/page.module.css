@@ -1,0 +1,12 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profile h1{
+    font-size: 24px;
+    margin-top: 2rem;
+}
+.profile button{
+    max-width: 375px;
+}
